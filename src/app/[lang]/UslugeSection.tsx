@@ -54,8 +54,6 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
 
   return (
     <section>
-      {/* <h2 className='w-full text-center text-7xl font-semibold pt-8'>Usluge</h2> */}
-
       <div className='max-w-screen-2xl mx-auto my-8 flex flex-wrap gap-4 place-items-center justify-start'>
         {pageContent.map((content: any) => {
           const contentShorthand = content.node;

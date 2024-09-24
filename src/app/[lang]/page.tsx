@@ -135,20 +135,20 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           <AboutUsSection />
 
           {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
-          {logotipiPartneraDataArrayShorthand.length > 0 && (
+          {/* {logotipiPartneraDataArrayShorthand.length > 0 && (
             <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
-          )}
-          {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
+          )} */}
+          {/* {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />} */}
           {iskustvaKlijenataShorthand.length > 0 && (
             <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
           )}
           {whyUsDataShorthand.length > 0 && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
-          {dokumentiKataloziDataShorthand.length > 0 && (
+          {/* {dokumentiKataloziDataShorthand.length > 0 && (
             <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
-          )}
-          {obavijestiNaStraniciDataShorthand.length > 0 && (
+          )} */}
+          {/* {obavijestiNaStraniciDataShorthand.length > 0 && (
             <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
-          )}
+          )} */}
         </main>
       </Suspense>
     );
