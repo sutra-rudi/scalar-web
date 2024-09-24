@@ -10,6 +10,7 @@ interface ServicesOffersInterface {
 
 const PageContent = ({ textContent, introImages, gallery, tags, attributes }: ServicesOffersInterface) => {
   const prepAttr = Object.values(attributes);
+  console.log('HALO');
   return (
     <article className='mx-auto my-0 max-w-[1024px] py-8'>
       <div className=''>
