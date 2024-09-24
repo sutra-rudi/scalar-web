@@ -16,6 +16,7 @@ import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
+import AboutUsSection from './AboutUsSection';
 
 const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
@@ -116,7 +117,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <main className='relative w-full dark:bg-primary-dark '>
           <HeroSection />
 
-          {blogDataArrayShorthand.length > 0 && (
+          {/* {blogDataArrayShorthand.length > 0 && (
             <BlogSection
               pageContent={blogDataArrayShorthand}
               lang={lang}
@@ -125,11 +126,13 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
               blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
               blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
             />
-          )}
+          )} */}
 
-          {brojcaniciDataArrayShorthand.length > 0 && (
+          {/* {brojcaniciDataArrayShorthand.length > 0 && (
             <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
-          )}
+          )} */}
+
+          <AboutUsSection />
 
           {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
           {logotipiPartneraDataArrayShorthand.length > 0 && (

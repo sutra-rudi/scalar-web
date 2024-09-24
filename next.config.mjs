@@ -12,6 +12,9 @@ const nextConfig = {
       {
         hostname: 'lavender-loris-843955.hostingersite.com',
       },
+      {
+        hostname: 'www.scalar.hr',
+      },
     ],
   },
 };

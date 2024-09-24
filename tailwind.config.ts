@@ -17,7 +17,7 @@ const config: Config = {
         'secondary-light': '#DDDFD6',
         'primary-dark': '#192E29',
         'secondary-dark': '#11201D',
-        accent: '#8B9554',
+        accent: '#FF9A00',
         error: '#FF7A00',
         success: '#C6FF00',
         info: '#8C946F',

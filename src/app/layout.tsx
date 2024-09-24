@@ -23,8 +23,8 @@ import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjec
 import dynamic from 'next/dynamic';
 
 export const metadata: Metadata = {
-  title: 'Sutra mastodont',
-  description: 'One repo to rule them all',
+  title: 'Scalar',
+  description: 'Vaš partner u investicijama u građevini',
 
   icons: [
     {
@@ -200,7 +200,7 @@ export default async function RootLayout({
     }
   }
 
-  const adminTokenDataShorthand = await fetchAdminTokens();
+  // const adminTokenDataShorthand = await fetchAdminTokens();
 
   async function fetchAdminTekstoviManjihKomponenti() {
     try {
@@ -230,7 +230,7 @@ export default async function RootLayout({
     }
   }
 
-  const adminTekstoviShorthand = await fetchAdminTekstoviManjihKomponenti();
+  // const adminTekstoviShorthand = await fetchAdminTekstoviManjihKomponenti();
 
   const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
 
@@ -262,9 +262,9 @@ export default async function RootLayout({
     }
   }
 
-  const parseSchemaData = await fetchBasicSchemaOrg();
+  // const parseSchemaData = await fetchBasicSchemaOrg();
 
-  const schemaBasicData = generateSeoSchemaOrg(parseSchemaData);
+  // const schemaBasicData = generateSeoSchemaOrg(parseSchemaData);
 
   const ClientHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
 
@@ -277,13 +277,13 @@ export default async function RootLayout({
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full'
     >
       <body className={`${poppins.className} w-full h-full`}>
-        <CookieConsentNotification pageContent={adminTekstoviShorthand} />
+        {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
         )}
         {adminTokenDataShorthand.kodoviAdminApi.googleTagManager && userEnabledAllCookies && (
           <GoogleTagManager gtmId={adminTokenDataShorthand.kodoviAdminApi.googleTagManager} />
-        )}
+        )} */}
         <Suspense fallback={<Loading />}>
           <ClientHeader />
           <Toaster />
@@ -291,10 +291,10 @@ export default async function RootLayout({
 
           <AppFooter />
         </Suspense>
-        {parseSchemaData && (
+        {/* {parseSchemaData && (
           <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaBasicData }} />
-        )}
-        {adminTokenDataShorthand.kodoviAdminApi.microsoftClarity && userEnabledAllCookies && (
+        )} */}
+        {/* {adminTokenDataShorthand.kodoviAdminApi.microsoftClarity && userEnabledAllCookies && (
           <Script id='clarity-script' strategy='afterInteractive'>
             {`
             (function(c,l,a,r,i,t,y){
@@ -304,8 +304,8 @@ export default async function RootLayout({
             })(window, document, "clarity", "script", "${adminTokenDataShorthand.kodoviAdminApi.microsoftClarity}");
           `}
           </Script>
-        )}
-        {adminTokenDataShorthand.kodoviAdminApi.hotjar && userEnabledAllCookies && (
+        )} */}
+        {/* {adminTokenDataShorthand.kodoviAdminApi.hotjar && userEnabledAllCookies && (
           <Script id='hotjar-snippet'>
             {`
           (function(h,o,t,j,a,r){
@@ -318,9 +318,9 @@ export default async function RootLayout({
           })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         `}
           </Script>
-        )}
+        )} */}
 
-        {adminTokenDataShorthand.kodoviAdminApi.plerdySiteHashCode &&
+        {/* {adminTokenDataShorthand.kodoviAdminApi.plerdySiteHashCode &&
           adminTokenDataShorthand.kodoviAdminApi.plerdySuidSiteUniqueId &&
           userEnabledAllCookies && (
             <Script id='plerdy-script' strategy='afterInteractive'>
@@ -341,9 +341,9 @@ export default async function RootLayout({
               }
             `}
             </Script>
-          )}
+          )} */}
 
-        {adminTokenDataShorthand.kodoviAdminApi.inspectlet && userEnabledAllCookies && (
+        {/* {adminTokenDataShorthand.kodoviAdminApi.inspectlet && userEnabledAllCookies && (
           <Script id='inspectlet-script' strategy='afterInteractive'>
             {`
               window.__insp = window.__insp || [];
@@ -364,7 +364,7 @@ export default async function RootLayout({
               })();
             `}
           </Script>
-        )}
+        )} */}
       </body>
     </html>
   );
