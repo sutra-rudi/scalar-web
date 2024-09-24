@@ -15,6 +15,7 @@ const HeroSection = () => {
         alt='mockup'
         fill
         className='object-cover object-center block aspect-video'
+        loading='eager'
       />
     ),
   };
