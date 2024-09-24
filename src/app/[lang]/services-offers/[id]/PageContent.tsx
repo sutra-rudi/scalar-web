@@ -1,5 +1,7 @@
+'use client';
 import Image from 'next/image';
 import parse from 'html-react-parser';
+import { ParallaxBanner } from 'react-scroll-parallax';
 
 interface ServicesOffersInterface {
   attributes: any;
@@ -15,14 +17,15 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
 
   return (
     <article className='mx-auto my-0 w-full py-8'>
-      <div className='relative h-[560px] w-full'>
-        <Image
-          src={introImages.imageOne.node.sourceUrl}
-          alt='service pic 1'
-          fill
-          className='object-cover object-center block aspect-video'
-        />
-      </div>
+      <ParallaxBanner
+        layers={[
+          {
+            image: introImages.imageOne.node.sourceUrl,
+            speed: -15,
+          },
+        ]}
+        className='block object-cover object-center aspect-video h-[560px]  mx-auto my-0 min-h-[640px]'
+      />
       <div className='max-w-screen-2xl mx-auto'>
         <div className='prose mx-auto py-6'>
           <h2>{textContent.naslovBazaTekstova}</h2>
@@ -41,7 +44,7 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
           </div>
         </div>
 
-        <div className='mx-auto md:w-2/3 py-6'>
+        <div className='mx-auto md:w-2/3'>
           <div className='flex gap-2'>
             {tags && tags.split(', ').map((tag: string, index: number) => <span key={index}>{`#${tag}`}</span>)}
           </div>
