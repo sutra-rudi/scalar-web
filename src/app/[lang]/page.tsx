@@ -17,17 +17,18 @@ import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
 import AboutUsSection from './AboutUsSection';
+import BannerSectionContact from './BannerSectionContact';
 
-const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
-const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
+// const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
+// const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
 const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
-const PartnersSection = dynamic(() => import('./PartnersSection'), { loading: () => <Loading /> });
-const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <Loading /> });
+// const PartnersSection = dynamic(() => import('./PartnersSection'), { loading: () => <Loading /> });
+// const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <Loading /> });
 const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
-const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
-const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
-const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
-const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
+// const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
+// const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
+const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false, loading: () => <Loading /> });
+// const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
 async function fetchData(query: any, noCache: boolean = false) {
   try {
@@ -99,18 +100,18 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllAdminCtaSelection,
     ] = results;
 
-    const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || [];
-    const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || [];
+    // const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || [];
+    // const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || [];
     const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
-    const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || [];
-    const baseCarouselDataShorthand = getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || null;
+    // const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || [];
+    // const baseCarouselDataShorthand = getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || null;
     const iskustvaKlijenataShorthand = getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || [];
     const whyUsDataShorthand = getAllWhyUs?.data?.allWhyus?.edges || [];
-    const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || [];
-    const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || [];
-    const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || [];
-    const tagsDataShorthand = getAllTags?.data?.tags?.edges || [];
-    const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null;
+    // const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || [];
+    // const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || [];
+    // const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || [];
+    // const tagsDataShorthand = getAllTags?.data?.tags?.edges || [];
+    // const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null;
 
     return (
       <Suspense fallback={<Loading />}>
@@ -139,10 +140,11 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
             <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
           )} */}
           {/* {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />} */}
+          <BannerSectionContact />
           {iskustvaKlijenataShorthand.length > 0 && (
             <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
           )}
-          {whyUsDataShorthand.length > 0 && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
+          {/* {whyUsDataShorthand.length > 0 && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />} */}
           {/* {dokumentiKataloziDataShorthand.length > 0 && (
             <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
           )} */}
