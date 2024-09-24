@@ -51,7 +51,7 @@ export default async function SingleServiceOfferPage({
     body: JSON.stringify({
       query: getSingleServicesOfferQuery(slugId, lang),
     }),
-    // cache: 'no-cache',
+    cache: 'no-cache',
   });
 
   const parseData = await getSingleService.json();
@@ -62,6 +62,11 @@ export default async function SingleServiceOfferPage({
     prepareDataForClient[`modulBazeTekstova2Kolumne${getSuffixFromLang(lang)}`]?.[
       `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
     ].naslovIPodnaslovDvaPolja;
+
+  const contentForPage =
+    prepareDataForClient[`modulBazeTekstova2Kolumne${getSuffixFromLang(lang)}`]?.[
+      `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
+    ].kolumneTeksta2.tekstBazaTekstova;
 
   const prepareIntroImages = {
     imageOne: prepareDataForClient.modulBazeTekstovaUvod.slika1,
@@ -85,6 +90,7 @@ export default async function SingleServiceOfferPage({
         gallery={prepareGallery}
         tags={prepareTags}
         attributes={prepareAttributes}
+        pageContent={contentForPage}
       />
       <Script
         id='schema-org-single-service'
