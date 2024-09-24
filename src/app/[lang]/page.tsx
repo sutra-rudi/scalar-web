@@ -16,19 +16,20 @@ import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
-import AboutUsSection from './AboutUsSection';
-import BannerSectionContact from './BannerSectionContact';
-import IzdvojeneReference from './IzdvojeneReference';
 
 // const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 // const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
-const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
+const UslugeSection = dynamic(() => import('./UslugeSection'));
 // const PartnersSection = dynamic(() => import('./PartnersSection'), { loading: () => <Loading /> });
 // const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <Loading /> });
 // const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
 // const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
 // const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
-const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
+const HeroSection = dynamic(() => import('./HeroSection'));
+const AboutUsSection = dynamic(() => import('./AboutUsSection'));
+const BannerSectionContact = dynamic(() => import('./BannerSectionContact'));
+const IzdvojeneReference = dynamic(() => import('./IzdvojeneReference'));
+
 // const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
 async function fetchData(query: any, noCache: boolean = false) {
