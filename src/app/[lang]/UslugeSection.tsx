@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import slugify from 'slugify';
@@ -56,11 +54,9 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
 
   return (
     <section>
-      <div className='max-w-screen-2xl mx-auto my-8 flex flex-wrap gap-4 place-items-center justify-start'>
+      <div className='max-w-screen-2xl mx-auto my-8 flex flex-wrap gap-4 items-start justify-center'>
         {pageContent.map((content: any) => {
           const contentShorthand = content.node;
-
-          console.log('CONTENT', contentShorthand);
 
           const thumbImageShorthandObj = contentShorthand.modulBazeTekstovaUvod.slika1.node;
 

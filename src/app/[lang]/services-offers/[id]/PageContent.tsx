@@ -24,15 +24,15 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
         />
       </div>
       <div className='max-w-screen-2xl mx-auto'>
-        <div className=''>
+        <div className='prose mx-auto py-6'>
           <h2>{textContent.naslovBazaTekstova}</h2>
           <p>{textContent.nadnaslovPodnaslovBazaTekstova}</p>
         </div>
 
-        <div className='prose'>{parse(pageContent)}</div>
+        <div className='prose mx-auto'>{parse(pageContent)}</div>
 
-        <div className=''>
-          <h3>Gallery</h3>
+        <div className='mx-auto md:w-2/3'>
+          <h3 className='max-w-max py-6 text-2xl prose'>Gallery</h3>
 
           <div className='flex flex-wrap'>
             {gallery.map((nod, index) => {
@@ -41,7 +41,7 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
           </div>
         </div>
 
-        <div className=''>
+        <div className='mx-auto md:w-2/3 py-6'>
           <div className='flex gap-2'>
             {tags && tags.split(', ').map((tag: string, index: number) => <span key={index}>{`#${tag}`}</span>)}
           </div>

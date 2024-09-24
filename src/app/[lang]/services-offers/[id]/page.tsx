@@ -51,7 +51,7 @@ export default async function SingleServiceOfferPage({
     body: JSON.stringify({
       query: getSingleServicesOfferQuery(slugId, lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseData = await getSingleService.json();
