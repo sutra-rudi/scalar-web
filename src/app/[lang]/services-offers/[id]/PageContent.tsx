@@ -43,9 +43,7 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
 
         <div className=''>
           <div className='flex gap-2'>
-            {tags.split(', ').map((tag: string, index: number) => (
-              <span key={index}>{`#${tag}`}</span>
-            ))}
+            {tags && tags.split(', ').map((tag: string, index: number) => <span key={index}>{`#${tag}`}</span>)}
           </div>
         </div>
       </div>
