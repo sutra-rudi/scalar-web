@@ -165,7 +165,7 @@ const AppHeader = () => {
                 <ul className='py-2 text-sm text-gray-700 dark:text-gray-400' aria-labelledby='dropdownLargeButton'>
                   <li>
                     <a
-                      href='#'
+                      href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
                       className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
                     >
                       Projektiranje
@@ -173,7 +173,7 @@ const AppHeader = () => {
                   </li>
                   <li>
                     <a
-                      href='#'
+                      href={`${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
                       className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
                     >
                       Upravljanje projektima
@@ -181,7 +181,7 @@ const AppHeader = () => {
                   </li>
                   <li>
                     <a
-                      href='#'
+                      href={`${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
                       className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
                     >
                       Stručni nadzor
@@ -190,7 +190,7 @@ const AppHeader = () => {
 
                   <li>
                     <a
-                      href='#'
+                      href={`${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
                       className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'
                     >
                       Konzalting
