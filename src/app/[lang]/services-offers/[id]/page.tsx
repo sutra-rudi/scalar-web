@@ -3,6 +3,8 @@ import { getSingleServicesOfferQuery } from '@/app/queries/getSingleUslugeQuery'
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import Script from 'next/script';
 import dynamic from 'next/dynamic';
+import { getAllUslugeQuery } from '@/app/queries/getAllUslugeQuery';
+import UslugeSection from '../../UslugeSection';
 const LazyContent = dynamic(() => import('./PageContent'));
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
@@ -82,8 +84,23 @@ export default async function SingleServiceOfferPage({
 
   const schemaOrgData = generateServiceSchemaOrg(prepareDataForClient, lang);
 
+  const getAllServices = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getAllUslugeQuery(lang),
+    }),
+    // cache: 'no-cache',
+  });
+
+  const getAllUsluge = await getAllServices.json();
+
+  const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
+
   return (
-    <main>
+    <main className='w-full min-h-screen relative'>
       <LazyContent
         textContent={prepareIntroText}
         introImages={prepareIntroImages}
@@ -92,12 +109,12 @@ export default async function SingleServiceOfferPage({
         attributes={prepareAttributes}
         pageContent={contentForPage}
       />
+      <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
       <Script
         id='schema-org-single-service'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
       />
-      ;
     </main>
   );
 }

@@ -21,6 +21,7 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '700'], dis
 
 import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'Scalar',
@@ -276,7 +277,10 @@ export default async function RootLayout({
       lang={lang}
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full'
     >
-      <body className={`${poppins.className} w-full h-full`}>
+      <head>
+        <link href='https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css' rel='stylesheet' />
+      </head>
+      <body className={`${poppins.className} w-full h-full lg:pt-0 pt-12`}>
         {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
@@ -365,6 +369,8 @@ export default async function RootLayout({
             `}
           </Script>
         )} */}
+
+        <Script src='https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js' strategy='afterInteractive' />
       </body>
     </html>
   );
