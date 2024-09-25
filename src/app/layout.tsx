@@ -275,9 +275,6 @@ export default async function RootLayout({
       lang={lang}
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full'
     >
-      <head>
-        <link href='https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css' rel='stylesheet' />
-      </head>
       <body className={`${poppins.className} w-full h-full md:pt-0 pt-12`}>
         {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
@@ -367,8 +364,6 @@ export default async function RootLayout({
             `}
           </Script>
         )} */}
-
-        <Script src='https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js' strategy='afterInteractive' />
       </body>
     </html>
   );
