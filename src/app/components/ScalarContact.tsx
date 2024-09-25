@@ -17,7 +17,7 @@ const ScalarContact = () => {
           fill
           className='object-cover object-center block z-10'
         />
-
+        {/* Overlay */}
         <div className='absolute inset-0 bg-almost-black/40 z-20'></div>
       </div>
     ),
@@ -29,11 +29,9 @@ const ScalarContact = () => {
     children: (
       <div className='absolute inset-0 w-full flex flex-col items-center justify-center px-4 pb-24 z-30'>
         <div className='text-center py-4'>
-          <h2 className='mb-2 text-3xl md:text-4xl font-extrabold text-almost-white'>
-            Kontaktirajte nas s povjerenjem
-          </h2>
+          <h2 className='mb-2 text-h3_md font-extrabold text-almost-white'>Kontaktirajte nas s povjerenjem</h2>
         </div>
-        <form action='#' className='w-full max-w-md z-40'>
+        <form action='#' className='w-full max-w-screen-sm z-40'>
           <div className='mb-4'>
             <label htmlFor='email' className='block mb-2 text-sm font-medium text-almost-white'>
               Vaš email
@@ -41,7 +39,7 @@ const ScalarContact = () => {
             <input
               type='email'
               id='email'
-              className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light'
+              className='shadow-sm bg-almost-white border border-sutraCardDivider text-almost-black text-sm rounded-lg focus:ring-0 focus:border-accent block w-full p-2.5 focus:outline-none'
               placeholder='vašeime@mail.com'
               required
             />
@@ -53,7 +51,7 @@ const ScalarContact = () => {
             <input
               type='text'
               id='name'
-              className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light'
+              className='block p-2.5 w-full text-sm text-almost-black bg-almost-white rounded-lg border border-sutraCardDivider shadow-sm focus:ring-0 focus:border-accent focus:outline-none'
               placeholder='Ivan Horvat'
               required
             />
@@ -65,7 +63,7 @@ const ScalarContact = () => {
             <textarea
               id='message'
               rows={4}
-              className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
+              className='block p-2.5 w-full text-sm text-almost-black bg-almost-white rounded-lg shadow-sm border border-sutraCardDivider focus:ring-2 focus:ring-accent focus:border-accent'
               placeholder='Napišite nam poruku'
             />
           </div>
@@ -76,7 +74,7 @@ const ScalarContact = () => {
   };
 
   return (
-    <section className='bg-white dark:bg-gray-900 w-full'>
+    <section className='bg-white dark:bg-almost-black w-full'>
       <ParallaxBanner layers={[background, foreground]} className='w-full relative h-[600px]' />
     </section>
   );

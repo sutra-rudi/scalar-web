@@ -4,9 +4,7 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import Script from 'next/script';
 import dynamic from 'next/dynamic';
 import { getAllUslugeQuery } from '@/app/queries/getAllUslugeQuery';
-import UslugeSection from '../../UslugeSection';
-import ScalarContact from '@/app/components/ScalarContact';
-const LazyContent = dynamic(() => import('./PageContent'));
+
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
@@ -100,8 +98,12 @@ export default async function SingleServiceOfferPage({
 
   const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
 
+  const LazyContent = dynamic(() => import('./PageContent'));
+  const UslugeSection = dynamic(() => import('../../UslugeSection'));
+  const ScalarContact = dynamic(() => import('@/app/components/ScalarContact'));
+
   return (
-    <main className='w-full min-h-screen relative'>
+    <main className='w-full relative'>
       <LazyContent
         textContent={prepareIntroText}
         introImages={prepareIntroImages}
