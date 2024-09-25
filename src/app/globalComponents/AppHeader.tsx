@@ -208,6 +208,28 @@ const AppHeader = () => {
                 Kontakt
               </a>
             </li>
+
+            <li>
+              <div
+                onClick={handleTheme}
+                className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear'
+              >
+                {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
+              </div>
+            </li>
+
+            <li className='flex gap-2 items-center justify-start'>
+              {langs.map((language) => (
+                <button
+                  disabled={currentLang === language.lang}
+                  key={language.lang}
+                  className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
+                  onClick={() => handleLangSwitch(language.lang)}
+                >
+                  {language.flag}
+                </button>
+              ))}
+            </li>
           </ul>
         </div>
       </div>

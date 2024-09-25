@@ -104,21 +104,25 @@ export default async function SingleServiceOfferPage({
 
   return (
     <main className='w-full relative'>
-      <LazyContent
-        textContent={prepareIntroText}
-        introImages={prepareIntroImages}
-        gallery={prepareGallery}
-        tags={prepareTags}
-        attributes={prepareAttributes}
-        pageContent={contentForPage}
-      />
-      <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-      <ScalarContact />
-      <Script
-        id='schema-org-single-service'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
-      />
+      {contentForPage && (
+        <>
+          <LazyContent
+            textContent={prepareIntroText}
+            introImages={prepareIntroImages}
+            gallery={prepareGallery}
+            tags={prepareTags}
+            attributes={prepareAttributes}
+            pageContent={contentForPage}
+          />
+          <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+          <ScalarContact />
+          <Script
+            id='schema-org-single-service'
+            type='application/ld+json'
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
+          />
+        </>
+      )}
     </main>
   );
 }

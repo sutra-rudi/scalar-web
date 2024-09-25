@@ -7,21 +7,19 @@ import { UserLanguage } from './enums/LangEnum';
 import AppFooter from './globalComponents/AppFooter';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
-import Loading from './loading';
 import { Providers } from './providers';
-import { appleTouchIcons, favicons, videoResources } from './pathsUtils/mediaImportsDynamic';
+import { appleTouchIcons, favicons } from './pathsUtils/mediaImportsDynamic';
 import { getAdminTokensQuery } from './queries/getAdminTokens';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
 import Script from 'next/script';
-import CookieConsentNotification from './components/CookiesNotification';
-import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
+// import CookieConsentNotification from './components/CookiesNotification';
+// import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '700'], display: 'swap' });
 
-import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
+// import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'Scalar',
@@ -102,71 +100,71 @@ export const metadata: Metadata = {
   ],
 };
 
-function generateSeoSchemaOrg(data: any) {
-  const companyInfo = data?.data?.seoSchemaOrg?.edges[0]?.node?.osnovneInformacijeOWebstraniciNapredniSeo;
-  const contactInfo = companyInfo?.kontaktInformacijeContactPoint;
-  const offerings = companyInfo?.offerings;
-  const companyDetails = companyInfo?.opceniteInformacijeOTvrtkiCompanyInformation;
+// function generateSeoSchemaOrg(data: any) {
+//   const companyInfo = data?.data?.seoSchemaOrg?.edges[0]?.node?.osnovneInformacijeOWebstraniciNapredniSeo;
+//   const contactInfo = companyInfo?.kontaktInformacijeContactPoint;
+//   const offerings = companyInfo?.offerings;
+//   const companyDetails = companyInfo?.opceniteInformacijeOTvrtkiCompanyInformation;
 
-  if (!companyInfo || !contactInfo || !companyDetails) {
-    throw new Error('Nedostaju podaci za generiranje schema.org.');
-  }
+//   if (!companyInfo || !contactInfo || !companyDetails) {
+//     throw new Error('Nedostaju podaci za generiranje schema.org.');
+//   }
 
-  // Generiraj schema.org objekt
-  const schemaOrgData = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: companyDetails.nazivTvrtke,
-    legalName: companyDetails.legalName,
-    description: companyDetails.opisTvrtke,
-    foundingDate: companyDetails.datumOsnivanja,
-    awards: companyDetails.nagradePriznanja,
-    taxID: contactInfo.porezniBroj,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: contactInfo.adresa,
-      addressLocality: 'Zagreb',
-      postalCode: '10000',
-      addressCountry: 'HR',
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: contactInfo.telefon,
-      faxNumber: contactInfo.fax,
-      email: contactInfo.email,
-      contactType: 'Customer Service',
-      availableLanguage: contactInfo.jeziciNaKojimaJeDostupnaUsluga.split(', ').map((lang: string) => lang.trim()),
-    },
-    url: contactInfo.urlWebStranice,
-    sameAs: contactInfo.druptveneMrezeLinkoviNaProfil,
-    makesOffer: {
-      '@type': 'Offer',
-      description: offerings.akcije,
-      availability: offerings.dostupnost,
-      priceCurrency: 'USD', // pretpostavka, može se prilagoditi
-      price: parseFloat(offerings.cjenovniRaspon.replace(/[^0-9.]/g, '')).toFixed(2), // Uklanjanje valute i formatiranje cijene
-      itemOffered: {
-        '@type': 'Product',
-        name: offerings.product,
-        description: `Features: ${offerings.amenityFeature}`,
-        image: videoResources.amenities.placeholder,
-        offers: {
-          '@type': 'Offer',
-          priceCurrency: 'USD', // Pretpostavka, može se prilagoditi
-          price: offerings.cjenovniRaspon,
-          itemCondition: 'https://schema.org/NewCondition', // Pretpostavka, može se prilagoditi
-          availability: 'https://schema.org/InStock', // Pretpostavka, može se prilagoditi
-        },
-      },
-    },
-    brand: companyDetails.brendovi.split(', ').map((brand: string) => ({ '@type': 'Brand', name: brand })),
-    areaServed: companyDetails.podrucjaEkspertize,
-    logo: 'https://www.example.com/logo.png', // Može se dodati logo ako postoji
-    additionalType: companyDetails.licenca,
-  };
+//   // Generiraj schema.org objekt
+//   const schemaOrgData = {
+//     '@context': 'https://schema.org',
+//     '@type': 'Organization',
+//     name: companyDetails.nazivTvrtke,
+//     legalName: companyDetails.legalName,
+//     description: companyDetails.opisTvrtke,
+//     foundingDate: companyDetails.datumOsnivanja,
+//     awards: companyDetails.nagradePriznanja,
+//     taxID: contactInfo.porezniBroj,
+//     address: {
+//       '@type': 'PostalAddress',
+//       streetAddress: contactInfo.adresa,
+//       addressLocality: 'Zagreb',
+//       postalCode: '10000',
+//       addressCountry: 'HR',
+//     },
+//     contactPoint: {
+//       '@type': 'ContactPoint',
+//       telephone: contactInfo.telefon,
+//       faxNumber: contactInfo.fax,
+//       email: contactInfo.email,
+//       contactType: 'Customer Service',
+//       availableLanguage: contactInfo.jeziciNaKojimaJeDostupnaUsluga.split(', ').map((lang: string) => lang.trim()),
+//     },
+//     url: contactInfo.urlWebStranice,
+//     sameAs: contactInfo.druptveneMrezeLinkoviNaProfil,
+//     makesOffer: {
+//       '@type': 'Offer',
+//       description: offerings.akcije,
+//       availability: offerings.dostupnost,
+//       priceCurrency: 'USD', // pretpostavka, može se prilagoditi
+//       price: parseFloat(offerings.cjenovniRaspon.replace(/[^0-9.]/g, '')).toFixed(2), // Uklanjanje valute i formatiranje cijene
+//       itemOffered: {
+//         '@type': 'Product',
+//         name: offerings.product,
+//         description: `Features: ${offerings.amenityFeature}`,
+//         image: videoResources.amenities.placeholder,
+//         offers: {
+//           '@type': 'Offer',
+//           priceCurrency: 'USD', // Pretpostavka, može se prilagoditi
+//           price: offerings.cjenovniRaspon,
+//           itemCondition: 'https://schema.org/NewCondition', // Pretpostavka, može se prilagoditi
+//           availability: 'https://schema.org/InStock', // Pretpostavka, može se prilagoditi
+//         },
+//       },
+//     },
+//     brand: companyDetails.brendovi.split(', ').map((brand: string) => ({ '@type': 'Brand', name: brand })),
+//     areaServed: companyDetails.podrucjaEkspertize,
+//     logo: 'https://www.example.com/logo.png', // Može se dodati logo ako postoji
+//     additionalType: companyDetails.licenca,
+//   };
 
-  return JSON.stringify(schemaOrgData, null, 2);
-}
+//   return JSON.stringify(schemaOrgData, null, 2);
+// }
 
 export default async function RootLayout({
   children,
@@ -203,65 +201,65 @@ export default async function RootLayout({
 
   // const adminTokenDataShorthand = await fetchAdminTokens();
 
-  async function fetchAdminTekstoviManjihKomponenti() {
-    try {
-      const response = await fetch(`${process.env.CMS_BASE_URL}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          query: getAdminTekstoviManjihKomponentiQuery(),
-        }),
-      });
+  // async function fetchAdminTekstoviManjihKomponenti() {
+  //   try {
+  //     const response = await fetch(`${process.env.CMS_BASE_URL}`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         query: getAdminTekstoviManjihKomponentiQuery(),
+  //       }),
+  //     });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Response error:', errorText);
-        throw new Error(`Fetch error: ${response.statusText}`);
-      }
+  //     if (!response.ok) {
+  //       const errorText = await response.text();
+  //       console.error('Response error:', errorText);
+  //       throw new Error(`Fetch error: ${response.statusText}`);
+  //     }
 
-      const data = await response.json();
-      const adminTekstoviShorthand = data?.data?.allAdminTekstoviManjihKomponenti?.edges[0]?.node;
+  //     const data = await response.json();
+  //     const adminTekstoviShorthand = data?.data?.allAdminTekstoviManjihKomponenti?.edges[0]?.node;
 
-      return adminTekstoviShorthand;
-    } catch (error: any) {
-      console.error('Fetch error:', error.message);
-      throw error;
-    }
-  }
+  //     return adminTekstoviShorthand;
+  //   } catch (error: any) {
+  //     console.error('Fetch error:', error.message);
+  //     throw error;
+  //   }
+  // }
 
   // const adminTekstoviShorthand = await fetchAdminTekstoviManjihKomponenti();
 
-  const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
+  // const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
 
-  const userEnabledAllCookies = getUserCookieConsent === 'true';
+  // const userEnabledAllCookies = getUserCookieConsent === 'true';
 
-  async function fetchBasicSchemaOrg() {
-    try {
-      const response = await fetch(`${process.env.CMS_BASE_URL}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          query: getBasicSchemaOrgProjectQuery(),
-        }),
-      });
+  // async function fetchBasicSchemaOrg() {
+  //   try {
+  //     const response = await fetch(`${process.env.CMS_BASE_URL}`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         query: getBasicSchemaOrgProjectQuery(),
+  //       }),
+  //     });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Response error:', errorText);
-        throw new Error(`Fetch error: ${response.statusText}`);
-      }
+  //     if (!response.ok) {
+  //       const errorText = await response.text();
+  //       console.error('Response error:', errorText);
+  //       throw new Error(`Fetch error: ${response.statusText}`);
+  //     }
 
-      const data = await response.json();
-      return data;
-    } catch (error: any) {
-      console.error('Fetch error:', error.message);
-      throw error;
-    }
-  }
+  //     const data = await response.json();
+  //     return data;
+  //   } catch (error: any) {
+  //     console.error('Fetch error:', error.message);
+  //     throw error;
+  //   }
+  // }
 
   // const parseSchemaData = await fetchBasicSchemaOrg();
 
@@ -288,7 +286,7 @@ export default async function RootLayout({
         {adminTokenDataShorthand.kodoviAdminApi.googleTagManager && userEnabledAllCookies && (
           <GoogleTagManager gtmId={adminTokenDataShorthand.kodoviAdminApi.googleTagManager} />
         )} */}
-        <Suspense fallback={<Loading />}>
+        <Suspense>
           <ClientHeader />
           <Toaster />
           <Providers>{children}</Providers>
