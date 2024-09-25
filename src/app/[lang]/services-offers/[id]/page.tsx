@@ -5,6 +5,7 @@ import Script from 'next/script';
 import dynamic from 'next/dynamic';
 import { getAllUslugeQuery } from '@/app/queries/getAllUslugeQuery';
 import UslugeSection from '../../UslugeSection';
+import ScalarContact from '@/app/components/ScalarContact';
 const LazyContent = dynamic(() => import('./PageContent'));
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
@@ -110,6 +111,7 @@ export default async function SingleServiceOfferPage({
         pageContent={contentForPage}
       />
       <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+      <ScalarContact />
       <Script
         id='schema-org-single-service'
         type='application/ld+json'

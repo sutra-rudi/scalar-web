@@ -280,7 +280,7 @@ export default async function RootLayout({
       <head>
         <link href='https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css' rel='stylesheet' />
       </head>
-      <body className={`${poppins.className} w-full h-full lg:pt-0 pt-12`}>
+      <body className={`${poppins.className} w-full h-full md:pt-0 pt-12`}>
         {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
