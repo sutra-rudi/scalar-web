@@ -53,8 +53,8 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
   const schemaOrgData = generateServicesSchemaOrg(pageContent, lang);
 
   return (
-    <section>
-      <div className='max-w-screen-2xl mx-auto my-8 flex flex-wrap gap-4 items-start justify-center'>
+    <section className=''>
+      <div className='max-w-screen-2xl mx-auto my-8 flex flex-wrap items-start justify-center lg:gap-16 md:gap-12 gap-6'>
         {pageContent.map((content: any) => {
           const contentShorthand = content.node;
 

@@ -34,7 +34,7 @@ const content = [
 
 const IzdvojeneReference = () => {
   return (
-    <section>
+    <section className='my-12'>
       <h2 className='w-full text-center text-3xl text-primary-dark py-8'>Izdvojene reference</h2>
 
       <div className='grid grid-cols-3 max-w-screen-2xl mx-auto pb-8'>
