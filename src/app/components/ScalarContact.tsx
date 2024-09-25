@@ -5,7 +5,11 @@ import React from 'react';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import { SutraButtonBase } from './SutraButton';
 
-const ScalarContact = () => {
+interface ScalarContact {
+  isPage: boolean;
+}
+
+const ScalarContact = ({ isPage }: ScalarContact) => {
   const background: BannerLayer = {
     translateY: [0, 0], // Za fiksnu pozadinu
     shouldAlwaysCompleteAnimation: true,
@@ -74,8 +78,11 @@ const ScalarContact = () => {
   };
 
   return (
-    <section className='bg-white dark:bg-almost-black w-full'>
-      <ParallaxBanner layers={[background, foreground]} className='w-full relative h-[600px]' />
+    <section className={`bg-white dark:bg-almost-black w-full ${isPage && 'min-h-screen'}`}>
+      <ParallaxBanner
+        layers={[background, foreground]}
+        className={`w-full relative h-[600px] ${isPage && 'h-screen'}`}
+      />
     </section>
   );
 };

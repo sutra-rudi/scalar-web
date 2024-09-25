@@ -115,7 +115,7 @@ export default async function SingleServiceOfferPage({
             pageContent={contentForPage}
           />
           <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-          <ScalarContact />
+          <ScalarContact isPage={false} />
           <Script
             id='schema-org-single-service'
             type='application/ld+json'
