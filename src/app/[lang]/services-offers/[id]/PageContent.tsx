@@ -44,10 +44,19 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
         {!isGalleryEmpty && (
           <div className='mx-auto md:w-2/3'>
             <h3 className='max-w-max py-6 text-2xl prose'>Galerija</h3>
-            <Slider {...defaultMultiple}>
+            <Slider {...defaultMultiple} slidesToScroll={1} className='cursor-grab'>
               {gallery.map((nod, index) => {
                 return (
-                  nod && <Image width={300} height={200} src={nod.node.sourceUrl} alt='galleryImage' key={index} />
+                  nod && (
+                    <Image
+                      width={300}
+                      height={200}
+                      src={nod.node.sourceUrl}
+                      alt='galleryImage'
+                      key={index}
+                      className='pr-6 w-full h-full object-cover object-center aspect-video'
+                    />
+                  )
                 );
               })}
             </Slider>
