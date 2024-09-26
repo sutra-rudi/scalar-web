@@ -110,36 +110,26 @@ const AppHeader = () => {
           isMobileMenuOpen ? 'opacity-100 pointer-events-auto select-auto' : 'opacity-0 select-none pointer-events-none'
         }`}
       >
-        <ul className='flex flex-col w-max  gap-4'>
-          <li className='flex gap-2 items-center justify-start'>
-            {langs.map((language) => (
-              <button
-                disabled={currentLang === language.lang}
-                key={language.lang}
-                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
-                onClick={() => handleLangSwitch(language.lang)}
-              >
-                {language.flag}
-              </button>
-            ))}
-          </li>
-          <li>
+        <ul className='flex flex-col w-max gap-4 relative'>
+          <li className=''>
             <button
               id='dropdownNavbarLink'
               data-dropdown-toggle='dropdownNavbar'
-              className='flex items-center justify-between'
+              className={`flex items-center justify-between dark:text-almost-white ${
+                isDropdownOpen ? 'text-accent' : 'text-almost-black '
+              }`}
               onClick={toggleDropdown}
             >
               Usluge
               <svg
-                className='w-2.5 h-2.5 ms-2.5'
+                className={`w-2.5 h-2.5 ms-2.5 transition-all ease-out ${isDropdownOpen && 'rotate-180'}`}
                 aria-hidden='true'
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
                 viewBox='0 0 10 6'
               >
                 <path
-                  stroke='currentColor'
+                  stroke={isDropdownOpen ? '#FF9A00' : "'currentColor'"}
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='2'
@@ -149,22 +139,28 @@ const AppHeader = () => {
             </button>
 
             {isDropdownOpen && (
-              <div className='absolute z-20 bg-red-400 dark:bg-almost-black px-4 py-6 text-lg'>
-                <ul className='flex flex-col items-start justify-start gap-4 '>
+              <div className='absolute z-20 bg-almost-white dark:bg-secondary-dark  pr-4 py-6 text-lg w-full inset-0 left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 mt-8'>
+                <ul className='flex flex-col items-start justify-start gap-4 w-full '>
                   <li>
-                    <a href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`} className='block'>
+                    <a
+                      href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
+                      className='block dark:text-almost-white text-almost-black'
+                    >
                       Projektiranje
                     </a>
                   </li>
                   <li>
-                    <a href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`} className='block'>
+                    <a
+                      href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
+                      className='block dark:text-almost-white text-almost-black'
+                    >
                       Upravljanje projektima
                     </a>
                   </li>
                   <li>
                     <a
                       href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
-                      className='block'
+                      className='block dark:text-almost-white text-almost-black'
                     >
                       Stručni nadzor
                     </a>
@@ -172,7 +168,7 @@ const AppHeader = () => {
                   <li>
                     <a
                       href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
-                      className='block'
+                      className='block dark:text-almost-white text-almost-black'
                     >
                       Tehničko savjetovanje
                     </a>
@@ -183,33 +179,49 @@ const AppHeader = () => {
           </li>
 
           <li>
-            <a href={`/${currentLang}/contact`} className='block'>
+            <a
+              href={`/${currentLang}/contact`}
+              className='flex items-center justify-between dark:text-almost-white text-almost-black'
+            >
               Kontakt
             </a>
           </li>
-
-          <li className='w-max'>
-            <div
-              onClick={handleTheme}
-              className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear flex items-center justify-start gap-2 py-2 px-1'
-            >
-              {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
-              <span className='text-almost-black dark:text-almost-white'>
-                {theme === 'light' ? 'standardno' : 'nočni način'}
-              </span>
-            </div>
-          </li>
         </ul>
 
-        <a href={`/${currentLang}`} className=''>
-          <Image
-            src={'https://www.scalar.hr/img/v1%20scalar%20horizontal.svg'}
-            width={300}
-            height={300}
-            alt='Scalar logo'
-            className='object-cover object-center '
-          />
-        </a>
+        <div className='flex flex-col items-center justify-start gap-12'>
+          <div className='flex gap-2 items-center justify-start'>
+            {langs.map((language) => (
+              <button
+                disabled={currentLang === language.lang}
+                key={language.lang}
+                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
+                onClick={() => handleLangSwitch(language.lang)}
+              >
+                {language.flag}
+              </button>
+            ))}
+          </div>
+
+          <div
+            onClick={handleTheme}
+            className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear flex items-center justify-start gap-2 py-2 px-1 w-max'
+          >
+            {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
+            <span className='text-almost-black dark:text-almost-white'>
+              {theme === 'light' ? 'standardno' : 'nočni način'}
+            </span>
+          </div>
+
+          <a href={`/${currentLang}`} className=''>
+            <Image
+              src={'https://www.scalar.hr/img/v1%20scalar%20horizontal.svg'}
+              width={300}
+              height={300}
+              alt='Scalar logo'
+              className='object-cover object-center '
+            />
+          </a>
+        </div>
       </div>
       {/* MOBILE */}
 
@@ -235,7 +247,7 @@ const AppHeader = () => {
               <button
                 id='dropdownNavbarLink'
                 data-dropdown-toggle='dropdownNavbar'
-                className='flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent'
+                className='flex items-center justify-between w-full py-2 px-3'
                 onClick={toggleDropdown}
               >
                 Usluge
