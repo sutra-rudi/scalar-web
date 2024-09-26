@@ -139,7 +139,7 @@ const AppHeader = () => {
             </button>
 
             {isDropdownOpen && (
-              <div className='absolute z-20 bg-almost-white dark:bg-secondary-dark  pr-4 py-6 text-lg w-full inset-0 left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 mt-8'>
+              <div className='absolute z-20 bg-almost-white dark:bg-almost-black  pr-4 py-6 text-lg w-full inset-0 left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 mt-8'>
                 <ul className='flex flex-col items-start justify-start gap-4 w-full '>
                   <li>
                     <a
