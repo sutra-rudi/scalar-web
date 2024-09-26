@@ -21,8 +21,8 @@ export default async function AppFooter() {
 
   return (
     <footer className='w-full bg-primary-dark dark:bg-primary-light py-12'>
-      <div className='container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col justify-between'>
-        <div className='flex gap-16 items-start justify-start'>
+      <div className='container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col justify-between sm:gap-0 gap-4'>
+        <div className='flex gap-16 items-start lg:justify-start justify-center lg:flex-nowrap flex-wrap'>
           <Image src={'https://www.scalar.hr/img/vertical%20scalar.svg'} width={150} height={150} alt='app logo' />
 
           <div className='text-primary-light dark:text-primary-dark flex items-start justify-start flex-col'>

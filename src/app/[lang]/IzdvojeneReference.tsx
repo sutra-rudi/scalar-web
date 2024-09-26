@@ -1,62 +1,147 @@
-const content = [
-  {
-    title: 'Konzultantska usluga upravljanja projektom na projektima',
-    contentBlock: [
-      '- projekt izgradnje kompleksa od 9 stambenih građevina u Zagrebu, ukupne GBP površine 5.000 m2',
-      '- projekt izgradnje stambeno poslovne zgrade u Zaprešiću, ukupne GBP površine 7.700 m2 s 56 stambenih jedinica i 4 poslovna prostora',
-      '- projekt izgradnje stambenih zgrada u Zadru, ukupne GBP površine- podzemne 7.600 m2 i nadzemne 10.100 m2, katnosti Po-2+Po-1+P+6, sa 172 stambene jedinice',
-      '- projekt izgradnje turističkog naselja koje se sastoji od devetnaest vila i jednog hotela te dvadeset bazena',
-    ],
-  },
-  {
-    title: 'Stručni nadzor na projektima',
-    contentBlock: [
-      '- izgradnja stambeno poslovne zgrade u Zaprešiću, ukupne GBP površine 7.700 m2 s 56 stambenih jedinica i 4 poslovna prostora',
-      '- izgradnja i uređenje 2 restorana brze prehrane u sklopu benzinskih postaja Sesvete istok i Sesvete zapad',
-      '- rekonstrukcija krovišta trgovačkog centra u Sisku',
-      '- izgradnja i uređenje restorana brze prehrane u sklopu benzinske postaje Dragalić sjever',
-      '- izgradnja 15 krovnih sunčanih fotonaponskih elektrana',
-      '- više rekonstrukcija različitih unutarnjih i vanjskih prostora (uredskih, trgovačkih i logističkih)',
-    ],
-  },
+import slugify from 'slugify';
+import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
+import { getListeQuery } from '../queries/getAllListsQuery';
 
-  {
-    title: 'Konzultantsko-projektantske usluge',
-    contentBlock: [
-      '- izrada projekata izvedenog stanja logističko distributivnih centara ukupne GBP površine 80.000 m2',
-      '- procjena i izrada elaborata šteta nastalih uslijed nevremena na većem broju trgovačkih centara',
-      '- pregled i kontrola provođenja ispitivanja krovnih folija na krovu trgovačkog centra u Zaboku',
-      '- procjene vrijednosti raznih investicija za različite investitore',
-      '- analiza podataka i izrada internih smjernica za investitora lanca trgovačkih centara',
-    ],
-  },
-];
+export default async function IzdvojeneReference({ params: { lang } }: { params: { lang: string } }) {
+  const baseURL = process.env.CMS_PUBLIC_MEDIA_URL;
 
-const IzdvojeneReference = () => {
+  const getAllListe = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getListeQuery(lang),
+    }),
+    // cache: 'no-cache',
+  });
+
+  const parseListeData = await getAllListe.json();
+
+  const prepData = parseListeData.data.liste.edges;
+
+  const l = getSuffixFromLang(lang);
+
+  const basePath = `${baseURL}icons-list/`;
+
   return (
     <section className='my-12'>
       <h2 className='w-full text-center text-3xl text-primary-dark py-8'>Izdvojene reference</h2>
 
-      <div className='grid grid-cols-3 max-w-screen-2xl mx-auto pb-8'>
-        {content.map((contents, index) => {
-          return (
-            <div key={`${contents.title}${index}`} className=''>
-              <h3 className='text-primary-light text-2xl py-4'>{contents.title}</h3>
-              <div className='flex flex-col items-start justify-start gap-4'>
-                {contents.contentBlock.map((block) => {
-                  return (
-                    <p key={block} className='prose'>
-                      {block}
-                    </p>
-                  );
-                })}
+      <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto pb-8'>
+        {prepData &&
+          prepData.map((nodeCont: any) => {
+            const contentFieldMaster = `lista${l}`;
+            const contentField = nodeCont.node[contentFieldMaster][`listaSadrzaj${l}`];
+            const listaContent = contentField.split('\r\n');
+
+            const triageOfIcons = nodeCont.node.ikona.odabirIkoneKojaSePrikazujeNaListi[0];
+
+            const introField = nodeCont.node[contentFieldMaster][`listaUvod${l}`];
+            return (
+              <div key={nodeCont.node.title}>
+                {introField.naslov && (
+                  <div className='pt-4'>
+                    <h3 className='text-2xl font-medium  dark:text-primary-light'>{introField.naslov}</h3>
+                  </div>
+                )}
+                {/* {introField.nadnaslovpodnaslovOpcionalno && (
+                  <div className='pt-1'>
+                    <h5 className='text-lg font-medium  dark:text-primary-light'>
+                      {introField.nadnaslovpodnaslovOpcionalno}
+                    </h5>
+                  </div>
+                )}
+
+                {introField.uvodnaRecenica && (
+                  <div className='pt-1'>
+                    <p className='text-base font-medium  dark:text-primary-light'>{introField.uvodnaRecenica}</p>
+                  </div>
+                )} */}
+                {triageOfIcons !== 'Brojevi' ? (
+                  <ul className='flex items-start flex-col gap-2 appearance-none'>
+                    {listaContent.map((list: any, index: number) => {
+                      const imgShorthand = nodeCont.node.ikona.svgListIcon
+                        ? nodeCont.node.ikona.svgListIcon.node.sourceUrl
+                        : null;
+
+                      const cmsImgPath = nodeCont.node.ikona.odabirIkoneKojaSePrikazujeNaListi[0];
+                      const cmsClrPath = nodeCont.node.ikona.odabirBojeZaDefaultIkone[0];
+                      const slugCrl = slugify(cmsClrPath, { lower: true });
+
+                      const checkIfNumber = cmsImgPath.split('-')[0];
+
+                      const fullURL = `${basePath}${cmsImgPath}-${slugCrl}.svg`;
+
+                      return (
+                        <li key={index} className='w-full flex items-center justify-start gap-3'>
+                          {triageOfIcons === 'Dodaj svoju ikonu' && imgShorthand ? (
+                            <picture>
+                              <img
+                                src={imgShorthand}
+                                alt='image for list item'
+                                className='w-6 h-6 object-cover object-center'
+                              />
+                            </picture>
+                          ) : checkIfNumber === 'Broj' ? (
+                            <div className='relative'>
+                              <span className='absolute left-1/2 -translate-x-1/2 text-primary-dark dark:text-primary-light z-20'>
+                                {index + 1}
+                              </span>
+                              <picture>
+                                <img src={fullURL} className='w-6 h-6 object-cover object-center' alt='' />
+                              </picture>
+                            </div>
+                          ) : (
+                            <picture>
+                              <img
+                                src={fullURL}
+                                alt='image for list item'
+                                className='w-6 h-6 object-cover object-center'
+                              />
+                            </picture>
+                          )}
+                          <span className='text-base font-normal dark:text-primary-light'>{list}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : (
+                  <ol className='appearance-none flex items-start flex-col gap-2'>
+                    {listaContent.map((list: any, index: number) => {
+                      const clr = nodeCont.node.ikona.odabirBojeZaDefaultIkone[0];
+
+                      const clrPathDict = () => {
+                        if (clr === 'Akcentna') {
+                          return 'accent';
+                        }
+                        if (clr === 'Primarna tamna') {
+                          return 'primary-dark';
+                        }
+                        if (clr === 'Primarna svijetla') {
+                          return 'primary-light';
+                        }
+                      };
+
+                      return (
+                        <li key={index} className='flex items-center justify-start gap-3 dark:text-primary-light'>
+                          <span
+                            className={`bg-${clrPathDict()} rounded-full w-6 h-6  flex items-center justify-center ${
+                              clrPathDict() === 'primary-dark' && 'text-primary-light dark:text-primary-dark'
+                            }`}
+                          >
+                            {index + 1}
+                          </span>
+                          {list}
+                        </li>
+                      );
+                    })}
+                  </ol>
+                )}
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </section>
   );
-};
-
-export default IzdvojeneReference;
+}

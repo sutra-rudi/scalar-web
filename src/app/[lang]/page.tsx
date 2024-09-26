@@ -143,7 +143,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           )} */}
           {/* {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />} */}
           <BannerSectionContact />
-          <IzdvojeneReference />
+          <IzdvojeneReference params={{ lang }} />
           {/* {iskustvaKlijenataShorthand.length > 0 && (
             <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
           )} */}
