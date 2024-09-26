@@ -31,7 +31,7 @@ export default async function AppFooter() {
             <p className='text-base leading-normal font-medium pb-4'>SCALAR d.o.o. za nadzor i savjetovanje</p>
             <a
               href='https://www.google.hr/maps/place/Debani%C4%87eva+ul.+1a,+10000,+Zagreb/@45.8126286,15.9063611,17z/data=!3m1!4b1!4m6!3m5!1s0x4765d13cf1ce17c1:0xb239558099b1c059!8m2!3d45.8126249!4d15.908936!16s%2Fg%2F11gmfty1h0?entry=ttu&g_ep=EgoyMDI0MDkyMy4wIKXMDSoASAFQAw%3D%3D'
-              className='text-base leading-normal flex items-center justify-start gap-2'
+              className='text-base leading-normal flex items-center justify-start gap-2 transition-all ease-out hover:text-accent'
               target='_blank'
             >
               <LocationIcon />
