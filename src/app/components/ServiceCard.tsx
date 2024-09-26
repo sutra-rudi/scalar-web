@@ -13,9 +13,15 @@ const ServiceCard = ({ url, imgSource, title, subtitle }: DefaultServiceCard) =>
   return (
     <a
       href={url}
-      className='flex flex-col lg:items-center items-start bg-white border border-gray-200 rounded-lg shadow max-w-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full'
+      className='flex flex-col items-start bg-white border border-gray-200 rounded-lg shadow max-w-xs hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full'
     >
-      <Image className='object-cover w-full h-full' src={imgSource} width={384} height={224} alt='service image' />
+      <Image
+        className='object-cover w-full h-full block'
+        src={imgSource}
+        width={384}
+        height={224}
+        alt='service image'
+      />
 
       <div className='p-4'>
         <div className='flex flex-col justify-between  leading-normal w-full md:w-64 prose'>

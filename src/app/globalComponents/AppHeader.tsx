@@ -147,7 +147,7 @@ const AppHeader = () => {
                 className='flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent'
                 onClick={toggleDropdown}
               >
-                Usluge{' '}
+                Usluge
                 <svg
                   className='w-2.5 h-2.5 ms-2.5'
                   aria-hidden='true'
@@ -170,7 +170,7 @@ const AppHeader = () => {
                   <ul className='py-2'>
                     <li>
                       <a
-                        href='/services-offers/projektiranje-cG9zdDo3Nzk3'
+                        href={`${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
                         className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Projektiranje
@@ -178,7 +178,7 @@ const AppHeader = () => {
                     </li>
                     <li>
                       <a
-                        href='/services-offers/upravljanje-projektima-cG9zdDozMTk0'
+                        href={`${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
                         className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Upravljanje projektima
@@ -186,7 +186,7 @@ const AppHeader = () => {
                     </li>
                     <li>
                       <a
-                        href='/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0'
+                        href={`${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
                         className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Stručni nadzor
@@ -194,7 +194,7 @@ const AppHeader = () => {
                     </li>
                     <li>
                       <a
-                        href='/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1'
+                        href={`${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
                         className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Tehničko savjetovanje

@@ -3,7 +3,11 @@ import Image from 'next/image';
 import parse from 'html-react-parser';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import React from 'react';
-
+import Slider from 'react-slick';
+import { defaultMultiple } from '@/app/scriptSettings/slickOptions';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { SutraTagBase } from '@/app/components/SutraTag';
 interface ServicesOffersInterface {
   attributes: any;
   textContent: any;
@@ -40,20 +44,22 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
         {!isGalleryEmpty && (
           <div className='mx-auto md:w-2/3'>
             <h3 className='max-w-max py-6 text-2xl prose'>Galerija</h3>
-
-            <div className='flex flex-wrap'>
+            <Slider {...defaultMultiple}>
               {gallery.map((nod, index) => {
                 return (
                   nod && <Image width={300} height={200} src={nod.node.sourceUrl} alt='galleryImage' key={index} />
                 );
               })}
-            </div>
+            </Slider>
           </div>
         )}
 
         <div className='mx-auto md:w-2/3 my-20'>
           <div className='flex gap-2'>
-            {tags && tags.split(', ').map((tag: string, index: number) => <span key={index}>{`#${tag}`}</span>)}
+            {tags &&
+              tags
+                .split(', ')
+                .map((tag: string, index: string) => <SutraTagBase key={index} size='small' innerText={`#${tag}`} />)}
           </div>
         </div>
       </div>

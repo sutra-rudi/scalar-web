@@ -41,8 +41,8 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
             return (
               <div key={nodeCont.node.title}>
                 {introField.naslov && (
-                  <div className='pt-4'>
-                    <h3 className='text-2xl font-medium  dark:text-primary-light'>{introField.naslov}</h3>
+                  <div className='py-4'>
+                    <h3 className='text-xl font-medium text-balance  dark:text-primary-light'>{introField.naslov}</h3>
                   </div>
                 )}
                 {/* {introField.nadnaslovpodnaslovOpcionalno && (
@@ -59,7 +59,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                   </div>
                 )} */}
                 {triageOfIcons !== 'Brojevi' ? (
-                  <ul className='flex items-start flex-col gap-2 appearance-none'>
+                  <ul className='flex items-start flex-col gap-2 appearance-none text-balance'>
                     {listaContent.map((list: any, index: number) => {
                       const imgShorthand = nodeCont.node.ikona.svgListIcon
                         ? nodeCont.node.ikona.svgListIcon.node.sourceUrl
