@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import { SutraButtonBase } from '../components/SutraButton';
-const BannerSectionContact = () => {
+const BannerSectionContact = ({ lang }: { lang: string }) => {
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
@@ -28,7 +28,9 @@ const BannerSectionContact = () => {
           <h3 className='text-almost-white opacity-70 lg:text-3xl md:text-2xl text-xl'>
             Kontaktirajte nas s povjerenjem
           </h3>
-          <SutraButtonBase innerText='Pošalji' size='large' />
+          <a href={`/${lang}/contact`}>
+            <SutraButtonBase innerText='Pošalji' size='large' />
+          </a>
         </div>
       </div>
     ),
