@@ -31,7 +31,7 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
       toast.success(`Hvala na svemu!, ${JSON.stringify(data)}`);
     } catch (error) {
       console.error('Error sending the message:', error);
-      alert('Došlo je do pogreške prilikom slanja poruke.');
+      toast.error('Došlo je do pogreške prilikom slanja poruke.');
     }
   };
 
