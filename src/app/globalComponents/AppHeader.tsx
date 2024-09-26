@@ -129,7 +129,7 @@ const AppHeader = () => {
                 viewBox='0 0 10 6'
               >
                 <path
-                  stroke={isDropdownOpen ? '#FF9A00' : "'currentColor'"}
+                  stroke={isDropdownOpen ? '#FF9A00' : 'currentColor'}
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='2'
