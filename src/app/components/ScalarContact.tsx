@@ -2,21 +2,16 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { useForm } from 'react-hook-form'; // Import react-hook-form
-
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import { SutraButtonBase } from './SutraButton';
-import toast from 'react-hot-toast';
 
 interface ScalarContact {
   isPage: boolean;
 }
 
-// Formspark form ID
-// const FORMSPARK_URL = 'https://submit.formspark.io/YOUR_FORM_ID';
-
 const ScalarContact = ({ isPage }: ScalarContact) => {
-  // react-hook-form setup
   const {
     register,
     handleSubmit,
@@ -24,6 +19,7 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
     reset,
   } = useForm();
 
+  // Funkcija koja se pokreće kada je forma uspješno podnesena
   const onSubmit = async (data: any) => {
     try {
       // await axios.post(FORMSPARK_URL, data);
@@ -35,8 +31,16 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
     }
   };
 
+  // Funkcija koja se pokreće ako postoje greške u formi
+  const onError = (errors: any) => {
+    Object.entries(errors).forEach(([field, error]) => {
+      //@ts-ignore
+      toast.error(`Greška u polju ${field}: ${error.message}`);
+    });
+  };
+
   const background: BannerLayer = {
-    translateY: [0, 0], // Za fiksnu pozadinu
+    translateY: [0, 0],
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className='relative w-full h-full'>
@@ -46,7 +50,6 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
           fill
           className='object-cover object-center block z-10'
         />
-        {/* Overlay */}
         <div className='absolute inset-0 bg-almost-black/40 z-20'></div>
       </div>
     ),
@@ -61,7 +64,7 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
           <h2 className='mb-2 text-h3_md font-extrabold text-almost-white'>Kontaktirajte nas s povjerenjem</h2>
         </div>
         <form
-          onSubmit={handleSubmit(onSubmit)} // Handle form submission
+          onSubmit={handleSubmit(onSubmit, onError)} // Dodajemo onError callback
           className='w-full max-w-screen-sm z-40'
         >
           <div className='mb-4'>
