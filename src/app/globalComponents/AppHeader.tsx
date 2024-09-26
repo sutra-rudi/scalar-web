@@ -103,7 +103,116 @@ const AppHeader = () => {
   };
 
   return (
-    <nav className='bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 md:relative fixed z-20 w-full top-0'>
+    <nav className='bg-almost-white md:relative fixed z-20 w-full top-0'>
+      {/* MOBILE */}
+      <div
+        className={`absolute z-40 w-full h-screen bg-almost-white dark:bg-almost-black inset-0 transition-all duration-300 flex items-center flex-col lg:pt-0 gap-12 justify-between py-24  ${
+          isMobileMenuOpen ? 'opacity-100 pointer-events-auto select-auto' : 'opacity-0 select-none pointer-events-none'
+        }`}
+      >
+        <ul className='flex flex-col w-max  gap-4'>
+          <li className='flex gap-2 items-center justify-start'>
+            {langs.map((language) => (
+              <button
+                disabled={currentLang === language.lang}
+                key={language.lang}
+                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
+                onClick={() => handleLangSwitch(language.lang)}
+              >
+                {language.flag}
+              </button>
+            ))}
+          </li>
+          <li>
+            <button
+              id='dropdownNavbarLink'
+              data-dropdown-toggle='dropdownNavbar'
+              className='flex items-center justify-between'
+              onClick={toggleDropdown}
+            >
+              Usluge
+              <svg
+                className='w-2.5 h-2.5 ms-2.5'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 10 6'
+              >
+                <path
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='m1 1 4 4 4-4'
+                />
+              </svg>
+            </button>
+
+            {isDropdownOpen && (
+              <div className='absolute z-20 bg-red-400 dark:bg-almost-black px-4 py-6 text-lg'>
+                <ul className='flex flex-col items-start justify-start gap-4 '>
+                  <li>
+                    <a href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`} className='block'>
+                      Projektiranje
+                    </a>
+                  </li>
+                  <li>
+                    <a href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`} className='block'>
+                      Upravljanje projektima
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
+                      className='block'
+                    >
+                      Stručni nadzor
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
+                      className='block'
+                    >
+                      Tehničko savjetovanje
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </li>
+
+          <li>
+            <a href={`/${currentLang}/contact`} className='block'>
+              Kontakt
+            </a>
+          </li>
+
+          <li className='w-max'>
+            <div
+              onClick={handleTheme}
+              className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear flex items-center justify-start gap-2 py-2 px-1'
+            >
+              {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
+              <span className='text-almost-black dark:text-almost-white'>
+                {theme === 'light' ? 'standardno' : 'nočni način'}
+              </span>
+            </div>
+          </li>
+        </ul>
+
+        <a href={`/${currentLang}`} className=''>
+          <Image
+            src={'https://www.scalar.hr/img/v1%20scalar%20horizontal.svg'}
+            width={300}
+            height={300}
+            alt='Scalar logo'
+            className='object-cover object-center '
+          />
+        </a>
+      </div>
+      {/* MOBILE */}
+
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <a href={`/${currentLang}`} className=''>
           <Image
@@ -114,31 +223,13 @@ const AppHeader = () => {
             className='object-cover object-center '
           />
         </a>
-        <button
-          data-collapse-toggle='navbar-dropdown'
-          type='button'
-          className='inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
-          aria-controls='navbar-dropdown'
-          aria-expanded='false'
-        >
-          <span className='sr-only'>Open main menu</span>
-          <svg
-            className='w-5 h-5'
-            aria-hidden='true'
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 17 14'
-          >
-            <path
-              stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='M1 1h15M1 7h15M1 13h15'
-            />
-          </svg>
-        </button>
-        <div className='hidden w-full md:block md:w-auto' id='navbar-dropdown'>
+        <div className='w-min z-40 md:hidden block'>
+          <Hamburger
+            color={theme === 'light' ? '#181816' : theme === 'dark' && isMobileMenuOpen ? '#F8F7F2' : '#181816'}
+            onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </div>
+        <div className='hidden w-full md:block md:w-auto'>
           <ul className='flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
             <li>
               <button
@@ -170,7 +261,7 @@ const AppHeader = () => {
                   <ul className='py-2'>
                     <li>
                       <a
-                        href={`${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
+                        href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
                         className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Projektiranje
@@ -178,7 +269,7 @@ const AppHeader = () => {
                     </li>
                     <li>
                       <a
-                        href={`${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
+                        href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
                         className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Upravljanje projektima
@@ -186,7 +277,7 @@ const AppHeader = () => {
                     </li>
                     <li>
                       <a
-                        href={`${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
+                        href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
                         className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Stručni nadzor
@@ -194,7 +285,7 @@ const AppHeader = () => {
                     </li>
                     <li>
                       <a
-                        href={`${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
+                        href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
                         className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Tehničko savjetovanje
@@ -239,87 +330,6 @@ const AppHeader = () => {
         </div>
       </div>
     </nav>
-
-    /*   <nav className='bg-white dark:bg-gray-800 antialiased relative'>
-      <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4'>
-        <div className='flex items-center justify-between'>
-          <div className='flex items-center'>
-            <div className='shrink-0'>
-              <a href={`/${currentLang}`} title='' className='w-8 h-8 block'>
-                <Image
-                  className='dark:hidden block w-full h-full'
-                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-                  alt=''
-                  width={128}
-                  height={128}
-                />
-
-                <Image
-                  className='hidden dark:block w-full h-full'
-                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-                  alt=''
-                  width={128}
-                  height={128}
-                />
-              </a>
-            </div>
-
-            <div
-              className={`absolute z-40 w-full h-screen bg-red-300 inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24  ${
-                isMobileMenuOpen
-                  ? 'opacity-100 pointer-events-auto select-auto'
-                  : 'opacity-0 select-none pointer-events-none'
-              }`}
-            >
-              <ul className='grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-x-4 gap-y-2 w-full lg:px-6 px-2'>
-                {Object.entries(navLinks).map(([category, links]) => (
-                  <li key={category} className='mt-4'>
-                    <h3 className='text-xl font-bold text-gray-800 dark:text-white mb-2'>{category.toUpperCase()}</h3>
-                    <ul className='pl-4'>
-                      {links.map((navLink) => (
-                        <li key={navLink.title} className='shrink-0'>
-                          <a
-                            href={navLink.url}
-                            className='flex xl:text-2xl lg:text-xl md:text-lg text-base font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500'
-                          >
-                            {navLink.title}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className='flex items-center space-x-4 z-40'>
-            {langs.map((language) => (
-              <button
-                disabled={currentLang === language.lang}
-                key={language.lang}
-                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
-                onClick={() => handleLangSwitch(language.lang)}
-              >
-                {language.flag}
-              </button>
-            ))}
-
-            <div
-              onClick={handleTheme}
-              className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear'
-            >
-              {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
-            </div>
-            <div className='w-min z-40'>
-              <Hamburger
-                color={theme === 'light' ? '#181816' : '#F8F7F2'}
-                onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav> */
   );
 };
 

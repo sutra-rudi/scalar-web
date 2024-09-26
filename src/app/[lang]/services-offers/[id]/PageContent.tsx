@@ -33,16 +33,16 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
         ]}
         className='block object-cover object-center aspect-video h-[360px]  mx-auto my-0 '
       />
-      <div className='max-w-screen-2xl mx-auto'>
+      <div className='max-w-screen-2xl mx-aut  lg:px-0 px-4'>
         <div className='prose mx-auto py-6'>
           <h2>{textContent.naslovBazaTekstova}</h2>
           <p>{textContent.nadnaslovPodnaslovBazaTekstova}</p>
         </div>
 
-        <div className='prose mx-auto'>{parse(pageContent)}</div>
+        <div className='prose mx-auto lg:px-0 px-4'>{parse(pageContent)}</div>
 
         {!isGalleryEmpty && (
-          <div className='mx-auto md:w-2/3'>
+          <div className='mx-auto md:w-2/3  lg:px-0 px-4'>
             <h3 className='max-w-max py-6 text-2xl prose'>Galerija</h3>
             <Slider {...defaultMultiple} slidesToScroll={1} className='cursor-grab'>
               {gallery.map((nod, index) => {
@@ -63,8 +63,8 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
           </div>
         )}
 
-        <div className='mx-auto md:w-2/3 my-20'>
-          <div className='flex gap-2'>
+        <div className='mx-auto md:w-2/3 my-20  lg:px-0 px-4'>
+          <div className='flex gap-2 lg:flex-nowrap flex-wrap'>
             {tags &&
               tags
                 .split(', ')
