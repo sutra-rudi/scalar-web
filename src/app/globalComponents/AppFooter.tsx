@@ -1,3 +1,5 @@
+'use client';
+
 // import { getAllSocialLinksQuery } from '../queries/getAllSocialLinksQuery';
 import Image from 'next/image';
 import { FaLinkedin as LinkedInIcon, FaRegEnvelope as MailIcon, FaUser as UserIcon } from 'react-icons/fa';
