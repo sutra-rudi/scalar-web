@@ -1,4 +1,3 @@
-import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import slugify from 'slugify';
 import { slugifyOptions } from '../pathsUtils/slugifyOptions';
@@ -54,7 +53,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
 
   return (
     <section className='my-12'>
-      <div className='max-w-screen-2xl mx-auto my-8 flex flex-wrap items-start justify-center lg:gap-16 md:gap-12 gap-6'>
+      <div className='max-w-screen-2xl md:px-0 px-4 mx-auto my-8 flex flex-wrap items-start justify-center lg:gap-16 md:gap-12 gap-6'>
         {pageContent.map((content: any) => {
           const contentShorthand = content.node;
 
@@ -65,6 +64,11 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
               `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
             ].naslovIPodnaslovDvaPolja;
 
+          const introTextShorthandObj =
+            contentShorthand[`modulBazeTekstova2Kolumne${getSuffixFromLang(lang)}`]?.[
+              `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
+            ].kolumneTeksta2;
+
           return (
             <ServiceCard
               url={`/${lang}/services-offers/${
@@ -74,6 +78,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
               subtitle={titleShorthandObj.nadnaslovPodnaslovBazaTekstova}
               imgSource={thumbImageShorthandObj.sourceUrl}
               key={contentShorthand.id}
+              intro={introTextShorthandObj.tekstBazaTekstova ? introTextShorthandObj.tekstBazaTekstova : ''}
             />
           );
         })}

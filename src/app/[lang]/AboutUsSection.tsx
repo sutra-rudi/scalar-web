@@ -11,7 +11,7 @@ const paragraphs = [
 const AboutUsSection = () => {
   return (
     <section className='w-full'>
-      <div className='flex items-start gap-24 justify-center max-w-screen-2xl mx-auto md:flex-nowrap flex-wrap'>
+      <div className='flex items-start gap-24 justify-center max-w-screen-2xl mx-auto md:flex-nowrap flex-wrap md:px-0 px-4'>
         <div className='max-w-prose prose mt-12'>
           <h2>O nama</h2>
           {paragraphs.map((par, index) => (

@@ -25,7 +25,9 @@ const BannerSectionContact = () => {
     children: (
       <div className='w-full h-full absolute inset-0 flex items-center justify-center'>
         <div className='flex flex-col items-center justify-start gap-4'>
-          <h3 className='text-almost-white opacity-70 text-3xl'>Kontaktirajte nas s povjerenjem</h3>
+          <h3 className='text-almost-white opacity-70 lg:text-3xl md:text-2xl text-xl'>
+            Kontaktirajte nas s povjerenjem
+          </h3>
           <SutraButtonBase innerText='Pošalji' size='large' />
         </div>
       </div>

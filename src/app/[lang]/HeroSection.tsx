@@ -5,7 +5,7 @@ import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
 import Image from 'next/image';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 
-const HeroSection = () => {
+const HeroSection = ({ lang }: { lang: string }) => {
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
@@ -32,9 +32,9 @@ const HeroSection = () => {
           <p className='max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400'>
             Vaš partner u investicijama u građevini
           </p>
-          <div className='flex items-center justify-start gap-4'>
+          <a className='flex items-center justify-start gap-4' href={`/${lang}/contact`}>
             <SutraButtonWithIcon innerText='Kontaktirajte nas' size='normal' backIcon={RightIcon} />
-          </div>
+          </a>
         </div>
       </div>
     ),
