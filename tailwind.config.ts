@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import flowbite from 'flowbite-react/tailwind';
 
 const config: Config = {
   darkMode: 'class',
@@ -7,7 +6,6 @@ const config: Config = {
     // './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     // './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    flowbite.content(),
   ],
   theme: {
     extend: {
@@ -94,12 +92,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('tailwind-scrollbar'),
-    require('@tailwindcss/forms'),
-    require('flowbite/plugin'),
-    flowbite.plugin(),
-  ],
+  plugins: [require('@tailwindcss/typography'), require('tailwind-scrollbar'), require('@tailwindcss/forms')],
 };
 export default config;
