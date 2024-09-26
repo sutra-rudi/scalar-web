@@ -1,6 +1,8 @@
 // import { getAllSocialLinksQuery } from '../queries/getAllSocialLinksQuery';
 import Image from 'next/image';
-import { FaLinkedin as LinkedInIcon, FaRegEnvelope as MailIcon } from 'react-icons/fa';
+import { FaLinkedin as LinkedInIcon, FaRegEnvelope as MailIcon, FaUser as UserIcon } from 'react-icons/fa';
+import { FaLocationDot as LocationIcon } from 'react-icons/fa6';
+import { PiBankFill as BankIcon } from 'react-icons/pi';
 
 export default async function AppFooter() {
   // const getAllSocialLinks = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -27,14 +29,30 @@ export default async function AppFooter() {
 
           <div className='text-primary-light dark:text-primary-dark flex items-start justify-start flex-col'>
             <p className='text-base leading-normal font-medium pb-4'>SCALAR d.o.o. za nadzor i savjetovanje</p>
-            <p className='text-base leading-normal'>Debanićeva ulica 1A, Zagreb</p>
-            <p className='text-base leading-normal'>OIB: 52575580755 Erste&Steiermärkische Bank d.d.</p>
-            <p className='text-base leading-normal'>IBAN: HR5224020061101147166</p>
+            <a
+              href='https://www.google.hr/maps/place/Debani%C4%87eva+ul.+1a,+10000,+Zagreb/@45.8126286,15.9063611,17z/data=!3m1!4b1!4m6!3m5!1s0x4765d13cf1ce17c1:0xb239558099b1c059!8m2!3d45.8126249!4d15.908936!16s%2Fg%2F11gmfty1h0?entry=ttu&g_ep=EgoyMDI0MDkyMy4wIKXMDSoASAFQAw%3D%3D'
+              className='text-base leading-normal flex items-center justify-start gap-2'
+              target='_blank'
+            >
+              <LocationIcon />
+              <span>Debanićeva ulica 1A, Zagreb</span>
+            </a>
+            <p className='text-base leading-normal flex items-center justify-start gap-2'>
+              <UserIcon /> <span>OIB: 52575580755 Erste&Steiermärkische Bank d.d.</span>
+            </p>
+            <p className='text-base leading-normal flex items-center justify-start gap-2'>
+              <BankIcon />
+              <span>IBAN: HR5224020061101147166</span>
+            </p>
           </div>
         </div>
         <div className='flex text-3xl gap-4'>
-          <LinkedInIcon className='text-primary-light dark:text-primary-dark cursor-pointer transition-all ease-out duration-150 hover:scale-110 hover:text-accent' />
-          <MailIcon className='text-primary-light dark:text-primary-dark cursor-pointer transition-all ease-out duration-150 hover:scale-110 hover:text-accent' />
+          <a href='https://hr.linkedin.com/company/scalar-d-o-o' target='_blank'>
+            <LinkedInIcon className='text-primary-light dark:text-primary-dark cursor-pointer transition-all ease-out duration-150 hover:scale-110 hover:text-accent' />
+          </a>
+          <a href='mailto:info@scalar.hr' target='_blank'>
+            <MailIcon className='text-primary-light dark:text-primary-dark cursor-pointer transition-all ease-out duration-150 hover:scale-110 hover:text-accent' />
+          </a>
         </div>
       </div>
     </footer>
