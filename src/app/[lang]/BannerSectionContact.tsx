@@ -4,23 +4,41 @@ import Image from 'next/image';
 import React from 'react';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import { SutraButtonBase } from '../components/SutraButton';
+import scalarOverlayHero from '../images/scalar-hero-page-lines.png';
+import scalarContactOverlay from '../images/scalar-contact-overlay.jpg';
 const BannerSectionContact = ({ lang }: { lang: string }) => {
   const background: BannerLayer = {
-    translateY: [0, 60],
+    translateY: [0, 30],
     shouldAlwaysCompleteAnimation: true,
     children: (
       <Image
-        src={'https://www.scalar.hr/img/construction-workers-sunset.jpg'}
+        src={scalarContactOverlay}
+        placeholder='blur'
+        blurDataURL={scalarContactOverlay.blurDataURL}
         alt='Scalar banner'
         fill
-        className='object-cover object-center block  aspect-video'
-        //   placeholder='blur'
+        className='object-cover object-center block aspect-video w-full h-full'
+        loading='lazy'
+      />
+    ),
+  };
+
+  const overlay: BannerLayer = {
+    children: (
+      <Image
+        src={scalarOverlayHero}
+        fill
+        alt='hero-overlay'
+        className='w-full h-full absolute object-cover object-center inset-0 block'
+        placeholder='blur'
+        blurDataURL={scalarOverlayHero.blurDataURL}
+        loading='lazy'
       />
     ),
   };
 
   const foreground: BannerLayer = {
-    translateY: [0, 30],
+    translateY: [0, 15],
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className='w-full h-full absolute inset-0 flex items-center justify-center'>
@@ -36,10 +54,8 @@ const BannerSectionContact = ({ lang }: { lang: string }) => {
     ),
   };
   return (
-    <section>
-      <div className='w-full relative '>
-        <ParallaxBanner layers={[background, foreground]} className='w-full relative h-[400px]' />
-      </div>
+    <section className='overflow-hidden'>
+      <ParallaxBanner layers={[background, overlay, foreground]} className='w-full relative h-[316px] ' />
     </section>
   );
 };
