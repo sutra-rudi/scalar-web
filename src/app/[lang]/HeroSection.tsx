@@ -29,8 +29,9 @@ const HeroSection = ({ lang }: { lang: string }) => {
   };
 
   const overlay: BannerLayer = {
-    translateX: [0, -35],
+    translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
+    easing: 'easeOutQuad',
     children: (
       <Image
         src={scalarOverlayHero}
@@ -51,7 +52,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
     children: (
       <div className='flex flex-col justify-center items-center absolute inset-0 z-10 w-full h-full'>
         <div className='flex flex-col items-start max-w-max xl:pl-[40%] lg:pl-[35%] md:pl-[30%] pl-[10%]'>
-          <h1 className='xl:max-w-2xl lg:max-w-xl md:max-w-sm max-w-xs mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-5xl text-accent text-balance '>
+          <h1 className='xl:max-w-2xl lg:max-w-xl md:max-w-sm max-w-xs mb-4 text-2xl font-bold tracking-tight leading-none md:text-4xl xl:text-5xl text-accent text-balance '>
             {`SCALAR - Vaš partner u\ninvesticijama u građevini`}
           </h1>
 

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { SutraButtonBase } from './SutraButton';
-import parse from 'html-react-parser';
 
 interface DefaultServiceCard {
   url: string;
@@ -10,7 +9,7 @@ interface DefaultServiceCard {
   intro: any;
 }
 
-const ServiceCard = ({ url, imgSource, title, subtitle, intro }: DefaultServiceCard) => {
+const ServiceCard = ({ url, imgSource, title, intro }: DefaultServiceCard) => {
   return (
     <a
       href={url}
@@ -29,13 +28,13 @@ const ServiceCard = ({ url, imgSource, title, subtitle, intro }: DefaultServiceC
           <h5 className='mb-1 text-2xl font-bold tracking-tight text-balance text-primary-dark dark:text-white'>
             {title}
           </h5>
-          <p className='mb-1 line-clamp-4 max-w-[25ch] font-normal text-primary-dark dark:text-white'>{subtitle}</p>
+          {/* <p className='mb-1 line-clamp-4 max-w-[25ch] font-normal text-primary-dark dark:text-white'>{subtitle}</p> */}
 
-          <div className='transition-all ease-out duration-150 prose mb-3 line-clamp-2 opacity-40  text-primary-dark dark:text-white group-hover:opacity-100'>
-            {parse(intro)}
-          </div>
+          <p className='transition-all ease-out duration-150 prose mb-3 opacity-70  text-primary-dark dark:text-white group-hover:opacity-100'>
+            {intro}
+          </p>
 
-          <SutraButtonBase innerText='Pročitaj više' size='small' isFullCard />
+          <SutraButtonBase innerText='Pročitaj više' size='normal' isFullCard />
         </div>
       </div>
     </a>

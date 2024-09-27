@@ -351,7 +351,7 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full'
+      className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full antialiased'
     >
       <body className={`${roboto.className} w-full h-full md:pt-0 pt-12 relative bg-almost-white dark:bg-almost-black`}>
         {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} />

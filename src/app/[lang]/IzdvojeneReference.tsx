@@ -26,7 +26,9 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
 
   return (
     <section className='my-12'>
-      <h2 className='w-full text-center text-3xl dark:text-almost-white text-almost-black py-8'>Izdvojene reference</h2>
+      <h2 className='w-full text-center text-3xl text-primary-dark dark:text-primary-light  py-8'>
+        Izdvojene reference
+      </h2>
 
       <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto pb-8 md:px-0 px-4'>
         {prepData &&
@@ -42,7 +44,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
               <div key={nodeCont.node.title}>
                 {introField.naslov && (
                   <div className='py-4'>
-                    <h3 className='lg:text-xl md:text-lg text-base font-medium text-balance  dark:text-almost-white text-almost-black'>
+                    <h3 className='lg:text-xl md:text-lg text-base font-medium text-balance  text-primary-dark dark:text-primary-light '>
                       {introField.naslov}
                     </h3>
                   </div>
@@ -61,7 +63,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                   </div>
                 )} */}
                 {triageOfIcons !== 'Brojevi' ? (
-                  <ul className='flex items-start flex-col md:gap-2 gap-3 appearance-none text-balance md:text-base text-sm dark:text-almost-white text-almost-black'>
+                  <ul className='flex items-start flex-col md:gap-2 gap-3 appearance-none text-balance md:text-base text-sm text-primary-dark dark:text-primary-light '>
                     {listaContent.map((list: any, index: number) => {
                       const imgShorthand = nodeCont.node.ikona.svgListIcon
                         ? nodeCont.node.ikona.svgListIcon.node.sourceUrl
@@ -87,7 +89,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                             </picture>
                           ) : checkIfNumber === 'Broj' ? (
                             <div className='relative'>
-                              <span className='absolute left-1/2 -translate-x-1/2 dark:text-almost-white text-almost-black'>
+                              <span className='absolute left-1/2 -translate-x-1/2 text-primary-dark dark:text-primary-light '>
                                 {index + 1}
                               </span>
                               <picture>
@@ -103,7 +105,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                               />
                             </picture>
                           )}
-                          <span className='font-normal dark:text-almost-white text-almost-black'>{list}</span>
+                          <span className='font-normal text-primary-dark dark:text-primary-light '>{list}</span>
                         </li>
                       );
                     })}
@@ -128,11 +130,11 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                       return (
                         <li
                           key={index}
-                          className='flex items-center justify-start gap-3 dark:text-almost-white text-almost-black'
+                          className='flex items-center justify-start gap-3 text-primary-dark dark:text-primary-light '
                         >
                           <span
                             className={`bg-${clrPathDict()} rounded-full w-6 h-6  flex items-center justify-center ${
-                              clrPathDict() === 'primary-dark' && 'dark:text-almost-white text-almost-black'
+                              clrPathDict() === 'primary-dark' && 'text-primary-dark dark:text-primary-light '
                             }`}
                           >
                             {index + 1}

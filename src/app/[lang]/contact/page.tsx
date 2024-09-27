@@ -2,9 +2,11 @@
 // import { getKontaktiSektorQuery } from '@/app/queries/getAllKontaktSektorQuery';
 // import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 // import { getAdminContactFormSemanticsQuery } from '@/app/queries/getContactFormSemantics';
-// import dynamic from 'next/dynamic';
 import ScalarContact from '@/app/components/ScalarContact';
-// const LazyContent = dynamic(() => import('./PageContent'));
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+const ClientHeader = dynamic(() => import('../../globalComponents/AppHeader'), { ssr: false });
+const ClientFooter = dynamic(() => import('../../globalComponents/AppFooter'), { ssr: false });
 
 export default async function ContactPage({ params: { lang } }: { params: { lang: string } }) {
   // const getAllContactPersons = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -60,17 +62,12 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
   // const contactFormGlobalIntro = contactSemanticsShorthand.kontaktFormaUvod;
 
   return (
-    <main className='min-h-screen bg-sutraContactUsTempBg dark:bg-almost-black'>
-      {/* <LazyContent
-        personsData={dataShorthandPersons}
-        sectorsData={dataShorthandSectors}
-        contactSemantics={contactSemanticsShorthand}
-        lang={lang}
-        contactSemanticFormContent={contactSemanticFormContent}
-        contactSemanticIntro={contactSemanticIntro}
-        contactGlobalIntro={contactFormGlobalIntro}
-      /> */}
-      <ScalarContact isPage />
-    </main>
+    <Suspense>
+      <ClientHeader />
+      <main className='min-h-screen bg-sutraContactUsTempBg dark:bg-almost-black'>
+        <ScalarContact isPage />
+      </main>
+      <ClientFooter />
+    </Suspense>
   );
 }

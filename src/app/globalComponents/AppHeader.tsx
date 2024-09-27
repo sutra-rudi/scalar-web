@@ -132,7 +132,7 @@ const AppHeader = () => {
           <li>
             <a
               href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
-              className='block dark:text-almost-white text-almost-black'
+              className='block text-primary-dark dark:text-primary-light '
             >
               Projektiranje
             </a>
@@ -140,7 +140,7 @@ const AppHeader = () => {
           <li>
             <a
               href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
-              className='block dark:text-almost-white text-almost-black'
+              className='block text-primary-dark dark:text-primary-light '
             >
               Upravljanje projektima
             </a>
@@ -148,7 +148,7 @@ const AppHeader = () => {
           <li>
             <a
               href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
-              className='block dark:text-almost-white text-almost-black'
+              className='block text-primary-dark dark:text-primary-light '
             >
               Stručni nadzor
             </a>
@@ -156,7 +156,7 @@ const AppHeader = () => {
           <li>
             <a
               href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
-              className='block dark:text-almost-white text-almost-black'
+              className='block text-primary-dark dark:text-primary-light '
             >
               Tehničko savjetovanje
             </a>
@@ -165,7 +165,7 @@ const AppHeader = () => {
           <li className='pt-4'>
             <a
               href={`/${currentLang}/contact`}
-              className='flex items-center justify-between dark:text-almost-white text-almost-black'
+              className='flex items-center justify-between text-primary-dark dark:text-primary-light '
             >
               Kontakt
             </a>
@@ -178,7 +178,7 @@ const AppHeader = () => {
             className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear flex items-center justify-start gap-2 py-1 px-1 w-max'
           >
             {theme === 'light' ? <SunIcon size={16} color='#181816' /> : <MoonIcon size={16} color='#F8F7F2' />}
-            <span className='text-almost-black dark:text-almost-white text-xs'>
+            <span className='text-primary-dark dark:text-primary-light  text-xs'>
               {theme === 'light' ? 'standardno' : 'nočni način'}
             </span>
           </div>
@@ -213,12 +213,12 @@ const AppHeader = () => {
           />
         </div>
         <div className='hidden w-full md:block md:w-auto'>
-          <ul className='flex items-center font-medium p-4 md:p-0 mt-4 gap-4'>
+          <ul className='flex items-center font-medium p-4 md:p-0  gap-4'>
             <li>
               <button
                 id='dropdownNavbarLink'
                 data-dropdown-toggle='dropdownNavbar'
-                className='flex items-center justify-between w-full py-2 px-3 dark:text-almost-white'
+                className='flex items-center justify-between w-full py-2 px-3 text-primary-dark dark:text-primary-light'
                 onClick={toggleDropdown}
               >
                 Usluge
@@ -245,7 +245,7 @@ const AppHeader = () => {
                     <li>
                       <a
                         href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
-                        className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
+                        className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Projektiranje
                       </a>
@@ -253,7 +253,7 @@ const AppHeader = () => {
                     <li>
                       <a
                         href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
-                        className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
+                        className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Upravljanje projektima
                       </a>
@@ -261,7 +261,7 @@ const AppHeader = () => {
                     <li>
                       <a
                         href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
-                        className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
+                        className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Stručni nadzor
                       </a>
@@ -269,7 +269,7 @@ const AppHeader = () => {
                     <li>
                       <a
                         href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
-                        className='block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
+                        className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-gray-100 dark:hover:bg-gray-600'
                       >
                         Tehničko savjetovanje
                       </a>
@@ -280,7 +280,10 @@ const AppHeader = () => {
             </li>
 
             <li>
-              <a href={`/${currentLang}/contact`} className='block py-2 px-3 dark:text-almost-white'>
+              <a
+                href={`/${currentLang}/contact`}
+                className='block py-2 px-3 text-primary-dark dark:text-primary-light '
+              >
                 Kontakt
               </a>
             </li>
@@ -299,7 +302,7 @@ const AppHeader = () => {
                 <button
                   disabled={currentLang === language.lang}
                   key={language.lang}
-                  className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
+                  className='text-sm  flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
                   onClick={() => handleLangSwitch(language.lang)}
                 >
                   {language.flag}

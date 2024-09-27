@@ -48,13 +48,20 @@ function generateServicesSchemaOrg(pageContent: any, lang: string) {
   return JSON.stringify(schemaOrgData, null, 2); // Dodano formatiranje za preglednost
 }
 
+const introTextContent = [
+  `Kompletna usluga vođenja, organizacije i provedbe investicijskih projekata s uključenim inženjersko – konzultantskim uslugama prilagođenih karakteristikama projekta i potrebama investitora.`,
+  `Usluga stručnog nadzora nad izvedbom građevinskih, elektroinstalaterskih, strojarskih i ostalih radova u tijeku izgradnje temeljem ugovornih uvjeta, zakonskih i tehničkih propisa te uzanci struke - uz aktivno prisustvo na gradilištu.`,
+  `Sve razine i tipovi tehničkog savjetovanja sukladno potrebama naručitelja i/ili projekta. Savjetovanje u svim fazama projekta – od faze formiranja koncepta pa sve do završetka projekta uključujući fazu korištenja objekata.`,
+  `Usluge različitih segmenata u projektiranju (troškovnici, idejna rješenja, proračuni, analize, razrade detalja i sl.) kao i usluga izrade cjelokupne projektne dokumentacije za potrebe ishođenja dozvola i izvedbu objekata.`,
+];
+
 const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
   const schemaOrgData = generateServicesSchemaOrg(pageContent, lang);
 
   return (
     <section className='my-12'>
       <div className='max-w-screen-2xl md:px-0 px-4 mx-auto my-8 flex flex-wrap items-start justify-center lg:gap-16 md:gap-12 gap-6'>
-        {pageContent.map((content: any) => {
+        {pageContent.map((content: any, index: number) => {
           const contentShorthand = content.node;
 
           const thumbImageShorthandObj = contentShorthand.modulBazeTekstovaUvod.slika1.node;
@@ -64,10 +71,10 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
               `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
             ].naslovIPodnaslovDvaPolja;
 
-          const introTextShorthandObj =
-            contentShorthand[`modulBazeTekstova2Kolumne${getSuffixFromLang(lang)}`]?.[
-              `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
-            ].kolumneTeksta2;
+          // const introTextShorthandObj =
+          //   contentShorthand[`modulBazeTekstova2Kolumne${getSuffixFromLang(lang)}`]?.[
+          //     `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
+          //   ].kolumneTeksta2;
 
           return (
             <ServiceCard
@@ -78,7 +85,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
               subtitle={titleShorthandObj.nadnaslovPodnaslovBazaTekstova}
               imgSource={thumbImageShorthandObj.sourceUrl}
               key={contentShorthand.id}
-              intro={introTextShorthandObj.tekstBazaTekstova ? introTextShorthandObj.tekstBazaTekstova : ''}
+              intro={introTextContent[index]}
             />
           );
         })}

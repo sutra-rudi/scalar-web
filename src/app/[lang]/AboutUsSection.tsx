@@ -10,11 +10,11 @@ const paragraphs = [
 const AboutUsSection = () => {
   return (
     <section className='w-full'>
-      <div className='flex items-start gap-24 justify-center max-w-screen-2xl mx-auto md:flex-nowrap flex-wrap  px-4'>
-        <div className='max-w-prose prose mt-12'>
-          <h2 className='dark:text-almost-white text-almost-black font-bold text-3xl'>O nama</h2>
+      <div className='flex items-start xl:gap-24 gap-4 justify-center w-full xl:max-w-screen-2xl mx-auto xl:flex-nowrap flex-wrap-reverse '>
+        <div className='xl:max-w-prose prose xl:mt-12 w-full'>
+          <h2 className='text-primary-dark dark:text-primary-light font-bold lg:text-[2rem] text-2xl  px-4'>O nama</h2>
           {paragraphs.map((par, index) => (
-            <p key={`${par}${index}`} className='lg:text-base text-sm dark:text-almost-white text-almost-black'>
+            <p key={`${par}${index}`} className='lg:text-base text-sm text-primary-dark dark:text-primary-light  px-4'>
               {par}
             </p>
           ))}
@@ -27,7 +27,7 @@ const AboutUsSection = () => {
           width={596}
           height={892}
           alt='scalar man'
-          className='object-cover aspect-[9/16] object-center'
+          className='object-cover aspect-[9/16] object-center xl:w-auto w-full'
         />
       </div>
     </section>
