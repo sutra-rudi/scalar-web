@@ -3,13 +3,13 @@ export const maxDuration = 60;
 import { Suspense } from 'react';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import dynamic from 'next/dynamic';
-import AboutUsSection from './AboutUsSection';
 
 const ClientHeader = dynamic(() => import('../globalComponents/AppHeader'), { ssr: false });
 const HeroSection = dynamic(() => import('./HeroSection'));
 const BannerSectionContact = dynamic(() => import('./BannerSectionContact'));
 const IzdvojeneReference = dynamic(() => import('./IzdvojeneReference'));
 const UslugeSection = dynamic(() => import('./UslugeSection'));
+const AboutUsSection = dynamic(() => import('./AboutUsSection'));
 const AppFooter = dynamic(() => import('./../globalComponents/AppFooter'));
 
 async function fetchData(query: any, noCache: boolean = false) {
@@ -51,15 +51,27 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <Suspense>
         <ClientHeader />
         <main className='relative w-full dark:bg-almost-black min-h-screen'>
-          <HeroSection lang={lang} />
+          <Suspense>
+            <HeroSection lang={lang} />
+          </Suspense>
 
-          <AboutUsSection />
+          <Suspense>
+            <AboutUsSection />
+          </Suspense>
 
-          {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
+          <Suspense>
+            {uslugeDataArrayShorthand.length > 0 && (
+              <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+            )}
+          </Suspense>
 
-          <BannerSectionContact lang={lang} />
+          <Suspense>
+            <BannerSectionContact lang={lang} />
+          </Suspense>
 
-          <IzdvojeneReference params={{ lang }} />
+          <Suspense>
+            <IzdvojeneReference params={{ lang }} />
+          </Suspense>
         </main>
         <AppFooter />
       </Suspense>
