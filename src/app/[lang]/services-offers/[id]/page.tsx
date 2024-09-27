@@ -5,11 +5,13 @@ import Script from 'next/script';
 import dynamic from 'next/dynamic';
 import { getAllUslugeQuery } from '@/app/queries/getAllUslugeQuery';
 import { Suspense } from 'react';
-const LazyContent = dynamic(() => import('./PageContent'));
-const UslugeSection = dynamic(() => import('../../UslugeSection'));
-const ScalarContact = dynamic(() => import('@/app/components/ScalarContact'));
+import PageContent from './PageContent';
+import UslugeSection from '../../UslugeSection';
+import ScalarContact from '@/app/components/ScalarContact';
+import AppFooter from '@/app/globalComponents/AppFooter';
+
 const ClientHeader = dynamic(() => import('../../../globalComponents/AppHeader'), { ssr: false });
-const ClientFooter = dynamic(() => import('../../../globalComponents/AppFooter'), { ssr: false });
+
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
@@ -108,7 +110,7 @@ export default async function SingleServiceOfferPage({
       <ClientHeader />
       <main className='w-full relative'>
         {contentForPage && (
-          <LazyContent
+          <PageContent
             textContent={prepareIntroText}
             introImages={prepareIntroImages}
             gallery={prepareGallery}
@@ -125,7 +127,7 @@ export default async function SingleServiceOfferPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
         />
       </main>
-      <ClientFooter />
+      <AppFooter />
     </Suspense>
   );
 }
