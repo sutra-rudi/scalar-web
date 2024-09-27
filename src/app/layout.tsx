@@ -132,7 +132,7 @@ export const metadata: Metadata = {
     siteName: 'Scalar',
     images: [
       {
-        url: '/og-image-1200x630.png',
+        url: '/images/OG/scalar-og.jpg',
         width: 1200,
         height: 630,
         alt: 'Scalar - Građevinski projekt',
@@ -149,7 +149,7 @@ export const metadata: Metadata = {
     description: 'Pružamo sveobuhvatne usluge projektiranja i izvođenja radova u građevinskoj industriji.',
     images: [
       {
-        url: '/twitter-image-1200x630.png',
+        url: '/images/OG/scalar-og.jpg',
         alt: 'Scalar - Građevinski projekt',
       },
     ],
