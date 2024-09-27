@@ -6,7 +6,7 @@ import { FaLinkedin as LinkedInIcon, FaRegEnvelope as MailIcon, FaUser as UserIc
 import { FaLocationDot as LocationIcon } from 'react-icons/fa6';
 import { PiBankFill as BankIcon } from 'react-icons/pi';
 
-export default async function AppFooter() {
+export default function AppFooter() {
   // const getAllSocialLinks = await fetch(`${process.env.CMS_BASE_URL}`, {
   //   method: 'POST',
   //   headers: {

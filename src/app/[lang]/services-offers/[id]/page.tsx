@@ -103,26 +103,24 @@ export default async function SingleServiceOfferPage({
   const ScalarContact = dynamic(() => import('@/app/components/ScalarContact'));
 
   return (
-    <main className='w-full relative'>
+    <main className='w-full relative min-h-screen'>
       {contentForPage && (
-        <>
-          <LazyContent
-            textContent={prepareIntroText}
-            introImages={prepareIntroImages}
-            gallery={prepareGallery}
-            tags={prepareTags}
-            attributes={prepareAttributes}
-            pageContent={contentForPage}
-          />
-          <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-          <ScalarContact isPage={false} />
-          <Script
-            id='schema-org-single-service'
-            type='application/ld+json'
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
-          />
-        </>
+        <LazyContent
+          textContent={prepareIntroText}
+          introImages={prepareIntroImages}
+          gallery={prepareGallery}
+          tags={prepareTags}
+          attributes={prepareAttributes}
+          pageContent={contentForPage}
+        />
       )}
+      <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+      <ScalarContact isPage={false} />
+      <Script
+        id='schema-org-single-service'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
+      />
     </main>
   );
 }

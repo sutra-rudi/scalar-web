@@ -11,7 +11,7 @@ export const SutraTagBase = ({ innerText, size, isAccentButton }: SutraTagInterf
     <div
       className={`${
         size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          ? 'text-xs rounded-sutraButtonBorderRadiusSmall'
           : size === 'normal'
           ? 'text-base rounded-sutraButtonBorderRadiusBase'
           : size === 'large'
@@ -33,7 +33,7 @@ export const SutraButtonGradient = ({ innerText, size }: SutraTagInterface) => {
     <div
       className={`${
         size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          ? 'text-xs rounded-sutraButtonBorderRadiusSmall'
           : size === 'normal'
           ? 'text-base rounded-sutraButtonBorderRadiusBase'
           : size === 'large'
@@ -51,7 +51,7 @@ export const SutraButtonOutlined = ({ innerText, size }: SutraTagInterface) => {
     <div
       className={`${
         size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          ? 'text-xs rounded-sutraButtonBorderRadiusSmall'
           : size === 'normal'
           ? 'text-base rounded-sutraButtonBorderRadiusBase'
           : size === 'large'
@@ -69,7 +69,7 @@ export const SutraButtonGhost = ({ innerText, size }: SutraTagInterface) => {
     <div
       className={`${
         size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          ? 'text-xs rounded-sutraButtonBorderRadiusSmall'
           : size === 'normal'
           ? 'text-base rounded-sutraButtonBorderRadiusBase'
           : size === 'large'
@@ -87,7 +87,7 @@ export const SutraButtonLink = ({ innerText, size, isAccentButton }: SutraTagInt
     <div
       className={`${
         size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          ? 'text-xs rounded-sutraButtonBorderRadiusSmall'
           : size === 'normal'
           ? 'text-base rounded-sutraButtonBorderRadiusBase'
           : size === 'large'
@@ -115,7 +115,7 @@ export const SutraTagWithIcon = ({
     <div
       className={`${
         size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          ? 'text-xs rounded-sutraButtonBorderRadiusSmall'
           : size === 'normal'
           ? 'text-base rounded-sutraButtonBorderRadiusBase'
           : size === 'large'

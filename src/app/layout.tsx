@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import './globals.scss';
 
 import { cookies } from 'next/headers';
@@ -10,14 +10,13 @@ import { Suspense } from 'react';
 import { Providers } from './providers';
 import { appleTouchIcons, favicons } from './pathsUtils/mediaImportsDynamic';
 import { getAdminTokensQuery } from './queries/getAdminTokens';
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+// import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
-import Script from 'next/script';
+// import Script from 'next/script';
 // import CookieConsentNotification from './components/CookiesNotification';
 // import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
 
-const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '700'], display: 'swap' });
-
+const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });
 // import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
 import dynamic from 'next/dynamic';
 
@@ -275,7 +274,7 @@ export default async function RootLayout({
       lang={lang}
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full'
     >
-      <body className={`${poppins.className} w-full h-full md:pt-0 pt-12`}>
+      <body className={`${roboto.className} w-full h-full md:pt-0 pt-12 relative`}>
         {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
