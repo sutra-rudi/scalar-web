@@ -1,16 +1,16 @@
 export const maxDuration = 60;
 
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import dynamic from 'next/dynamic';
+import AboutUsSection from './AboutUsSection';
 
 const ClientHeader = dynamic(() => import('../globalComponents/AppHeader'), { ssr: false });
-const HeroSection = lazy(() => import('./HeroSection'));
-const AboutUsSection = lazy(() => import('./AboutUsSection'));
-const BannerSectionContact = lazy(() => import('./BannerSectionContact'));
-const IzdvojeneReference = lazy(() => import('./IzdvojeneReference'));
-const UslugeSection = lazy(() => import('./UslugeSection'));
-const AppFooter = lazy(() => import('./../globalComponents/AppFooter'));
+const HeroSection = dynamic(() => import('./HeroSection'));
+const BannerSectionContact = dynamic(() => import('./BannerSectionContact'));
+const IzdvojeneReference = dynamic(() => import('./IzdvojeneReference'));
+const UslugeSection = dynamic(() => import('./UslugeSection'));
+const AppFooter = dynamic(() => import('./../globalComponents/AppFooter'));
 
 async function fetchData(query: any, noCache: boolean = false) {
   try {
@@ -51,23 +51,15 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <Suspense>
         <ClientHeader />
         <main className='relative w-full dark:bg-almost-black min-h-screen'>
-          <Suspense>
-            <HeroSection lang={lang} />
-          </Suspense>
-          <Suspense>
-            <AboutUsSection />
-          </Suspense>
-          <Suspense>
-            {uslugeDataArrayShorthand.length > 0 && (
-              <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-            )}
-          </Suspense>
-          <Suspense>
-            <BannerSectionContact lang={lang} />
-          </Suspense>
-          <Suspense>
-            <IzdvojeneReference params={{ lang }} />
-          </Suspense>
+          <HeroSection lang={lang} />
+
+          <AboutUsSection />
+
+          {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
+
+          <BannerSectionContact lang={lang} />
+
+          <IzdvojeneReference params={{ lang }} />
         </main>
         <AppFooter />
       </Suspense>
