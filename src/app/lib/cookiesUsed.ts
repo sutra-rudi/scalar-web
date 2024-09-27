@@ -60,7 +60,7 @@ export const cookiesUsed = [
   {
     name: '__insp_nv',
     value: 'false',
-    domain: 'sutra-mastodont.vercel.app',
+    domain: 'scalar-web.vercel.app',
     path: '/',
     expiry: '2025-09-09T12:16:29.265Z',
     size: 14,
@@ -80,7 +80,7 @@ export const cookiesUsed = [
   {
     name: '__insp_pad',
     value: '1',
-    domain: 'sutra-mastodont.vercel.app',
+    domain: 'scalar-web.vercel.app',
     path: '/',
     expiry: '2025-09-09T12:16:29.595Z',
     size: 11,
@@ -96,7 +96,7 @@ export const cookiesUsed = [
   {
     name: '__insp_sid',
     value: '2646540514',
-    domain: 'sutra-mastodont.vercel.app',
+    domain: 'scalar-web.vercel.app',
     path: '/',
     expiry: '2025-09-09T12:16:29.595Z',
     size: 20,
@@ -113,7 +113,7 @@ export const cookiesUsed = [
   {
     name: '__insp_slim',
     value: '1725886637610',
-    domain: 'sutra-mastodont.vercel.app',
+    domain: 'scalar-web.vercel.app',
     path: '/',
     expiry: '2025-09-09T12:57:17.610Z',
     size: 24,
@@ -131,7 +131,7 @@ export const cookiesUsed = [
   {
     name: '__insp_targlpt',
     value: 'U3V0cmEgbWFzdG9kb250',
-    domain: 'sutra-mastodont.vercel.app',
+    domain: 'scalar-web.vercel.app',
     path: '/',
     expiry: '2025-09-09T12:16:29.266Z',
     size: 34,
@@ -149,7 +149,7 @@ export const cookiesUsed = [
   {
     name: '__insp_targlpu',
     value: 'aHR0cHM6Ly9zdXRyYS1tYXN0b2RvbnQudmVyY2VsLmFwcC9ocg%3D%3D',
-    domain: 'sutra-mastodont.vercel.app',
+    domain: 'scalar-web.vercel.app',
     path: '/',
     expiry: '2025-09-09T12:16:29.265Z',
     size: 70,
@@ -169,7 +169,7 @@ export const cookiesUsed = [
   {
     name: '__insp_uid',
     value: '731074419',
-    domain: 'sutra-mastodont.vercel.app',
+    domain: 'scalar-web.vercel.app',
     path: '/',
     expiry: '2025-09-09T12:16:29.595Z',
     size: 19,
@@ -188,7 +188,7 @@ export const cookiesUsed = [
   {
     name: '_hjSessionUser_2686327',
     value: 'hj.2909.1097857',
-    domain: '.sutra-mastodont.vercel.app',
+    domain: '.scalar-web.vercel.app',
     path: '/',
     expiry: '2025-09-09T13:01:18.000Z',
     size: 166,
