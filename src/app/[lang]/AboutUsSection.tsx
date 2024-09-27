@@ -12,10 +12,10 @@ const AboutUsSection = () => {
     <section className='w-full'>
       <div className='flex items-start gap-24 justify-center max-w-screen-2xl mx-auto md:flex-nowrap flex-wrap  px-4'>
         <div className='max-w-prose prose mt-12'>
-          <h2 className='dark:text-primary-light text-primary-dark font-bold text-3xl'>O nama</h2>
+          <h2 className='dark:text-almost-white text-almost-black font-bold text-3xl'>O nama</h2>
           {paragraphs.map((par, index) => (
-            <p key={`${par}${index}`} className='lg:text-base text-sm text-primary-dark dark:text-primary-light'>
-              {par}{' '}
+            <p key={`${par}${index}`} className='lg:text-base text-sm dark:text-almost-white text-almost-black'>
+              {par}
             </p>
           ))}
         </div>

@@ -8,7 +8,9 @@ import { Hr, Gb, It, De } from 'react-flags-select';
 import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
 // // import Script from 'next/script';
-import SkalarLogoPotpisHorizontal from '../images/skalar-logo-hor-potpis.svg';
+
+import SkalarLogoBezpotVertical from '../images/scalar-logo-ver-bezpot.svg';
+import SkalarLogoPotHorizontal from '../images/skalar-logo-hor-potpis.svg';
 
 const AppHeader = () => {
   const currentPath = usePathname();
@@ -33,42 +35,42 @@ const AppHeader = () => {
     { title: 'Italiano', lang: 'ita', flag: <It width={24} height={24} /> },
   ];
 
-  const navLinks = {
-    main: [
-      { url: `/${currentLang}`, title: 'Home' },
-      { url: `/${currentLang}/blog`, title: 'Blog' },
-      { url: `/${currentLang}/news`, title: 'News' },
-      { url: `/${currentLang}/about-us`, title: 'About' },
-      { url: `/${currentLang}/contact`, title: 'Contact' },
-      { url: `/${currentLang}/what-to-visit`, title: 'What to visit?' },
-    ],
-    legal: [
-      { url: `/${currentLang}/legal-info`, title: 'Legal info' },
-      { url: `/${currentLang}/company-info`, title: 'Company info' },
-      { url: `/${currentLang}/faq`, title: 'FAQ' },
-    ],
-    resources: [
-      { url: `/${currentLang}/sub-page-5`, title: 'Baza tekstova 5 pasusa' },
-      { url: `/${currentLang}/sub-page-1`, title: 'Baza tekstova 1 modul' },
-      { url: `/${currentLang}/msg-singles`, title: 'Poruke pojedinačno' },
-      { url: `/${currentLang}/hero-sections`, title: 'Hero kompilacija' },
-      { url: `/${currentLang}/maps`, title: 'Mape kompilacija' },
-      { url: `/${currentLang}/schedule`, title: 'Rasporedi' },
-      { url: `/${currentLang}/liste-bullets`, title: 'Liste' },
-    ],
-    other: [
-      { url: `/${currentLang}/360-tours`, title: 'Šetnje' },
-      { url: `/${currentLang}/buttons-compilation`, title: 'Botuni' },
-      { url: `/${currentLang}/radna-vremena`, title: 'Radna vremena' },
-      { url: `/${currentLang}/social-links`, title: 'Društvene mreže' },
-      { url: `/${currentLang}/gallery`, title: 'Galerija' },
-      { url: `/${currentLang}/blog-news-cards`, title: 'Kartice' },
-      { url: `/${currentLang}/locations`, title: 'Lokacije' },
-      { url: `/${currentLang}/notifications-page`, title: 'Obavijesti' },
-      { url: `/${currentLang}/partners`, title: 'Logo partneri' },
-    ],
-    visuals: [{ url: `/${currentLang}/textures-bg`, title: 'Teksture pozadine' }],
-  };
+  // const navLinks = {
+  //   main: [
+  //     { url: `/${currentLang}`, title: 'Home' },
+  //     { url: `/${currentLang}/blog`, title: 'Blog' },
+  //     { url: `/${currentLang}/news`, title: 'News' },
+  //     { url: `/${currentLang}/about-us`, title: 'About' },
+  //     { url: `/${currentLang}/contact`, title: 'Contact' },
+  //     { url: `/${currentLang}/what-to-visit`, title: 'What to visit?' },
+  //   ],
+  //   legal: [
+  //     { url: `/${currentLang}/legal-info`, title: 'Legal info' },
+  //     { url: `/${currentLang}/company-info`, title: 'Company info' },
+  //     { url: `/${currentLang}/faq`, title: 'FAQ' },
+  //   ],
+  //   resources: [
+  //     { url: `/${currentLang}/sub-page-5`, title: 'Baza tekstova 5 pasusa' },
+  //     { url: `/${currentLang}/sub-page-1`, title: 'Baza tekstova 1 modul' },
+  //     { url: `/${currentLang}/msg-singles`, title: 'Poruke pojedinačno' },
+  //     { url: `/${currentLang}/hero-sections`, title: 'Hero kompilacija' },
+  //     { url: `/${currentLang}/maps`, title: 'Mape kompilacija' },
+  //     { url: `/${currentLang}/schedule`, title: 'Rasporedi' },
+  //     { url: `/${currentLang}/liste-bullets`, title: 'Liste' },
+  //   ],
+  //   other: [
+  //     { url: `/${currentLang}/360-tours`, title: 'Šetnje' },
+  //     { url: `/${currentLang}/buttons-compilation`, title: 'Botuni' },
+  //     { url: `/${currentLang}/radna-vremena`, title: 'Radna vremena' },
+  //     { url: `/${currentLang}/social-links`, title: 'Društvene mreže' },
+  //     { url: `/${currentLang}/gallery`, title: 'Galerija' },
+  //     { url: `/${currentLang}/blog-news-cards`, title: 'Kartice' },
+  //     { url: `/${currentLang}/locations`, title: 'Lokacije' },
+  //     { url: `/${currentLang}/notifications-page`, title: 'Obavijesti' },
+  //     { url: `/${currentLang}/partners`, title: 'Logo partneri' },
+  //   ],
+  //   visuals: [{ url: `/${currentLang}/textures-bg`, title: 'Teksture pozadine' }],
+  // };
 
   const handleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -111,75 +113,56 @@ const AppHeader = () => {
           isMobileMenuOpen ? 'opacity-100 pointer-events-auto select-auto' : 'opacity-0 select-none pointer-events-none'
         }`}
       >
-        <ul className='flex flex-col w-max gap-4 relative'>
-          <li className=''>
+        <div className='flex gap-2 items-center justify-start absolute top-6 left-6'>
+          {langs.map((language) => (
             <button
-              id='dropdownNavbarLink'
-              data-dropdown-toggle='dropdownNavbar'
-              className={`flex items-center justify-between dark:text-almost-white ${
-                isDropdownOpen ? 'text-accent' : 'text-almost-black '
-              }`}
-              onClick={toggleDropdown}
+              disabled={currentLang === language.lang}
+              key={language.lang}
+              className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
+              onClick={() => handleLangSwitch(language.lang)}
             >
-              Usluge
-              <svg
-                className={`w-2.5 h-2.5 ms-2.5 transition-all ease-out ${isDropdownOpen && 'rotate-180'}`}
-                aria-hidden='true'
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 10 6'
-              >
-                <path
-                  stroke={isDropdownOpen ? '#FF9A00' : 'currentColor'}
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='m1 1 4 4 4-4'
-                />
-              </svg>
+              {language.flag}
             </button>
-
-            {isDropdownOpen && (
-              <div className='absolute z-20 bg-almost-white dark:bg-almost-black  pr-4 py-6 text-lg w-full inset-0 left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 mt-8'>
-                <ul className='flex flex-col items-start justify-start gap-4 w-full '>
-                  <li>
-                    <a
-                      href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
-                      className='block dark:text-almost-white text-almost-black'
-                    >
-                      Projektiranje
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
-                      className='block dark:text-almost-white text-almost-black'
-                    >
-                      Upravljanje projektima
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
-                      className='block dark:text-almost-white text-almost-black'
-                    >
-                      Stručni nadzor
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
-                      className='block dark:text-almost-white text-almost-black'
-                    >
-                      Tehničko savjetovanje
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
+          ))}
+        </div>
+        <ul className='flex flex-col w-max gap-4 relative'>
+          <li className=' border-b border-b-primary-light/50 dark:text-almost-white/50 text-almost-black/50 font-medium pb-2 w-max'>
+            Usluge
+          </li>
+          <li>
+            <a
+              href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
+              className='block dark:text-almost-white text-almost-black'
+            >
+              Projektiranje
+            </a>
+          </li>
+          <li>
+            <a
+              href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
+              className='block dark:text-almost-white text-almost-black'
+            >
+              Upravljanje projektima
+            </a>
+          </li>
+          <li>
+            <a
+              href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
+              className='block dark:text-almost-white text-almost-black'
+            >
+              Stručni nadzor
+            </a>
+          </li>
+          <li>
+            <a
+              href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
+              className='block dark:text-almost-white text-almost-black'
+            >
+              Tehničko savjetovanje
+            </a>
           </li>
 
-          <li>
+          <li className='pt-4'>
             <a
               href={`/${currentLang}/contact`}
               className='flex items-center justify-between dark:text-almost-white text-almost-black'
@@ -190,36 +173,23 @@ const AppHeader = () => {
         </ul>
 
         <div className='flex flex-col items-center justify-start gap-12'>
-          <div className='flex gap-2 items-center justify-start'>
-            {langs.map((language) => (
-              <button
-                disabled={currentLang === language.lang}
-                key={language.lang}
-                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
-                onClick={() => handleLangSwitch(language.lang)}
-              >
-                {language.flag}
-              </button>
-            ))}
-          </div>
-
           <div
             onClick={handleTheme}
-            className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear flex items-center justify-start gap-2 py-2 px-1 w-max'
+            className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear flex items-center justify-start gap-2 py-1 px-1 w-max'
           >
-            {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
-            <span className='text-almost-black dark:text-almost-white'>
+            {theme === 'light' ? <SunIcon size={16} color='#181816' /> : <MoonIcon size={16} color='#F8F7F2' />}
+            <span className='text-almost-black dark:text-almost-white text-xs'>
               {theme === 'light' ? 'standardno' : 'nočni način'}
             </span>
           </div>
 
           <a href={`/${currentLang}`} className=''>
             <Image
-              src={SkalarLogoPotpisHorizontal}
+              src={SkalarLogoBezpotVertical}
               width={300}
               height={300}
               alt='Scalar logo'
-              className='object-cover object-center '
+              className='object-cover object-center block'
             />
           </a>
         </div>
@@ -229,7 +199,7 @@ const AppHeader = () => {
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <a href={`/${currentLang}`} className=''>
           <Image
-            src={SkalarLogoPotpisHorizontal}
+            src={SkalarLogoPotHorizontal}
             width={150}
             height={150}
             alt='Scalar logo'
@@ -238,7 +208,7 @@ const AppHeader = () => {
         </a>
         <div className='w-min z-40 md:hidden block'>
           <Hamburger
-            color={theme === 'light' ? '#181816' : theme === 'dark' && isMobileMenuOpen ? '#F8F7F2' : '#181816'}
+            color={theme === 'light' ? '#181816' : theme === 'dark' && isMobileMenuOpen ? '#F8F7F2' : '#F8F7F2'}
             onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           />
         </div>

@@ -14,7 +14,7 @@ const ServiceCard = ({ url, imgSource, title, subtitle, intro }: DefaultServiceC
   return (
     <a
       href={url}
-      className='flex flex-col items-center bg-almost-white border border-almost-black/5 rounded-sm shadow md:max-w-xs  dark:border-almost-white/15 dark:bg-primary-dark  w-full group transition-all ease-in-out hover:border-accent dark:hover:border-accent hover:scale-105'
+      className='flex flex-col items-center bg-almost-white border border-almost-black/5 rounded-sm shadow md:max-w-xs  dark:border-accent/50 dark:bg-almost-black  w-full group transition-all ease-in-out hover:border-accent dark:hover:border-accent hover:scale-105'
     >
       <Image
         className='object-cover w-full h-full block object-center'

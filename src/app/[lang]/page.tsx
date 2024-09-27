@@ -25,7 +25,7 @@ const UslugeSection = dynamic(() => import('./UslugeSection'));
 // const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
 // const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
 // const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
-const HeroSection = dynamic(() => import('./HeroSection'));
+const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
 const AboutUsSection = dynamic(() => import('./AboutUsSection'));
 const BannerSectionContact = dynamic(() => import('./BannerSectionContact'), { ssr: false });
 const IzdvojeneReference = dynamic(() => import('./IzdvojeneReference'));

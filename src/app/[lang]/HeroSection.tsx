@@ -6,20 +6,23 @@ import Image from 'next/image';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import scalarOverlayHero from '../images/scalar-hero-page-lines.png';
 import scalarHeroBg from '../images/scalar-hero-page-bg.png';
+import scalarHeroMobile from '../images/scalar-hero-mobile.jpg';
+import { useWindowSize } from '@uidotdev/usehooks';
 const HeroSection = ({ lang }: { lang: string }) => {
+  const { width: ClientW } = useWindowSize();
   const background: BannerLayer = {
     translateY: [-5, 15],
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className='w-full h-full relative'>
         <Image
-          src={scalarHeroBg}
+          src={ClientW! > 1200 ? scalarHeroBg : scalarHeroMobile}
           alt='page background'
           placeholder='blur'
           blurDataURL={scalarHeroBg.blurDataURL}
           fill
-          className='object-left-bottom block'
-          loading='eager'
+          className='object-left-bottom block w-full h-full'
+          priority
         />
       </div>
     ),
@@ -34,6 +37,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
         fill
         alt='hero-overlay'
         className='w-full h-full absolute object-cover object-center inset-0 block'
+        priority
       />
     ),
   };
@@ -44,8 +48,8 @@ const HeroSection = ({ lang }: { lang: string }) => {
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className='flex flex-col justify-center items-center absolute inset-0 z-10 w-full h-full'>
-        <div className='flex flex-col items-start max-w-max pl-[40%]'>
-          <h1 className='max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-5xl text-accent text-balance'>
+        <div className='flex flex-col items-start max-w-max xl:pl-[40%] lg:pl-[35%] md:pl-[30%] pl-[10%]'>
+          <h1 className='xl:max-w-2xl lg:max-w-xl md:max-w-sm max-w-xs mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-5xl text-accent text-balance '>
             {`SCALAR - Vaš partner u\ninvesticijama u građevini`}
           </h1>
 
