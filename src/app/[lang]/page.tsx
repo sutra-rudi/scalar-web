@@ -48,7 +48,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     return (
       <Suspense>
         <ClientHeader />
-        <main className='relative w-full dark:bg-almost-black '>
+        <main className='relative w-full dark:bg-almost-black min-h-screen'>
           <Suspense>
             <HeroSection lang={lang} />
           </Suspense>

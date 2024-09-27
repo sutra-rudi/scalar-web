@@ -4,14 +4,13 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import Script from 'next/script';
 import dynamic from 'next/dynamic';
 import { getAllUslugeQuery } from '@/app/queries/getAllUslugeQuery';
-import { Suspense } from 'react';
-import PageContent from './PageContent';
+import { lazy, Suspense } from 'react';
 import UslugeSection from '../../UslugeSection';
 import ScalarContact from '@/app/components/ScalarContact';
 import AppFooter from '@/app/globalComponents/AppFooter';
 
 const ClientHeader = dynamic(() => import('../../../globalComponents/AppHeader'), { ssr: false });
-
+const PageContent = lazy(() => import('./PageContent'));
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
@@ -110,17 +109,23 @@ export default async function SingleServiceOfferPage({
       <ClientHeader />
       <main className='w-full relative'>
         {contentForPage && (
-          <PageContent
-            textContent={prepareIntroText}
-            introImages={prepareIntroImages}
-            gallery={prepareGallery}
-            tags={prepareTags}
-            attributes={prepareAttributes}
-            pageContent={contentForPage}
-          />
+          <Suspense>
+            <PageContent
+              textContent={prepareIntroText}
+              introImages={prepareIntroImages}
+              gallery={prepareGallery}
+              tags={prepareTags}
+              attributes={prepareAttributes}
+              pageContent={contentForPage}
+            />
+          </Suspense>
         )}
-        <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-        <ScalarContact isPage={false} />
+        <Suspense>
+          <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+        </Suspense>
+        <Suspense>
+          <ScalarContact isPage={false} />
+        </Suspense>
         <Script
           id='schema-org-single-service'
           type='application/ld+json'
