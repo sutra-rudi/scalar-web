@@ -74,7 +74,8 @@ const HeroSection = ({ lang }: { lang: string }) => {
 
   return (
     <section className='w-full min-h-fit'>
-      <ParallaxBanner className='w-full h-screen relative overflow-hidden' layers={layers} />
+      HERO
+      {/* <ParallaxBanner className='w-full h-screen relative overflow-hidden' layers={layers} /> */}
     </section>
   );
 };
