@@ -2,8 +2,6 @@ export const maxDuration = 60;
 
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import Loading from '../loading';
-
 import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
 import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
@@ -25,9 +23,9 @@ const UslugeSection = dynamic(() => import('./UslugeSection'));
 // const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
 // const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
 // const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
-const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
+const HeroSection = dynamic(() => import('./HeroSection'));
 const AboutUsSection = dynamic(() => import('./AboutUsSection'));
-const BannerSectionContact = dynamic(() => import('./BannerSectionContact'), { ssr: false });
+const BannerSectionContact = dynamic(() => import('./BannerSectionContact'));
 const IzdvojeneReference = dynamic(() => import('./IzdvojeneReference'));
 
 // const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
@@ -116,7 +114,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     // const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null;
 
     return (
-      <Suspense fallback={<Loading />}>
+      <Suspense>
         <main className='relative w-full dark:bg-almost-black '>
           <HeroSection lang={lang} />
 
