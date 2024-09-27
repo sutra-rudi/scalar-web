@@ -1,16 +1,16 @@
 export const maxDuration = 60;
 
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
-import HeroSection from './HeroSection';
-import AboutUsSection from './AboutUsSection';
-import BannerSectionContact from './BannerSectionContact';
-import IzdvojeneReference from './IzdvojeneReference';
-import UslugeSection from './UslugeSection';
-import AppFooter from '../globalComponents/AppFooter';
 
 const ClientHeader = dynamic(() => import('../globalComponents/AppHeader'), { ssr: false });
+const HeroSection = lazy(() => import('./HeroSection'));
+const AboutUsSection = lazy(() => import('./AboutUsSection'));
+const BannerSectionContact = lazy(() => import('./BannerSectionContact'));
+const IzdvojeneReference = lazy(() => import('./IzdvojeneReference'));
+const UslugeSection = lazy(() => import('./UslugeSection'));
+const AppFooter = lazy(() => import('./../globalComponents/AppFooter'));
 
 async function fetchData(query: any, noCache: boolean = false) {
   try {
@@ -49,11 +49,23 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <Suspense>
         <ClientHeader />
         <main className='relative w-full dark:bg-almost-black '>
-          <HeroSection lang={lang} />
-          <AboutUsSection />
-          {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
-          <BannerSectionContact lang={lang} />
-          <IzdvojeneReference params={{ lang }} />
+          <Suspense>
+            <HeroSection lang={lang} />
+          </Suspense>
+          <Suspense>
+            <AboutUsSection />
+          </Suspense>
+          {uslugeDataArrayShorthand.length > 0 && (
+            <Suspense>
+              <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+            </Suspense>
+          )}
+          <Suspense>
+            <BannerSectionContact lang={lang} />
+          </Suspense>
+          <Suspense>
+            <IzdvojeneReference params={{ lang }} />
+          </Suspense>
         </main>
         <AppFooter />
       </Suspense>

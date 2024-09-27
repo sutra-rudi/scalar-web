@@ -22,7 +22,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
           blurDataURL={scalarHeroBg.blurDataURL}
           fill
           className='object-left-bottom block'
-          loading='lazy'
+          priority
         />
       </div>
     ),
@@ -40,7 +40,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
         className='absolute object-cover object-center inset-0 block'
         placeholder='blur'
         blurDataURL={scalarOverlayHero.blurDataURL}
-        loading='lazy'
+        priority
       />
     ),
   };
