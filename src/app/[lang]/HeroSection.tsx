@@ -62,7 +62,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
         className='absolute object-cover object-center inset-0 block'
         placeholder='blur'
         blurDataURL={scalarOverlayHero.blurDataURL}
-        priority={false} // Set to false as this is less important
+        priority
       />
     ),
   };

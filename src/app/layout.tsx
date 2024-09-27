@@ -154,8 +154,6 @@ export const metadata: Metadata = {
     ],
   },
 
-  manifest: '/site.webmanifest',
-
   verification: {
     google: 'google-site-verification-code',
     yandex: 'yandex-site-verification-code',
