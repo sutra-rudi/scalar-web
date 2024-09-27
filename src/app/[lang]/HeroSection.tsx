@@ -11,7 +11,7 @@ import { useWindowSize } from '@uidotdev/usehooks';
 const HeroSection = ({ lang }: { lang: string }) => {
   const { width: ClientW } = useWindowSize();
   const background: BannerLayer = {
-    translateY: [-5, 15],
+    translateY: [0, 15],
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className='w-full h-full relative'>
@@ -21,15 +21,15 @@ const HeroSection = ({ lang }: { lang: string }) => {
           placeholder='blur'
           blurDataURL={scalarHeroBg.blurDataURL}
           fill
-          className='object-left-bottom block w-full h-full'
-          priority
+          className='object-left-bottom block'
+          loading='lazy'
         />
       </div>
     ),
   };
 
   const overlay: BannerLayer = {
-    translateY: [0, 60],
+    translateY: [0, 30],
     shouldAlwaysCompleteAnimation: true,
     easing: 'easeOutQuad',
     children: (
@@ -37,10 +37,10 @@ const HeroSection = ({ lang }: { lang: string }) => {
         src={scalarOverlayHero}
         fill
         alt='hero-overlay'
-        className='w-full h-full absolute object-cover object-center inset-0 block'
-        priority
+        className='absolute object-cover object-center inset-0 block'
         placeholder='blur'
         blurDataURL={scalarOverlayHero.blurDataURL}
+        loading='lazy'
       />
     ),
   };
