@@ -73,8 +73,8 @@ const HeroSection = ({ lang }: { lang: string }) => {
   const layers = [background, overlay, foreground];
 
   return (
-    <section className='w-full min-h-fit'>
-      HERO
+    <section className='w-full min-h-screen'>
+      <h2>HERO PLACE</h2>
       {/* <ParallaxBanner className='w-full h-screen relative overflow-hidden' layers={layers} /> */}
     </section>
   );
