@@ -8,10 +8,12 @@ const paragraphs = [
   'Za usluge u područjima stručnosti koje ne možemo ispuniti u okvirima tvrtke, imamo stalne vanjske partnere s dugogodišnjim iskustvom u svojim područjima.',
 ];
 
+import scalarCEO from '../images/scalar-owner.png';
+
 const AboutUsSection = () => {
   return (
     <section className='w-full'>
-      <div className='flex items-start gap-24 justify-center max-w-screen-2xl mx-auto md:flex-nowrap flex-wrap md:px-0 px-4'>
+      <div className='flex items-start gap-24 justify-center max-w-screen-2xl mx-auto md:flex-nowrap flex-wrap  px-4'>
         <div className='max-w-prose prose mt-12'>
           <h2>O nama</h2>
           {paragraphs.map((par, index) => (
@@ -20,12 +22,12 @@ const AboutUsSection = () => {
         </div>
 
         <Image
-          src={
-            'https://www.scalar.hr/img/PL__8720-%20%282023-03-24%29%204000%20x%206000%20%2885%20mm%20%29%20ISO%20100%20%201-2500%20sec%20at%20f%20-%201,8.webp'
-          }
+          src={scalarCEO}
+          placeholder='blur'
           width={596}
           height={892}
           alt='scalar man'
+          className='object-cover aspect-[9/16] object-center'
         />
       </div>
     </section>

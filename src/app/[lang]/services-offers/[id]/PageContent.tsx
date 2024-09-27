@@ -20,7 +20,7 @@ interface ServicesOffersInterface {
 const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: ServicesOffersInterface) => {
   // const prepAttr = Object.values(attributes);
 
-  const isGalleryEmpty = React.useMemo(() => gallery.every((item) => item === null), []);
+  const isGalleryEmpty = React.useMemo(() => gallery.every((item) => item === null), [gallery]);
 
   return (
     <article className='mx-auto my-0 w-full py-8'>

@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import { SutraButtonBase } from './SutraButton';
+import { useFormspark } from '@formspark/use-formspark';
 
 interface ScalarContact {
   isPage: boolean;
@@ -19,10 +20,16 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
     reset,
   } = useForm();
 
+  const [submit, submitting] = useFormspark({
+    formId: '9DolWOCtL',
+  });
+
   // Funkcija koja se pokreće kada je forma uspješno podnesena
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: any, event: any) => {
+    event.preventDefault();
     try {
       // await axios.post(FORMSPARK_URL, data);
+      await submit({ ...data });
       reset();
       toast.success(`Hvala na svemu!, ${JSON.stringify(data)}`);
     } catch (error) {
