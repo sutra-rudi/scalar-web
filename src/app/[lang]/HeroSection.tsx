@@ -8,10 +8,11 @@ import scalarOverlayHero from '../images/scalar-hero-page-lines.png';
 import scalarHeroBg from '../images/scalar-hero-page-bg.jpg';
 import scalarHeroMobile from '../images/scalar-hero-mobile.jpg';
 import { useWindowSize } from '@uidotdev/usehooks';
+import { useParallaxController } from 'react-scroll-parallax';
 
 const HeroSection = ({ lang }: { lang: string }) => {
   const { width: ClientW } = useWindowSize();
-
+  const paraContrer = useParallaxController();
   const background: BannerLayer = {
     translateY: [0, 10],
     shouldAlwaysCompleteAnimation: true,
@@ -26,6 +27,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
           className='object-left-bottom block'
           priority
           sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
+          onLoadingComplete={() => paraContrer?.update()}
         />
       </div>
     ),
@@ -44,6 +46,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
         placeholder='blur'
         blurDataURL={scalarOverlayHero.blurDataURL}
         priority
+        onLoadingComplete={() => paraContrer?.update()}
       />
     ),
   };
