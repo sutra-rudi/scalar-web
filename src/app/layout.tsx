@@ -7,7 +7,7 @@ import { UserLanguage } from './enums/LangEnum';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import { Providers } from './providers';
-import { getAdminTokensQuery } from './queries/getAdminTokens';
+// import { getAdminTokensQuery } from './queries/getAdminTokens';
 
 // import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
@@ -251,33 +251,33 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  async function fetchAdminTokens() {
-    try {
-      const response = await fetch(`${process.env.CMS_BASE_URL}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          query: getAdminTokensQuery(),
-        }),
-      });
+  // async function fetchAdminTokens() {
+  //   try {
+  //     const response = await fetch(`${process.env.CMS_BASE_URL}`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         query: getAdminTokensQuery(),
+  //       }),
+  //     });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Response error:', errorText);
-        throw new Error(`Fetch error: ${response.statusText}`);
-      }
+  //     if (!response.ok) {
+  //       const errorText = await response.text();
+  //       console.error('Response error:', errorText);
+  //       throw new Error(`Fetch error: ${response.statusText}`);
+  //     }
 
-      const data = await response.json();
-      const adminTokenDataShorthand = data?.data?.kodoviApitokenStylebox?.edges[0]?.node;
+  //     const data = await response.json();
+  //     const adminTokenDataShorthand = data?.data?.kodoviApitokenStylebox?.edges[0]?.node;
 
-      return adminTokenDataShorthand;
-    } catch (error: any) {
-      console.error('Fetch error:', error.message);
-      throw error;
-    }
-  }
+  //     return adminTokenDataShorthand;
+  //   } catch (error: any) {
+  //     console.error('Fetch error:', error.message);
+  //     throw error;
+  //   }
+  // }
 
   // const adminTokenDataShorthand = await fetchAdminTokens();
 
@@ -351,7 +351,7 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full antialiased'
+      className='scrollbar scrollbar-thumb-accent scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full antialiased'
     >
       <body className={`${roboto.className} w-full h-full md:pt-0 pt-12 relative bg-almost-white dark:bg-almost-black`}>
         {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} />

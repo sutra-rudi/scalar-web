@@ -7,7 +7,8 @@ import toast from 'react-hot-toast';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import { SutraButtonBase } from './SutraButton';
 import { useFormspark } from '@formspark/use-formspark';
-
+import scalarContactOverlay from '../images/scalar-contact-overlay.jpg';
+import scalarOverlayHero from '../images/scalar-hero-page-lines.png';
 interface ScalarContact {
   isPage: boolean;
 }
@@ -52,13 +53,29 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
     children: (
       <div className='relative w-full h-full'>
         <Image
-          src={'https://www.scalar.hr/img/construction-workers-sunset.jpg'}
+          src={scalarContactOverlay}
+          placeholder='blur'
+          blurDataURL={scalarContactOverlay.blurDataURL}
           alt='Scalar banner'
           fill
           className='object-cover object-center block z-10'
         />
         <div className='absolute inset-0 bg-almost-black/40 z-20'></div>
       </div>
+    ),
+  };
+
+  const overlay: BannerLayer = {
+    children: (
+      <Image
+        src={scalarOverlayHero}
+        fill
+        alt='hero-overlay'
+        className='w-full h-full absolute object-cover object-center inset-0 block'
+        placeholder='blur'
+        blurDataURL={scalarOverlayHero.blurDataURL}
+        loading='lazy'
+      />
     ),
   };
 
@@ -141,7 +158,7 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
   return (
     <section className={`bg-white dark:bg-almost-black w-full ${isPage && 'min-h-screen'}`}>
       <ParallaxBanner
-        layers={[background, foreground]}
+        layers={[background, overlay, foreground]}
         className={`w-full relative h-[600px] ${isPage && 'h-screen'}`}
       />
     </section>
