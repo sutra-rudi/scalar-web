@@ -1,8 +1,8 @@
 export const maxDuration = 60;
 
 import { lazy, Suspense } from 'react';
-import dynamic from 'next/dynamic';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
+import dynamic from 'next/dynamic';
 
 const ClientHeader = dynamic(() => import('../globalComponents/AppHeader'), { ssr: false });
 const HeroSection = lazy(() => import('./HeroSection'));
@@ -37,11 +37,13 @@ async function fetchData(query: any, noCache: boolean = false) {
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   try {
-    const queries = [getAllUslugeQuery(lang)];
+    // const queries = [getAllUslugeQuery(lang)];
 
-    const results = await Promise.all([fetchData(queries[0])]);
+    // const results = await Promise.all([fetchData(queries[0])]);
 
-    const [getAllUsluge] = results;
+    // const [getAllUsluge] = results;
+
+    const getAllUsluge = await fetchData(getAllUslugeQuery(lang));
 
     const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
 
@@ -55,11 +57,11 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           <Suspense>
             <AboutUsSection />
           </Suspense>
-          {uslugeDataArrayShorthand.length > 0 && (
-            <Suspense>
+          <Suspense>
+            {uslugeDataArrayShorthand.length > 0 && (
               <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-            </Suspense>
-          )}
+            )}
+          </Suspense>
           <Suspense>
             <BannerSectionContact lang={lang} />
           </Suspense>

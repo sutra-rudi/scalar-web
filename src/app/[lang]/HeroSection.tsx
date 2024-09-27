@@ -12,7 +12,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
   const { width: ClientW } = useWindowSize();
   const background: BannerLayer = {
     translateY: [0, 15],
-    shouldAlwaysCompleteAnimation: true,
+    shouldAlwaysCompleteAnimation: false,
     children: (
       <div className='w-full h-full relative'>
         <Image
@@ -30,7 +30,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
 
   const overlay: BannerLayer = {
     translateY: [0, 30],
-    shouldAlwaysCompleteAnimation: true,
+    shouldAlwaysCompleteAnimation: false,
     easing: 'easeOutQuad',
     children: (
       <Image
@@ -48,7 +48,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
   const foreground: BannerLayer = {
     translateY: [0, 10],
     translateX: [0, 5],
-    shouldAlwaysCompleteAnimation: true,
+    shouldAlwaysCompleteAnimation: false,
     children: (
       <div className='flex flex-col justify-center items-center absolute inset-0 z-10 w-full h-full'>
         <div className='flex flex-col items-start max-w-max xl:pl-[40%] lg:pl-[35%] md:pl-[30%] pl-[10%]'>

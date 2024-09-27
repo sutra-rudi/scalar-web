@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { FaLinkedin as LinkedInIcon, FaRegEnvelope as MailIcon, FaUser as UserIcon } from 'react-icons/fa';
 import { FaLocationDot as LocationIcon } from 'react-icons/fa6';
 import { PiBankFill as BankIcon } from 'react-icons/pi';
-
+import ScalarLogoVer from '../images/scalar-logo-ver-bezpot.svg';
 export default function AppFooter() {
   // const getAllSocialLinks = await fetch(`${process.env.CMS_BASE_URL}`, {
   //   method: 'POST',
@@ -25,7 +25,7 @@ export default function AppFooter() {
     <footer className='w-full bg-primary-dark dark:bg-secondary-dark py-12'>
       <div className='container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col justify-between sm:gap-0 gap-4'>
         <div className='flex gap-16 items-start lg:justify-start justify-center lg:flex-nowrap flex-wrap'>
-          <Image src={'https://www.scalar.hr/img/vertical%20scalar.svg'} width={150} height={150} alt='app logo' />
+          <Image src={ScalarLogoVer} width={250} height={250} alt='app logo' loading='lazy' />
 
           <div className='text-primary-light flex items-start justify-start flex-col'>
             <p className='text-base leading-normal font-medium pb-4'>SCALAR d.o.o. za nadzor i savjetovanje</p>

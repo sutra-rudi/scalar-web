@@ -7,9 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     sitemap:
-      'https://sutra-mastodont.vercel.app/hr/sitemap.xml' ||
-      'https://sutra-mastodont.vercel.app/eng/sitemap.xml' ||
-      'https://sutra-mastodont.vercel.app/ger/sitemap.xml' ||
-      'https://sutra-mastodont.vercel.app/ita/sitemap.xml',
+      'https://scalar-web.vercel.app/hr/sitemap.xml' ||
+      'https://scalar-web.vercel.app/eng/sitemap.xml' ||
+      'https://scalar-web.vercel.app/ger/sitemap.xml' ||
+      'https://scalar-web.vercel.app/ita/sitemap.xml',
   };
 }

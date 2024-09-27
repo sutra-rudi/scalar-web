@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.scss';
-
 import { cookies } from 'next/headers';
 import { UserLanguage } from './enums/LangEnum';
 import { Toaster } from 'react-hot-toast';
