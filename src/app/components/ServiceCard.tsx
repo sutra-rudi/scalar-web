@@ -14,7 +14,7 @@ const ServiceCard = ({ url, imgSource, title, subtitle, intro }: DefaultServiceC
   return (
     <a
       href={url}
-      className='flex flex-col items-center bg-almost-white border border-almost-black rounded-lg shadow md:max-w-xs hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full group'
+      className='flex flex-col items-center bg-almost-white border border-almost-black/5 rounded-sm shadow md:max-w-xs  dark:border-almost-white/15 dark:bg-primary-dark  w-full group transition-all ease-in-out hover:border-accent dark:hover:border-accent hover:scale-105'
     >
       <Image
         className='object-cover w-full h-full block object-center'
@@ -26,10 +26,12 @@ const ServiceCard = ({ url, imgSource, title, subtitle, intro }: DefaultServiceC
 
       <div className='p-4'>
         <div className='flex flex-col justify-between  leading-normal w-full md:w-64 prose'>
-          <h5 className='mb-1 text-2xl font-bold tracking-tight text-balance text-gray-900 dark:text-white'>{title}</h5>
-          <p className='mb-1 line-clamp-4 max-w-[25ch] font-normal text-gray-700 dark:text-gray-400'>{subtitle}</p>
+          <h5 className='mb-1 text-2xl font-bold tracking-tight text-balance text-primary-dark dark:text-white'>
+            {title}
+          </h5>
+          <p className='mb-1 line-clamp-4 max-w-[25ch] font-normal text-primary-dark dark:text-white'>{subtitle}</p>
 
-          <div className='transition-all ease-out duration-150 prose mb-3 line-clamp-2 opacity-40 group-hover:opacity-100'>
+          <div className='transition-all ease-out duration-150 prose mb-3 line-clamp-2 opacity-40  text-primary-dark dark:text-white group-hover:opacity-100'>
             {parse(intro)}
           </div>
 
