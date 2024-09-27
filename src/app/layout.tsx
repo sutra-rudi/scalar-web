@@ -4,7 +4,6 @@ import './globals.scss';
 
 import { cookies } from 'next/headers';
 import { UserLanguage } from './enums/LangEnum';
-import AppFooter from './globalComponents/AppFooter';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import { Providers } from './providers';
@@ -18,7 +17,6 @@ import { getAdminTokensQuery } from './queries/getAdminTokens';
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });
 // import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
-import dynamic from 'next/dynamic';
 
 export const viewport: Viewport = {
   themeColor: '#FF9A00', // Main theme color
@@ -347,8 +345,6 @@ export default async function RootLayout({
 
   // const schemaBasicData = generateSeoSchemaOrg(parseSchemaData);
 
-  const ClientHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
-
   const cookieStore = cookies();
   const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
 
@@ -366,11 +362,11 @@ export default async function RootLayout({
           <GoogleTagManager gtmId={adminTokenDataShorthand.kodoviAdminApi.googleTagManager} />
         )} */}
 
-        <ClientHeader />
         <Toaster />
-        <Providers>{children}</Providers>
 
-        <AppFooter />
+        <Suspense>
+          <Providers>{children}</Providers>
+        </Suspense>
 
         {/* {parseSchemaData && (
           <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaBasicData }} />

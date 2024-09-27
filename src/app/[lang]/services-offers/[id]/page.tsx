@@ -4,7 +4,12 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import Script from 'next/script';
 import dynamic from 'next/dynamic';
 import { getAllUslugeQuery } from '@/app/queries/getAllUslugeQuery';
-
+import { Suspense } from 'react';
+const LazyContent = dynamic(() => import('./PageContent'));
+const UslugeSection = dynamic(() => import('../../UslugeSection'));
+const ScalarContact = dynamic(() => import('@/app/components/ScalarContact'));
+const ClientHeader = dynamic(() => import('../../../globalComponents/AppHeader'), { ssr: false });
+const ClientFooter = dynamic(() => import('../../../globalComponents/AppFooter'), { ssr: false });
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
@@ -98,29 +103,29 @@ export default async function SingleServiceOfferPage({
 
   const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
 
-  const LazyContent = dynamic(() => import('./PageContent'));
-  const UslugeSection = dynamic(() => import('../../UslugeSection'));
-  const ScalarContact = dynamic(() => import('@/app/components/ScalarContact'));
-
   return (
-    <main className='w-full relative min-h-screen'>
-      {contentForPage && (
-        <LazyContent
-          textContent={prepareIntroText}
-          introImages={prepareIntroImages}
-          gallery={prepareGallery}
-          tags={prepareTags}
-          attributes={prepareAttributes}
-          pageContent={contentForPage}
+    <Suspense>
+      <ClientHeader />
+      <main className='w-full relative'>
+        {contentForPage && (
+          <LazyContent
+            textContent={prepareIntroText}
+            introImages={prepareIntroImages}
+            gallery={prepareGallery}
+            tags={prepareTags}
+            attributes={prepareAttributes}
+            pageContent={contentForPage}
+          />
+        )}
+        <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+        <ScalarContact isPage={false} />
+        <Script
+          id='schema-org-single-service'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
         />
-      )}
-      <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-      <ScalarContact isPage={false} />
-      <Script
-        id='schema-org-single-service'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
-      />
-    </main>
+      </main>
+      <ClientFooter />
+    </Suspense>
   );
 }

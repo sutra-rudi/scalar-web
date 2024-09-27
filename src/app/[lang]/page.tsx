@@ -28,6 +28,9 @@ const AboutUsSection = dynamic(() => import('./AboutUsSection'));
 const BannerSectionContact = dynamic(() => import('./BannerSectionContact'));
 const IzdvojeneReference = dynamic(() => import('./IzdvojeneReference'));
 
+const ClientHeader = dynamic(() => import('../globalComponents/AppHeader'), { ssr: false });
+const ClientFooter = dynamic(() => import('../globalComponents/AppFooter'), { ssr: false });
+
 // const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
 async function fetchData(query: any, noCache: boolean = false) {
@@ -115,6 +118,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <Suspense>
+        <ClientHeader />
         <main className='relative w-full dark:bg-almost-black '>
           <HeroSection lang={lang} />
 
@@ -153,6 +157,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
             <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
           )} */}
         </main>
+        <ClientFooter />
       </Suspense>
     );
   } catch (error) {
