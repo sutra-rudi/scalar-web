@@ -2,18 +2,18 @@ export const maxDuration = 60;
 
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
-import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
+// import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
+// import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
-import { getAllLogotipiPartneraQuery } from '../queries/getAllLogotipiPartnera';
-import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
-import { getAllIskustvaKlijenataQuery } from '../queries/getAllIskustvaKlijenataQuery';
-import { getWhyUsQuery } from '../queries/getAllWhyUsQuery';
-import { getObavijestiNaStraniciQuery } from '../queries/getAllObavijestiQuery';
-import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
-import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
-import { getTagsQuery } from '../queries/getAllTagsQuery';
-import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
+// import { getAllLogotipiPartneraQuery } from '../queries/getAllLogotipiPartnera';
+// import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
+// import { getAllIskustvaKlijenataQuery } from '../queries/getAllIskustvaKlijenataQuery';
+// import { getWhyUsQuery } from '../queries/getAllWhyUsQuery';
+// import { getObavijestiNaStraniciQuery } from '../queries/getAllObavijestiQuery';
+// import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
+// import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
+// import { getTagsQuery } from '../queries/getAllTagsQuery';
+// import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
 
 // const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 // const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
@@ -59,48 +59,48 @@ async function fetchData(query: any, noCache: boolean = false) {
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   try {
     const queries = [
-      getAllBlogsQuery(lang),
-      getAllBrojcaniciQuery(lang),
+      // getAllBlogsQuery(lang),
+      // getAllBrojcaniciQuery(lang),
       getAllUslugeQuery(lang),
-      getAllLogotipiPartneraQuery(),
-      getAllCarouselBaseQuery(),
-      getAllIskustvaKlijenataQuery(lang),
-      getWhyUsQuery(lang),
-      getObavijestiNaStraniciQuery(lang),
-      getDokumentikataloziQuery(lang),
-      getCategoriesQuery(lang),
-      getTagsQuery(lang),
-      getAdminCtaSelectionQuery(),
+      // getAllLogotipiPartneraQuery(),
+      // getAllCarouselBaseQuery(),
+      // getAllIskustvaKlijenataQuery(lang),
+      // getWhyUsQuery(lang),
+      // getObavijestiNaStraniciQuery(lang),
+      // getDokumentikataloziQuery(lang),
+      // getCategoriesQuery(lang),
+      // getTagsQuery(lang),
+      // getAdminCtaSelectionQuery(),
     ];
 
     const results = await Promise.all([
       fetchData(queries[0]),
-      fetchData(queries[1]),
-      fetchData(queries[2]),
-      fetchData(queries[3]),
-      fetchData(queries[4]),
-      fetchData(queries[5]),
-      fetchData(queries[6]),
-      fetchData(queries[7]),
-      fetchData(queries[8]),
-      fetchData(queries[9]),
-      fetchData(queries[10]),
-      fetchData(queries[11]),
+      // fetchData(queries[1]),
+      // fetchData(queries[2]),
+      // fetchData(queries[3]),
+      // fetchData(queries[4]),
+      // fetchData(queries[5]),
+      // fetchData(queries[6]),
+      // fetchData(queries[7]),
+      // fetchData(queries[8]),
+      // fetchData(queries[9]),
+      // fetchData(queries[10]),
+      // fetchData(queries[11]),
     ]);
 
     const [
-      getAllBlogs,
-      getAllBrojcanici,
+      // getAllBlogs,
+      // getAllBrojcanici,
       getAllUsluge,
-      getAllPartnersLogos,
-      getAllCarouselBase,
-      getAllIskustvaKlijenata,
-      getAllWhyUs,
-      getAllObavijesti,
-      getAllDocuments,
-      getAllCategories,
-      getAllTags,
-      getAllAdminCtaSelection,
+      // getAllPartnersLogos,
+      // getAllCarouselBase,
+      // getAllIskustvaKlijenata,
+      // getAllWhyUs,
+      // getAllObavijesti,
+      // getAllDocuments,
+      // getAllCategories,
+      // getAllTags,
+      // getAllAdminCtaSelection,
     ] = results;
 
     // const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || [];
