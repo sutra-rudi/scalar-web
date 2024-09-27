@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.scss';
 
@@ -8,8 +8,8 @@ import AppFooter from './globalComponents/AppFooter';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import { Providers } from './providers';
-import { appleTouchIcons, favicons } from './pathsUtils/mediaImportsDynamic';
 import { getAdminTokensQuery } from './queries/getAdminTokens';
+
 // import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
 // import Script from 'next/script';
@@ -20,83 +20,103 @@ const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });
 // import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
 import dynamic from 'next/dynamic';
 
+export const viewport: Viewport = {
+  themeColor: '#FF9A00', // Main theme color
+  colorScheme: 'light', // Define light mode
+  initialScale: 1,
+  userScalable: true,
+  maximumScale: 3,
+  width: 'device-width',
+};
 export const metadata: Metadata = {
   title: 'Scalar',
   description: 'Vaš partner u investicijama u građevini',
 
+  // Favicons
   icons: [
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '196x196',
-      url: favicons['196x196'],
+      url: '/favicon-196x196.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '96x96',
-      url: favicons['96x96'],
+      url: '/favicon-96x96.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '32x32',
-      url: favicons['32x32'],
+      url: '/favicon-32x32.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '16x16',
-      url: favicons['16x16'],
+      url: '/favicon-16x16.png',
     },
     {
-      rel: 'icon',
+      rel: 'apple-touch-icon',
       type: 'image/png',
-      sizes: '128x128',
-      url: favicons['128x128'],
-    },
-    // Apple Touch Icons
-    {
-      rel: 'apple-touch-icon',
-      sizes: '57x57',
-      url: appleTouchIcons['57x57'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '114x114',
-      url: appleTouchIcons['114x114'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '72x72',
-      url: appleTouchIcons['72x72'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '144x144',
-      url: appleTouchIcons['144x144'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '60x60',
-      url: appleTouchIcons['60x60'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '120x120',
-      url: appleTouchIcons['120x120'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '76x76',
-      url: appleTouchIcons['76x76'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '152x152',
-      url: appleTouchIcons['152x152'],
+      sizes: '180x180',
+      url: '/apple-touch-icon.png',
     },
   ],
+
+  // SEO metadata
+  keywords: 'investicije, građevina, projektiranje, partner, Scalar',
+  authors: {
+    url: 'https://www.scalar.hr',
+    name: "'Scalar d.o.o.'",
+  },
+  robots: 'index, follow', // Allow indexing and following
+  applicationName: 'Scalar Investicije', // Name of the web app
+  // viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no', // Mobile responsiveness
+
+  // Open Graph (OG) metadata for social media
+  openGraph: {
+    type: 'website',
+    url: 'https://www.scalar.hr',
+    title: 'Scalar - Vaš partner u investicijama u građevini',
+    description: 'Pružamo sveobuhvatne usluge projektiranja i izvođenja radova u građevinskoj industriji.',
+    siteName: 'Scalar',
+    images: [
+      {
+        url: '/og-image-1200x630.png', // Open Graph image URL for better social sharing
+        width: 1200,
+        height: 630,
+        alt: 'Scalar - Građevinski projekt',
+      },
+    ],
+    locale: 'hr_HR', // Locale for Croatia
+  },
+
+  // Twitter Card metadata for sharing on Twitter
+  twitter: {
+    card: 'summary_large_image', // Type of Twitter card (summary with large image)
+    site: '@ScalarCompany', // Twitter username
+    creator: '@ScalarCompany', // Creator's Twitter username
+    title: 'Scalar - Vaš partner u investicijama u građevini',
+    description: 'Pružamo sveobuhvatne usluge projektiranja i izvođenja radova u građevinskoj industriji.',
+    images: [
+      {
+        url: '/twitter-image-1200x630.png', // Image for Twitter cards
+        alt: 'Scalar - Građevinski projekt',
+      },
+    ],
+  },
+
+  // Manifest for web app
+  manifest: '/site.webmanifest', // URL for the web app manifest (PWA support)
+
+  // Verification for Google Search Console, Bing Webmaster Tools, etc.
+  verification: {
+    google: 'google-site-verification-code', // Google Search Console verification code
+    yandex: 'yandex-site-verification-code', // Yandex verification code (if needed)
+  },
 };
 
 // function generateSeoSchemaOrg(data: any) {
