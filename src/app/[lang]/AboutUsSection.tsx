@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import scalarCEO from '../images/scalar-owner.png';
+import scalarCEO from '../images/scalar-owner.jpg';
 const paragraphs = [
   'Scalar d.o.o. je tvrtka s visokokvalitetnim inženjerskim kadrom iskusnim u pružanju inženjerskih usluga u graditeljstvu. Osnivač tvrtke, Jakov Galac, je iskusan inženjer i voditelj projekata s više od 10 godina profesionalnog staža. S obzirom na svoje prethodne uloge i kao predstavnik izvođača i kao predstavnik investitora, ima iskustva iz svih faza procesa planiranja, izgradnje i održavanja objekata.',
   'Poslovna strategija tvrtke je istaknuti se u inženjerskim uslugama kao što su upravljanje projektima, stručni nadzor, tehničko savjetovanje (konzultantske usluge) i projektiranje te pružiti kvalitetnu uslugu svojim klijentima s naglaskom na stručnost, dosljednost, povjerenje i uspješno ispunjavanje zadanih ciljeva. Cilj tvrtke je pružiti klijentima potpunu uslugu uz bliski i osobni pristup tijekom realizacije različitih vrsta građevinskih projekata.',
