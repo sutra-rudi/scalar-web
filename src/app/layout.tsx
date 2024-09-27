@@ -15,7 +15,7 @@ import { getAdminTokensQuery } from './queries/getAdminTokens';
 // import CookieConsentNotification from './components/CookiesNotification';
 // import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
 
-const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });
+const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'], preload: true });
 // import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
 
 export const viewport: Viewport = {

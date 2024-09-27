@@ -38,6 +38,8 @@ const HeroSection = ({ lang }: { lang: string }) => {
         alt='hero-overlay'
         className='w-full h-full absolute object-cover object-center inset-0 block'
         priority
+        placeholder='blur'
+        blurDataURL={scalarOverlayHero.blurDataURL}
       />
     ),
   };
