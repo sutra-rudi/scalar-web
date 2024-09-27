@@ -14,10 +14,10 @@ const ServiceCard = ({ url, imgSource, title, subtitle, intro }: DefaultServiceC
   return (
     <a
       href={url}
-      className='flex flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:max-w-xs hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full group'
+      className='flex flex-col items-center bg-almost-white border border-almost-black rounded-lg shadow md:max-w-xs hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full group'
     >
       <Image
-        className='object-cover w-full h-full block'
+        className='object-cover w-full h-full block object-center'
         src={imgSource}
         width={384}
         height={224}
@@ -32,9 +32,9 @@ const ServiceCard = ({ url, imgSource, title, subtitle, intro }: DefaultServiceC
           <div className='transition-all ease-out duration-150 prose mb-3 line-clamp-2 opacity-40 group-hover:opacity-100'>
             {parse(intro)}
           </div>
-        </div>
 
-        <SutraButtonBase innerText='Pročitaj više' size='small' />
+          <SutraButtonBase innerText='Pročitaj više' size='small' isFullCard />
+        </div>
       </div>
     </a>
   );

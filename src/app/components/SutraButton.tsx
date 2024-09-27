@@ -6,9 +6,17 @@ interface SutraButtonBaseInterface {
   backIcon?: React.ElementType;
   type?: any;
   onClickAction?: () => any;
+  isFullCard?: boolean;
 }
 
-export const SutraButtonBase = ({ innerText, size, isAccentButton, onClickAction, type }: SutraButtonBaseInterface) => {
+export const SutraButtonBase = ({
+  innerText,
+  size,
+  isAccentButton,
+  onClickAction,
+  type,
+  isFullCard = false,
+}: SutraButtonBaseInterface) => {
   return (
     <button
       role='button'
@@ -20,7 +28,7 @@ export const SutraButtonBase = ({ innerText, size, isAccentButton, onClickAction
         isAccentButton
           ? 'bg-accent text-sutraButtonText hover:text-accent hover:bg-primary-dark active:outline-accent'
           : 'bg-primary-dark text-sutraButtonText  dark:bg-primary-light dark:text-primary-dark hover:bg-primary-light hover:text-primary-dark active:outline-accent dark:hover:bg-primary-dark dark:hover:text-secondary-light'
-      }  `}
+      }  ${isFullCard && 'w-full'}`}
     >
       {innerText}
     </button>

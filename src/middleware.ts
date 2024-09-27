@@ -57,5 +57,5 @@ export function middleware(request: NextRequest) {
 
 // Konfigurirajte middleware da presreće osnovni URL ("/")
 export const config = {
-  matcher: '/((?!api|_next|static|favicon.*|sitemap.xml).*)',
+  matcher: '/((?!api|_next|static|favicon.*|sitemap.xml|images/).*)',
 };

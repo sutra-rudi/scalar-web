@@ -7,7 +7,8 @@ import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, It, De } from 'react-flags-select';
 import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
-import Script from 'next/script';
+// // import Script from 'next/script';
+import SkalarLogoPotpisHorizontal from '../images/skalar-logo-hor-potpis.svg';
 
 const AppHeader = () => {
   const currentPath = usePathname();
@@ -214,7 +215,7 @@ const AppHeader = () => {
 
           <a href={`/${currentLang}`} className=''>
             <Image
-              src={'https://www.scalar.hr/img/v1%20scalar%20horizontal.svg'}
+              src={SkalarLogoPotpisHorizontal}
               width={300}
               height={300}
               alt='Scalar logo'
@@ -228,7 +229,7 @@ const AppHeader = () => {
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <a href={`/${currentLang}`} className=''>
           <Image
-            src={'https://www.scalar.hr/img/v1%20scalar%20horizontal.svg'}
+            src={SkalarLogoPotpisHorizontal}
             width={150}
             height={150}
             alt='Scalar logo'

@@ -34,35 +34,98 @@ export const metadata: Metadata = {
 
   // Favicons
   icons: [
+    // Favicon Icons
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '192x192',
+      url: '/images/Favicon/favicon-192x192.png',
+    },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '196x196',
-      url: '/favicon-196x196.png',
+      url: '/images/Favicon/favicon-196x196.png',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '128x128',
+      url: '/images/Favicon/favicon-128x128.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '96x96',
-      url: '/favicon-96x96.png',
+      url: '/images/Favicon/favicon-96x96.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '32x32',
-      url: '/favicon-32x32.png',
+      url: '/images/Favicon/favicon-32x32.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '16x16',
-      url: '/favicon-16x16.png',
+      url: '/images/Favicon/favicon-16x16.png',
     },
+
+    // Apple Touch Icons
     {
       rel: 'apple-touch-icon',
       type: 'image/png',
       sizes: '180x180',
-      url: '/apple-touch-icon.png',
+      url: '/images/Favicon/apple-touch-icon-180x180.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      type: 'image/png',
+      sizes: '152x152',
+      url: '/images/Favicon/apple-touch-icon-152x152.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      type: 'image/png',
+      sizes: '120x120',
+      url: '/images/Favicon/apple-touch-icon-120x120.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      type: 'image/png',
+      sizes: '76x76',
+      url: '/images/Favicon/apple-touch-icon-76x76.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      type: 'image/png',
+      sizes: '60x60',
+      url: '/images/Favicon/apple-touch-icon-60x60.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      type: 'image/png',
+      sizes: '57x57',
+      url: '/images/Favicon/apple-touch-icon-57x57.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      type: 'image/png',
+      sizes: '114x114',
+      url: '/images/Favicon/apple-touch-icon-114x114.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      type: 'image/png',
+      sizes: '72x72',
+      url: '/images/Favicon/apple-touch-icon-72x72.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      type: 'image/png',
+      sizes: '144x144',
+      url: '/images/Favicon/apple-touch-icon-144x144.png',
     },
   ],
 
@@ -294,7 +357,7 @@ export default async function RootLayout({
       lang={lang}
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full'
     >
-      <body className={`${roboto.className} w-full h-full md:pt-0 pt-12 relative`}>
+      <body className={`${roboto.className} w-full h-full md:pt-0 pt-12 relative bg-almost-white dark:bg-almost-black`}>
         {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
