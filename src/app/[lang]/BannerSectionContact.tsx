@@ -2,46 +2,56 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
+import { useParallax } from 'react-scroll-parallax';
 import { SutraButtonBase } from '../components/SutraButton';
 import scalarOverlayHero from '../images/scalar-hero-page-lines.png';
 import scalarContactOverlay from '../images/scalar-contact-overlay.jpg';
+
 const BannerSectionContact = ({ lang }: { lang: string }) => {
-  const background: BannerLayer = {
+  const backgroundParallax = useParallax({
     translateY: [0, 30],
     shouldAlwaysCompleteAnimation: true,
-    children: (
-      <Image
-        src={scalarContactOverlay}
-        placeholder='blur'
-        blurDataURL={scalarContactOverlay.blurDataURL}
-        alt='Scalar banner'
-        fill
-        className='object-cover object-center block aspect-video w-full h-full'
-        loading='lazy'
-      />
-    ),
-  };
+  });
 
-  const overlay: BannerLayer = {
-    children: (
-      <Image
-        src={scalarOverlayHero}
-        fill
-        alt='hero-overlay'
-        className='w-full h-full absolute object-cover object-center inset-0 block'
-        placeholder='blur'
-        blurDataURL={scalarOverlayHero.blurDataURL}
-        loading='lazy'
-      />
-    ),
-  };
+  const overlayParallax = useParallax({
+    translateY: [0, 0],
+  });
 
-  const foreground: BannerLayer = {
+  const foregroundParallax = useParallax({
     translateY: [0, 15],
     shouldAlwaysCompleteAnimation: true,
-    children: (
-      <div className='w-full h-full absolute inset-0 flex items-center justify-center'>
+  });
+
+  return (
+    <section className='overflow-hidden relative h-[316px]'>
+      <div ref={backgroundParallax.ref as any} className='absolute inset-0 w-full h-full'>
+        <Image
+          src={scalarContactOverlay}
+          placeholder='blur'
+          blurDataURL={scalarContactOverlay.blurDataURL}
+          alt='Scalar banner'
+          fill
+          className='object-cover object-center block w-full h-full'
+          loading='lazy'
+        />
+      </div>
+
+      <div ref={overlayParallax.ref as any} className='absolute inset-0 w-full h-full'>
+        <Image
+          src={scalarOverlayHero}
+          fill
+          alt='hero-overlay'
+          className='w-full h-full object-cover object-center absolute'
+          placeholder='blur'
+          blurDataURL={scalarOverlayHero.blurDataURL}
+          loading='lazy'
+        />
+      </div>
+
+      <div
+        ref={foregroundParallax.ref as any}
+        className='w-full h-full absolute inset-0 flex items-center justify-center z-10'
+      >
         <div className='flex flex-col items-center justify-start gap-4'>
           <h3 className='text-almost-white opacity-70 lg:text-3xl md:text-2xl text-xl'>
             Kontaktirajte nas s povjerenjem
@@ -51,11 +61,6 @@ const BannerSectionContact = ({ lang }: { lang: string }) => {
           </a>
         </div>
       </div>
-    ),
-  };
-  return (
-    <section className='overflow-hidden'>
-      <ParallaxBanner layers={[background, overlay, foreground]} className='w-full relative h-[316px] ' />
     </section>
   );
 };

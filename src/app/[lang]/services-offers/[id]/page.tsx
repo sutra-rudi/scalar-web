@@ -7,6 +7,7 @@ import ScalarContact from '@/app/components/ScalarContact';
 import dynamic from 'next/dynamic';
 
 const PageContent = dynamic(() => import('./PageContent'));
+
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
@@ -101,17 +102,15 @@ export default async function SingleServiceOfferPage({
   const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
 
   return (
-    <main className='w-full relative'>
-      {contentForPage && (
-        <PageContent
-          textContent={prepareIntroText}
-          introImages={prepareIntroImages}
-          gallery={prepareGallery}
-          tags={prepareTags}
-          attributes={prepareAttributes}
-          pageContent={contentForPage}
-        />
-      )}
+    <main className='w-full relative '>
+      <PageContent
+        textContent={prepareIntroText}
+        introImages={prepareIntroImages}
+        gallery={prepareGallery}
+        tags={prepareTags}
+        attributes={prepareAttributes}
+        pageContent={contentForPage}
+      />
 
       <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
 
