@@ -105,7 +105,7 @@ const AppHeader = () => {
   };
 
   return (
-    <nav className='bg-almost-white dark:bg-almost-black md:relative fixed z-20 w-full top-0'>
+    <nav className='bg-almost-white dark:bg-almost-black md:relative fixed z-50 w-full top-0'>
       {/* MOBILE */}
       <div
         className={`absolute z-40 w-full h-screen bg-almost-white dark:bg-almost-black inset-0 transition-all duration-300 flex items-center flex-col lg:pt-0 gap-12 justify-between py-24  ${

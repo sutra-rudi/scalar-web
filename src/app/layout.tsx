@@ -9,7 +9,7 @@ import { Providers } from './providers';
 
 import dynamic from 'next/dynamic';
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
-const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
+const AppFooter = dynamic(() => import('./globalComponents/AppFooter'), { ssr: false });
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
