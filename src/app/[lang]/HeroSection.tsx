@@ -52,6 +52,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
           className='object-cover object-center block'
           placeholder='blur'
           blurDataURL={scalarOverlayHero.blurDataURL}
+          sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
           priority
         />
       </div>
