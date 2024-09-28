@@ -1,4 +1,5 @@
 export const maxDuration = 60;
+import { Suspense } from 'react';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import dynamic from 'next/dynamic';
 
@@ -45,15 +46,29 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <main className='relative w-full dark:bg-almost-black min-h-screen'>
-        <HeroSection lang={lang} />
+        <Suspense>
+          <Suspense>
+            <HeroSection lang={lang} />
+          </Suspense>
 
-        <AboutUsSection />
+          <Suspense>
+            <AboutUsSection />
+          </Suspense>
 
-        {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
+          {uslugeDataArrayShorthand.length > 0 && (
+            <Suspense>
+              <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+            </Suspense>
+          )}
 
-        <BannerSectionContact lang={lang} />
+          <Suspense>
+            <BannerSectionContact lang={lang} />
+          </Suspense>
 
-        <IzdvojeneReference params={{ lang }} />
+          <Suspense>
+            <IzdvojeneReference params={{ lang }} />
+          </Suspense>
+        </Suspense>
       </main>
     );
   } catch (error) {
