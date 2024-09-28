@@ -8,13 +8,16 @@ import scalarOverlayHero from '../images/scalar-hero-page-lines.png';
 import scalarContactOverlay from '../images/scalar-contact-overlay.jpg';
 
 const BannerSectionContact = ({ lang }: { lang: string }) => {
+  // Background parallax effect
   const backgroundParallax = useParallax({
     translateY: [0, 30],
     shouldAlwaysCompleteAnimation: true,
   });
 
   const overlayParallax = useParallax({
-    translateY: [0, 0],
+    translateY: [0, 30],
+
+    shouldAlwaysCompleteAnimation: true,
   });
 
   const foregroundParallax = useParallax({
