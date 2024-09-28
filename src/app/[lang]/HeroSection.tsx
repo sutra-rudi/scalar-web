@@ -34,7 +34,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
       <div ref={backgroundParallax.ref as any} className='absolute inset-0 w-full h-full'>
         {ClientW && (
           <Image
-            src={ClientW! > 1200 ? scalarHeroBg : scalarHeroMobile}
+            src={ClientW > 1200 ? scalarHeroBg : scalarHeroMobile}
             alt='page background'
             fill
             className='object-left-bottom block'
@@ -45,29 +45,33 @@ const HeroSection = ({ lang }: { lang: string }) => {
       </div>
 
       <div ref={overlayParallax.ref as any} className='absolute inset-0 w-full h-full z-10'>
-        <Image
-          src={scalarOverlayHero}
-          alt='hero-overlay'
-          fill
-          className='object-cover object-center block'
-          sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
-          priority
-        />
+        {ClientW && (
+          <Image
+            src={scalarOverlayHero}
+            alt='hero-overlay'
+            fill
+            className='object-cover object-center block'
+            sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
+            priority
+          />
+        )}
       </div>
 
       <div
         ref={foregroundParallax.ref as any}
         className='flex flex-col justify-center items-center absolute inset-0 z-20 w-full h-full'
       >
-        <div className='flex flex-col items-start max-w-max xl:pl-[40%] lg:pl-[35%] md:pl-[30%] pl-[10%]'>
-          <h1 className='xl:max-w-2xl lg:max-w-xl md:max-w-sm max-w-xs mb-4 text-2xl font-bold tracking-tight leading-none md:text-4xl xl:text-5xl text-accent'>
-            {`SCALAR - Vaš partner u\ninvesticijama u građevini`}
-          </h1>
+        {ClientW && (
+          <div className='flex flex-col items-start max-w-max xl:pl-[40%] lg:pl-[35%] md:pl-[30%] pl-[10%]'>
+            <h1 className='xl:max-w-2xl lg:max-w-xl md:max-w-sm max-w-xs mb-4 text-2xl font-bold tracking-tight leading-none md:text-4xl xl:text-5xl text-accent'>
+              {`SCALAR - Vaš partner u\ninvesticijama u građevini`}
+            </h1>
 
-          <a className='flex items-center justify-start gap-4' href={`/${lang}/contact`}>
-            <SutraButtonOutlined innerText='Kontaktirajte nas' size='large' backIcon={RightIcon} />
-          </a>
-        </div>
+            <a className='flex items-center justify-start gap-4' href={`/${lang}/contact`}>
+              <SutraButtonOutlined innerText='Kontaktirajte nas' size='large' backIcon={RightIcon} />
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

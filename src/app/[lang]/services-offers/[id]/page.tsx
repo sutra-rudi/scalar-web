@@ -5,6 +5,7 @@ import { getAllUslugeQuery } from '@/app/queries/getAllUslugeQuery';
 import UslugeSection from '../../UslugeSection';
 import ScalarContact from '@/app/components/ScalarContact';
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 
 const PageContent = dynamic(() => import('./PageContent'));
 
@@ -103,24 +104,26 @@ export default async function SingleServiceOfferPage({
 
   return (
     <main className='w-full relative '>
-      <PageContent
-        textContent={prepareIntroText}
-        introImages={prepareIntroImages}
-        gallery={prepareGallery}
-        tags={prepareTags}
-        attributes={prepareAttributes}
-        pageContent={contentForPage}
-      />
+      <Suspense>
+        <PageContent
+          textContent={prepareIntroText}
+          introImages={prepareIntroImages}
+          gallery={prepareGallery}
+          tags={prepareTags}
+          attributes={prepareAttributes}
+          pageContent={contentForPage}
+        />
 
-      <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+        <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
 
-      <ScalarContact isPage={false} />
+        <ScalarContact isPage={false} />
 
-      <Script
-        id='schema-org-single-service'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
-      />
+        <Script
+          id='schema-org-single-service'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
+        />
+      </Suspense>
     </main>
   );
 }
