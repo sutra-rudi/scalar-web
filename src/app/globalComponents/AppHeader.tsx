@@ -7,7 +7,6 @@ import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, It, De } from 'react-flags-select';
 import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
-// // import Script from 'next/script';
 
 import SkalarLogoBezpotVertical from '../images/scalar-logo-ver-bezpot.svg';
 import SkalarLogoPotHorizontal from '../images/skalar-logo-hor-potpis.svg';
@@ -240,8 +239,8 @@ const AppHeader = () => {
               </button>
 
               {isDropdownOpen && (
-                <div className='absolute bg-white dark:bg-gray-800 rounded-lg shadow mt-2 z-20'>
-                  <ul className='py-2'>
+                <div className='absolute bg-white dark:bg-gray-800 rounded-lg shadow mt-2  z-50'>
+                  <ul className='py-2 z-50'>
                     <li>
                       <a
                         href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}

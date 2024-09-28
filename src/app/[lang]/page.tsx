@@ -3,9 +3,7 @@ export const maxDuration = 60;
 import { Suspense } from 'react';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import dynamic from 'next/dynamic';
-import ServerHero from '../components/ServerHero';
 
-const ClientHeader = dynamic(() => import('../globalComponents/AppHeader'), { ssr: false });
 const HeroSection = dynamic(() => import('./HeroSection'));
 const BannerSectionContact = dynamic(() => import('./BannerSectionContact'));
 const IzdvojeneReference = dynamic(() => import('./IzdvojeneReference'));
@@ -50,11 +48,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <Suspense>
-        {/* <ClientHeader /> */}
         <main className='relative w-full dark:bg-almost-black min-h-screen'>
           <Suspense>
-            {/* <HeroSection lang={lang} /> */}
-            <ServerHero lang={lang} />
+            <HeroSection lang={lang} />
           </Suspense>
 
           <Suspense>

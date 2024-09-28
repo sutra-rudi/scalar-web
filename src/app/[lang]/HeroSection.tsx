@@ -32,16 +32,16 @@ const HeroSection = ({ lang }: { lang: string }) => {
   return (
     <section className='w-full min-h-screen relative overflow-hidden'>
       <div ref={backgroundParallax.ref as any} className='absolute inset-0 w-full h-full'>
-        <Image
-          src={ClientW! > 1200 ? scalarHeroBg : scalarHeroMobile}
-          alt='page background'
-          placeholder='blur'
-          blurDataURL={scalarHeroBg.blurDataURL}
-          fill
-          className='object-left-bottom block'
-          priority
-          sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
-        />
+        {ClientW && (
+          <Image
+            src={ClientW! > 1200 ? scalarHeroBg : scalarHeroMobile}
+            alt='page background'
+            fill
+            className='object-left-bottom block'
+            priority
+            sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
+          />
+        )}
       </div>
 
       <div ref={overlayParallax.ref as any} className='absolute inset-0 w-full h-full z-10'>
@@ -50,8 +50,6 @@ const HeroSection = ({ lang }: { lang: string }) => {
           alt='hero-overlay'
           fill
           className='object-cover object-center block'
-          placeholder='blur'
-          blurDataURL={scalarOverlayHero.blurDataURL}
           sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
           priority
         />
