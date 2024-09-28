@@ -9,7 +9,6 @@ const BannerSectionContact = dynamic(() => import('./BannerSectionContact'));
 const IzdvojeneReference = dynamic(() => import('./IzdvojeneReference'));
 const UslugeSection = dynamic(() => import('./UslugeSection'));
 const AboutUsSection = dynamic(() => import('./AboutUsSection'));
-const AppFooter = dynamic(() => import('./../globalComponents/AppFooter'));
 
 async function fetchData(query: any, noCache: boolean = false) {
   try {
@@ -71,7 +70,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
             <IzdvojeneReference params={{ lang }} />
           </Suspense>
         </main>
-        <AppFooter />
       </Suspense>
     );
   } catch (error) {
