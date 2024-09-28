@@ -6,6 +6,7 @@ import { UserLanguage } from './enums/LangEnum';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import { Providers } from './providers';
+import AppHeader from './globalComponents/AppHeader';
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
@@ -175,6 +176,7 @@ export default async function RootLayout({
     >
       <body className={`${roboto.className} w-full h-full md:pt-0 pt-12 relative bg-almost-white dark:bg-almost-black`}>
         <Toaster />
+        <AppHeader />
 
         <Suspense>
           <Providers>{children}</Providers>
