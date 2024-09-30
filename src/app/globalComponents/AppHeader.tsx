@@ -133,6 +133,8 @@ const AppHeader = () => {
             <a
               href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
               className='block text-primary-dark dark:text-primary-light '
+              aria-label='Saznajte više o našim uslugama projektiranja'
+              role='link'
             >
               Projektiranje
             </a>
@@ -141,6 +143,8 @@ const AppHeader = () => {
             <a
               href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
               className='block text-primary-dark dark:text-primary-light '
+              aria-label='Saznajte više o našoj usluzi upravljanja projektima'
+              role='link'
             >
               Upravljanje projektima
             </a>
@@ -149,6 +153,8 @@ const AppHeader = () => {
             <a
               href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
               className='block text-primary-dark dark:text-primary-light '
+              aria-label='Saznajte više o našoj usluzi stručnog nadzora'
+              role='link'
             >
               Stručni nadzor
             </a>
@@ -157,6 +163,8 @@ const AppHeader = () => {
             <a
               href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
               className='block text-primary-dark dark:text-primary-light '
+              aria-label='Saznajte više o našoj usluzi tehničkog savjetovanja'
+              role='link'
             >
               Tehničko savjetovanje
             </a>
@@ -166,6 +174,8 @@ const AppHeader = () => {
             <a
               href={`/${currentLang}/contact`}
               className='flex items-center justify-between text-primary-dark dark:text-primary-light '
+              aria-label='Kontaktirajte nas sa povjerenjem!'
+              role='link'
             >
               Kontakt
             </a>
@@ -221,6 +231,7 @@ const AppHeader = () => {
                 className='flex items-center justify-between w-full py-2 px-3 text-primary-dark dark:text-primary-light'
                 onClick={toggleDropdown}
                 name='Dropdown control'
+                role=''
               >
                 Usluge
                 <svg
@@ -292,6 +303,8 @@ const AppHeader = () => {
               <a
                 href={`/${currentLang}/contact`}
                 className='block py-2 px-3 text-primary-dark dark:text-primary-light '
+                aria-label='Kontaktirajte nas sa povjerenjem!'
+                role='link'
               >
                 Kontakt
               </a>

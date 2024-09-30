@@ -35,6 +35,8 @@ export default function AppFooter() {
               href='https://www.google.hr/maps/place/Debani%C4%87eva+ul.+1a,+10000,+Zagreb/@45.8126286,15.9063611,17z/data=!3m1!4b1!4m6!3m5!1s0x4765d13cf1ce17c1:0xb239558099b1c059!8m2!3d45.8126249!4d15.908936!16s%2Fg%2F11gmfty1h0?entry=ttu&g_ep=EgoyMDI0MDkyMy4wIKXMDSoASAFQAw%3D%3D'
               className='text-base leading-normal flex items-center justify-start gap-2 transition-all ease-out hover:text-accent'
               target='_blank'
+              role='link'
+              aria-label='Upute do naše lokacije'
             >
               <LocationIcon />
               <span>Debanićeva ulica 1A, Zagreb</span>
@@ -49,10 +51,15 @@ export default function AppFooter() {
           </div>
         </div>
         <div className='flex text-3xl gap-4'>
-          <a href='https://hr.linkedin.com/company/scalar-d-o-o' target='_blank'>
+          <a
+            href='https://hr.linkedin.com/company/scalar-d-o-o'
+            target='_blank'
+            role='link'
+            aria-label='Posjetite našu LinkedIn stranicu!'
+          >
             <LinkedInIcon className='text-primary-light cursor-pointer transition-all ease-out duration-150 hover:scale-110 hover:text-accent' />
           </a>
-          <a href='mailto:info@scalar.hr' target='_blank'>
+          <a href='mailto:info@scalar.hr' target='_blank' role='link' aria-label='Pošaljite nam poruku!'>
             <MailIcon className='text-primary-light cursor-pointer transition-all ease-out duration-150 hover:scale-110 hover:text-accent' />
           </a>
         </div>
