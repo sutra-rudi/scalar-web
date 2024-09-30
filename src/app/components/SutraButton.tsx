@@ -24,7 +24,7 @@ export const SutraButtonBase = ({
       onClick={onClickAction && onClickAction}
       className={`${
         size === 'small' ? 'text-xs' : size === 'normal' ? 'text-base' : size === 'large' ? 'text-lg' : ''
-      } transition-all ease-in-out px-2 py-1  hover:scale-105 active:outline active:outline-sutraButtonOutline rounded-sm ${
+      } transition-all ease-in-out px-2 py-1  hover:scale-105 active:outline active:outline-sutraButtonOutline rounded-sm group-hover:scale-105 ${
         isAccentButton
           ? 'bg-accent text-sutraButtonText hover:text-accent hover:bg-primary-dark active:outline-accent'
           : 'bg-primary-dark text-sutraButtonText  dark:bg-primary-light dark:text-primary-dark hover:bg-primary-light hover:text-primary-dark active:outline-accent dark:hover:bg-primary-dark dark:hover:text-secondary-light'
@@ -53,7 +53,13 @@ export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterfac
     <button
       role='button'
       className={`${
-        size === 'small' ? 'text-xs' : size === 'normal' ? 'text-base' : size === 'large' ? 'text-lg' : ''
+        size === 'small'
+          ? 'text-xs'
+          : size === 'normal'
+          ? 'md:text-base text-sm'
+          : size === 'large'
+          ? 'md:text-lg text-base'
+          : ''
       } transition-all ease-in-out px-3 py-2 hover:bg-accent hover:text-primary-dark outline  outline-accent outline-2 text-accent hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primary-light dark:text-primary-light rounded-sm`}
     >
       {innerText}

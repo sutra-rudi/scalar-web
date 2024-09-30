@@ -10,8 +10,8 @@ const paragraphs = [
 const AboutUsSection = () => {
   return (
     <section className='w-full'>
-      <div className='flex items-start xl:gap-24 gap-4 justify-center w-full xl:max-w-screen-2xl mx-auto xl:flex-nowrap flex-wrap-reverse '>
-        <div className='xl:max-w-prose prose xl:mt-12 w-full'>
+      <div className='flex items-start lg:gap-8 md:gap-4 gap-2 justify-center w-full xl:max-w-screen-2xl mx-auto lg:flex-nowrap flex-wrap-reverse '>
+        <div className='xl:max-w-prose prose xl:mt-12 mt-6 w-full'>
           <h2 className='text-primary-dark dark:text-primary-light font-bold lg:text-[2rem] text-2xl  px-4'>O nama</h2>
           {paragraphs.map((par, index) => (
             <p key={`${par}${index}`} className='lg:text-base text-sm text-primary-dark dark:text-primary-light  px-4'>
@@ -24,10 +24,10 @@ const AboutUsSection = () => {
           src={scalarCEO}
           placeholder='blur'
           blurDataURL={scalarCEO.blurDataURL}
-          width={596}
-          height={892}
+          width={scalarCEO.width}
+          height={scalarCEO.height}
           alt='scalar man'
-          className='object-cover aspect-[9/16] object-center xl:w-auto w-full'
+          className='object-cover lg:aspect-[9/16] md:aspect-square aspect-square object-center xl:w-auto w-full xl:max-h-[unset] max-h-[705px]'
         />
       </div>
     </section>

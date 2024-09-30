@@ -26,7 +26,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
 
   return (
     <section className='my-12'>
-      <h2 className='w-full text-center text-3xl text-primary-dark dark:text-primary-light  py-8'>
+      <h2 className='w-full text-center lg:text-[2rem] md:text-3xl text-2xl text-primary-dark dark:text-primary-light  py-8 font-medium'>
         Izdvojene reference
       </h2>
 

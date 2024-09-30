@@ -24,8 +24,8 @@ const HeroSection = ({ lang }: { lang: string }) => {
   });
 
   const foregroundParallax = useParallax({
-    translateY: [0, 5],
-    translateX: [0, 5],
+    translateY: ClientW && ClientW > 728 ? [0, 5] : [0, 15],
+    translateX: ClientW && ClientW > 728 ? [0, 5] : [0, 0],
     shouldAlwaysCompleteAnimation: true,
   });
 
@@ -64,8 +64,8 @@ const HeroSection = ({ lang }: { lang: string }) => {
         className='flex flex-col justify-center items-center absolute inset-0 z-20 w-full h-full'
       >
         {ClientW && (
-          <div className='flex flex-col items-start max-w-max xl:pl-[40%] lg:pl-[35%] md:pl-[30%] pl-[10%]'>
-            <h1 className='xl:max-w-2xl lg:max-w-xl md:max-w-sm max-w-xs mb-4 text-2xl font-bold tracking-tight leading-none md:text-4xl xl:text-5xl text-accent'>
+          <div className='flex flex-col md:items-start items-center max-w-max xl:pl-[40%] lg:pl-[35%] md:pl-[30%] pl-0'>
+            <h1 className='xl:max-w-2xl lg:max-w-xl md:max-w-sm max-w-xs md:text-left text-center mb-4 font-bold tracking-tight leading-none text-3xl  md:text-4xl lg:text-5xl xl:text-6xl text-accent'>
               {`SCALAR - Vaš partner u\ninvesticijama u građevini`}
             </h1>
 

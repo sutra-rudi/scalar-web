@@ -25,7 +25,7 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
   return (
     <article className='mx-auto my-0 w-full relative'>
       <ParallaxBanner className='w-full h-[360px] relative'>
-        <ParallaxBannerLayer speed={-25}>
+        <ParallaxBannerLayer speed={-20}>
           <Image
             src={introImages.imageOne.node.sourceUrl}
             alt='service image'
@@ -54,12 +54,12 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
                 return (
                   nod && (
                     <Image
-                      width={300}
-                      height={200}
+                      width={400}
+                      height={300}
                       src={nod.node.sourceUrl}
                       alt='galleryImage'
                       key={index}
-                      className='pr-6 w-full h-full object-cover object-center aspect-video'
+                      className='lg:pr-6 md:pr-3 pr-1 w-full h-full object-cover object-center aspect-video'
                     />
                   )
                 );

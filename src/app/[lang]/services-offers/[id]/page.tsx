@@ -103,8 +103,8 @@ export default async function SingleServiceOfferPage({
   const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
 
   return (
-    <main className='w-full relative '>
-      <Suspense>
+    <Suspense>
+      <main className='w-full relative '>
         <PageContent
           textContent={prepareIntroText}
           introImages={prepareIntroImages}
@@ -123,7 +123,7 @@ export default async function SingleServiceOfferPage({
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
         />
-      </Suspense>
-    </main>
+      </main>
+    </Suspense>
   );
 }

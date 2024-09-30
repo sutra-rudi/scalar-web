@@ -60,7 +60,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
 
   return (
     <section className='my-12'>
-      <div className='max-w-screen-2xl md:px-0 px-4 mx-auto my-8 flex flex-wrap items-start justify-center lg:gap-16 md:gap-12 gap-6'>
+      <div className='max-w-screen-2xl px-4 mx-auto my-8 flex flex-wrap items-start justify-center lg:gap-8 md:gap-4 gap-2'>
         {pageContent.map((content: any, index: number) => {
           const contentShorthand = content.node;
 
