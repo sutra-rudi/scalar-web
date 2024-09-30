@@ -39,7 +39,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
             width={ClientW > 1200 ? scalarHeroBg.width : scalarHeroMobile.width}
             height={ClientW > 1200 ? scalarHeroBg.height : scalarHeroMobile.height}
             className='object-left-bottom block w-full h-full'
-            priority={true} // Postavljate visoki prioritet za ubrzanje učitavanja
+            priority={true}
             sizes='(max-width: 768px) 100vw, (min-width: 769px) 70vw, (min-width: 1200px) 50vw'
           />
         )}
@@ -54,7 +54,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
             height={scalarOverlayHero.height}
             className='object-cover object-center block w-full h-full'
             sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
-            priority
+            priority={true}
           />
         )}
       </div>

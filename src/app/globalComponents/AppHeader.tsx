@@ -120,6 +120,7 @@ const AppHeader = () => {
               className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
               onClick={() => handleLangSwitch(language.lang)}
               name='Language picker'
+              aria-label={`Odaberite jezik: ${language.title}`}
             >
               {language.flag}
             </button>
@@ -184,6 +185,8 @@ const AppHeader = () => {
 
         <div className='flex flex-col items-center justify-start gap-12'>
           <div
+            aria-label={`Promijenite temu u ${theme === 'light' ? 'noćni način' : 'standardno'}`}
+            role='button'
             onClick={handleTheme}
             className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear flex items-center justify-start gap-2 py-1 px-1 w-max'
           >
@@ -193,7 +196,7 @@ const AppHeader = () => {
             </span>
           </div>
 
-          <a href={`/${currentLang}`} className=''>
+          <a href={`/${currentLang}`} className='' aria-label='Povratak na početnu stranicu'>
             <Image
               src={SkalarLogoBezpotVertical}
               width={300}
@@ -207,7 +210,11 @@ const AppHeader = () => {
       {/* MOBILE */}
 
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto lg:p-4 px-4 py-2'>
-        <a href={`/${currentLang}`} className='flex items-center justify-start'>
+        <a
+          href={`/${currentLang}`}
+          className='flex items-center justify-start'
+          aria-label='Povratak na početnu stranicu'
+        >
           <Image
             src={SkalarLogobezpotHorizontal}
             width={222}
@@ -220,6 +227,7 @@ const AppHeader = () => {
           <Hamburger
             color={theme === 'light' ? '#181816' : theme === 'dark' && isMobileMenuOpen ? '#F8F7F2' : '#F8F7F2'}
             onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={`${isMobileMenuOpen ? 'Zatvori' : 'Otvori'} mobilni izbornik`}
           />
         </div>
         <div className='hidden w-full md:block md:w-auto'>
@@ -230,8 +238,7 @@ const AppHeader = () => {
                 data-dropdown-toggle='dropdownNavbar'
                 className='flex items-center justify-between w-full py-2 px-3 text-primary-dark dark:text-primary-light'
                 onClick={toggleDropdown}
-                name='Dropdown control'
-                role=''
+                aria-label='Otkrijte naše usluge i ponude'
               >
                 Usluge
                 <svg
@@ -313,6 +320,8 @@ const AppHeader = () => {
             <li>
               <div
                 onClick={handleTheme}
+                aria-label={`Promijenite temu u ${theme === 'light' ? 'noćni način' : 'standardno'}`}
+                role='button'
                 className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear'
               >
                 {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
@@ -327,6 +336,7 @@ const AppHeader = () => {
                   className='text-sm  flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
                   onClick={() => handleLangSwitch(language.lang)}
                   name='Language picker'
+                  aria-label={`Odaberite jezik: ${language.title}`}
                 >
                   {language.flag}
                 </button>
