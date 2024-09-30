@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 import SkalarLogoBezpotVertical from '../images/scalar-logo-ver-bezpot.svg';
-import SkalarLogoPotHorizontal from '../images/skalar-logo-hor-potpis.svg';
+import SkalarLogobezpotHorizontal from '../images/scalar-logo-bezpot-horizontal.svg';
 
 const AppHeader = () => {
   const currentPath = usePathname();
@@ -119,6 +119,7 @@ const AppHeader = () => {
               key={language.lang}
               className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
               onClick={() => handleLangSwitch(language.lang)}
+              name='Language picker'
             >
               {language.flag}
             </button>
@@ -195,12 +196,12 @@ const AppHeader = () => {
       </div>
       {/* MOBILE */}
 
-      <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
-        <a href={`/${currentLang}`} className=''>
+      <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto lg:p-4 px-4 py-2'>
+        <a href={`/${currentLang}`} className='flex items-center justify-start'>
           <Image
-            src={SkalarLogoPotHorizontal}
-            width={150}
-            height={150}
+            src={SkalarLogobezpotHorizontal}
+            width={222}
+            height={70}
             alt='Scalar logo'
             className='object-cover object-center'
           />
@@ -219,6 +220,7 @@ const AppHeader = () => {
                 data-dropdown-toggle='dropdownNavbar'
                 className='flex items-center justify-between w-full py-2 px-3 text-primary-dark dark:text-primary-light'
                 onClick={toggleDropdown}
+                name='Dropdown control'
               >
                 Usluge
                 <svg
@@ -245,6 +247,8 @@ const AppHeader = () => {
                       <a
                         href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
                         className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-gray-100 dark:hover:bg-gray-600'
+                        aria-label='Saznajte više o našim uslugama projektiranja'
+                        role='link'
                       >
                         Projektiranje
                       </a>
@@ -253,6 +257,8 @@ const AppHeader = () => {
                       <a
                         href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
                         className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-gray-100 dark:hover:bg-gray-600'
+                        aria-label='Saznajte više o našoj usluzi upravljanja projektima'
+                        role='link'
                       >
                         Upravljanje projektima
                       </a>
@@ -261,6 +267,8 @@ const AppHeader = () => {
                       <a
                         href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
                         className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-gray-100 dark:hover:bg-gray-600'
+                        aria-label='Saznajte više o našoj usluzi stručnog nadzora'
+                        role='link'
                       >
                         Stručni nadzor
                       </a>
@@ -269,6 +277,8 @@ const AppHeader = () => {
                       <a
                         href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
                         className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-gray-100 dark:hover:bg-gray-600'
+                        aria-label='Saznajte više o našoj usluzi tehničkog savjetovanja'
+                        role='link'
                       >
                         Tehničko savjetovanje
                       </a>
@@ -303,6 +313,7 @@ const AppHeader = () => {
                   key={language.lang}
                   className='text-sm  flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
                   onClick={() => handleLangSwitch(language.lang)}
+                  name='Language picker'
                 >
                   {language.flag}
                 </button>

@@ -32,7 +32,7 @@ const ServiceCard = ({ url, imgSource, title, intro }: DefaultServiceCard) => {
           </h5>
           {/* <p className='mb-1 line-clamp-4 max-w-[25ch] font-normal text-primary-dark dark:text-white'>{subtitle}</p> */}
 
-          <p className='transition-all ease-out duration-150 prose opacity-70  text-primary-dark dark:text-white group-hover:opacity-100'>
+          <p className='transition-all ease-out duration-150 md:text-base text-sm opacity-70  text-primary-dark dark:text-white group-hover:opacity-100'>
             {intro}
           </p>
 

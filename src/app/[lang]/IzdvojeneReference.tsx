@@ -1,6 +1,7 @@
 import slugify from 'slugify';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import { getListeQuery } from '../queries/getAllListsQuery';
+import Image from 'next/image';
 
 export default async function IzdvojeneReference({ params: { lang } }: { params: { lang: string } }) {
   const baseURL = process.env.CMS_PUBLIC_MEDIA_URL;
@@ -30,7 +31,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
         Izdvojene reference
       </h2>
 
-      <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto pb-8 md:px-0 px-4'>
+      <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto pb-8 px-4 gap-4'>
         {prepData &&
           prepData.map((nodeCont: any) => {
             const contentFieldMaster = `lista${l}`;
@@ -44,7 +45,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
               <div key={nodeCont.node.title}>
                 {introField.naslov && (
                   <div className='py-4'>
-                    <h3 className='lg:text-xl md:text-lg text-base font-medium text-balance  text-primary-dark dark:text-primary-light '>
+                    <h3 className='lg:text-xl md:text-lg text-base font-medium text-primary-dark dark:text-primary-light '>
                       {introField.naslov}
                     </h3>
                   </div>
@@ -80,39 +81,42 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                       return (
                         <li key={index} className='w-full flex items-center justify-start gap-3'>
                           {triageOfIcons === 'Dodaj svoju ikonu' && imgShorthand ? (
-                            <picture>
-                              <img
-                                src={imgShorthand}
-                                alt='image for list item'
-                                className='w-6 h-6 object-cover object-center'
-                                loading='lazy'
-                              />
-                            </picture>
+                            <Image
+                              src={imgShorthand}
+                              alt='image for list item'
+                              className='w-6 h-6 object-cover object-center shrink-0'
+                              loading='lazy'
+                              width={24}
+                              height={24}
+                            />
                           ) : checkIfNumber === 'Broj' ? (
                             <div className='relative'>
                               <span className='absolute left-1/2 -translate-x-1/2 text-primary-dark dark:text-primary-light '>
                                 {index + 1}
                               </span>
-                              <picture>
-                                <img
-                                  src={fullURL}
-                                  className='w-6 h-6 object-cover object-center'
-                                  alt='image for list item'
-                                  loading='lazy'
-                                />
-                              </picture>
+
+                              <Image
+                                src={fullURL}
+                                className='w-6 h-6 object-cover object-center shrink-0'
+                                alt='image for list item'
+                                loading='lazy'
+                                width={24}
+                                height={24}
+                              />
                             </div>
                           ) : (
-                            <picture>
-                              <img
-                                src={fullURL}
-                                alt='image for list item'
-                                className='w-6 h-6 object-cover object-center'
-                                loading='lazy'
-                              />
-                            </picture>
+                            <Image
+                              src={fullURL}
+                              alt='image for list item'
+                              className='w-6 h-6 object-cover object-center shrink-0'
+                              loading='lazy'
+                              width={24}
+                              height={24}
+                            />
                           )}
-                          <span className='font-normal text-primary-dark dark:text-primary-light '>{list}</span>
+                          <span className='font-normal md:text-base text-sm text-primary-dark dark:text-primary-light '>
+                            {list}
+                          </span>
                         </li>
                       );
                     })}
