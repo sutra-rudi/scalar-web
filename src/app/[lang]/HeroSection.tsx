@@ -68,7 +68,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
             </h1>
 
             <a className='flex items-center justify-start gap-4' href={`/${lang}/contact`}>
-              <SutraButtonOutlined innerText='Kontaktirajte nas' size='large' backIcon={RightIcon} />
+              <SutraButtonOutlined innerText='Kontaktirajte nas' size='normal' backIcon={RightIcon} />
             </a>
           </div>
         )}

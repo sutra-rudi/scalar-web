@@ -38,10 +38,10 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
     }
   };
 
-  const onError = (errors: any) => {
+  const onError = async (errors: any) => {
     Object.entries(errors).forEach(([field, error]) => {
       //@ts-ignore
-      toast.error(`Greška u polju ${field}: ${error.message}`);
+      return toast.error(`Greška u polju ${field}: ${error.message}`);
     });
   };
 
@@ -55,7 +55,7 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
   });
 
   const foregroundParallax = useParallax({
-    translateY: [0, 15],
+    translateY: [0, 5],
     shouldAlwaysCompleteAnimation: true,
   });
 
@@ -84,7 +84,7 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
             className='w-full h-full object-cover object-center absolute'
             placeholder='blur'
             blurDataURL={scalarOverlayHero.blurDataURL}
-            loading='lazy'
+            loading={isPage ? 'eager' : 'lazy'}
           />
         </div>
 
@@ -93,7 +93,9 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
           className='absolute inset-0 w-full flex flex-col items-center justify-center px-4 pb-24 z-30'
         >
           <div className='text-center py-4'>
-            <h2 className='mb-2 text-h3_md font-extrabold text-almost-white'>Kontaktirajte nas s povjerenjem</h2>
+            <h2 className='mb-2 xl:text-h3_md lg:text-h4_sm text-h5_xs font-extrabold text-almost-white'>
+              Kontaktirajte nas s povjerenjem
+            </h2>
           </div>
           <form onSubmit={handleSubmit(onSubmit, onError)} className='w-full max-w-screen-sm z-40'>
             <div className='mb-4'>
@@ -103,7 +105,7 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
               <input
                 type='email'
                 id='email'
-                className={`shadow-sm bg-almost-white border border-sutraCardDivider text-almost-black text-sm rounded-lg block w-full p-2.5 focus:outline-none ${
+                className={`shadow-sm bg-almost-white border border-sutraCardDivider text-almost-black text-sm rounded-sm block w-full p-2.5 focus:outline-none ${
                   errors.email ? 'border-red-500' : 'focus:border-accent'
                 }`}
                 placeholder='vašeime@mail.com'
@@ -125,7 +127,7 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
               <input
                 type='text'
                 id='name'
-                className={`block p-2.5 w-full text-sm text-almost-black bg-almost-white rounded-lg border shadow-sm focus:outline-none ${
+                className={`block p-2.5 w-full text-sm text-almost-black bg-almost-white rounded-sm border shadow-sm focus:outline-none ${
                   errors.name ? 'border-red-500' : 'focus:border-accent'
                 }`}
                 placeholder='Ivan Horvat'
@@ -143,7 +145,7 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
               <textarea
                 id='message'
                 rows={4}
-                className={`block p-2.5 w-full text-sm text-almost-black bg-almost-white rounded-lg shadow-sm border ${
+                className={`block p-2.5 w-full text-sm text-almost-black bg-almost-white rounded-sm shadow-sm border ${
                   errors.message ? 'border-red-500' : 'focus:border-accent'
                 }`}
                 placeholder='Napišite nam poruku'

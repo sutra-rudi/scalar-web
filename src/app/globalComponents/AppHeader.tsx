@@ -202,7 +202,7 @@ const AppHeader = () => {
             width={150}
             height={150}
             alt='Scalar logo'
-            className='object-cover object-center '
+            className='object-cover object-center'
           />
         </a>
         <div className='w-min z-40 md:hidden block'>
@@ -230,9 +230,9 @@ const AppHeader = () => {
                 >
                   <path
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
                     d='m1 1 4 4 4-4'
                   />
                 </svg>

@@ -30,7 +30,52 @@ const config: Config = {
       backgroundImage: {
         sutraGradientButton: 'linear-gradient(180deg, rgba(90,93,82,1) 0%, rgba(36,41,40,1) 100%)',
         sutraGradientButtonDark: 'linear-gradient(180deg, rgba(188,192,175,1) 0%, rgba(178,182,137,1) 100%)',
+        sutraNoiseBg: 'url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png")',
       },
+
+      //KEYFRAMES
+      keyframes: {
+        animateGrain: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '10%': {
+            transform: 'translate(-5%,-10%)',
+          },
+          '20%': {
+            transform: 'translate(-15%,-20%)',
+          },
+          '30%': {
+            transform: 'translate(-5%,-10%)',
+          },
+          '40%': {
+            transform: 'translate(-15%,-20%)',
+          },
+          '50%': {
+            transform: 'translate(-5%,-10%)',
+          },
+          '60%': {
+            transform: 'translate(-15%,-20%)',
+          },
+          '70%': {
+            transform: 'translate(-5%,-10%)',
+          },
+          '80%': {
+            transform: 'translate(-15%,-20%)',
+          },
+          '90%': {
+            transform: 'translate(-5%,-10%)',
+          },
+          '100%': {
+            transform: 'translate(-15%,-20%)',
+          },
+        },
+      },
+
+      //ANIMATION
+
+      animation: {
+        animateFilm: 'animateGrain 8s steps(10) infinite',
+      },
+
       //OUTLINE
       outlineWidth: {
         sutraButtonOutline: '2px',
