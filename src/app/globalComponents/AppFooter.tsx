@@ -27,7 +27,14 @@ export default function AppFooter() {
     <footer className='w-full overflow-hidden bg-primary-dark dark:bg-secondary-dark py-12 relative before:absolute before:w-[300%] before:h-[300%] before:inset-0 before:bg-sutraNoiseBg before:opacity-[0.1] before:bg-no-repeat before:bg-center before:bg-cover before:pointer-events-none before:select-none before:animate-animateFilm before:will-change-transform before:z-[-5] dark:before:z-0'>
       <div className='container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col justify-between sm:gap-0 gap-4 z-10'>
         <div className='flex gap-16 items-start lg:justify-start justify-center lg:flex-nowrap flex-wrap'>
-          <Image src={ScalarLogoVer} width={250} height={250} alt='app logo' loading='lazy' />
+          <Image
+            src={ScalarLogoVer}
+            width={350}
+            height={350}
+            alt='app logo'
+            loading='lazy'
+            className='object-center object-cover block '
+          />
 
           <div className='text-primary-light flex items-start justify-start flex-col'>
             <p className='text-base leading-normal font-medium pb-4'>SCALAR d.o.o. za nadzor i savjetovanje</p>
