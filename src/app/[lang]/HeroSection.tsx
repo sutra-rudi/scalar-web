@@ -8,6 +8,7 @@ import scalarHeroBg from '../images/scalar-hero-page-bg.jpg';
 import scalarHeroMobile from '../images/scalar-hero-mobile.jpg';
 import { useWindowSize } from '@uidotdev/usehooks';
 import { useParallax } from 'react-scroll-parallax';
+import { motion } from 'framer-motion';
 
 const HeroSection = ({ lang }: { lang: string }) => {
   const { width: ClientW } = useWindowSize();
@@ -31,6 +32,22 @@ const HeroSection = ({ lang }: { lang: string }) => {
     translateX: [0, 5],
     shouldAlwaysCompleteAnimation: true,
   });
+
+  const wordVariants = {
+    hidden: { opacity: 0, y: -15 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.15,
+        type: 'spring',
+        stiffness: 300,
+      },
+    }),
+  };
+
+  const firstLine = `SCALAR - Vaš partner u`.split(' ');
+  const secondLine = `investicijama u građevini`.split(' ');
 
   return (
     <section className='w-full min-h-screen relative overflow-hidden'>
@@ -64,10 +81,36 @@ const HeroSection = ({ lang }: { lang: string }) => {
 
       <div className='absolute inset-0 z-20 w-full h-full flex flex-col items-center justify-center'>
         <div className='max-w-max xl:pl-[40%] lg:pl-[35%] md:pl-[30%] pl-0 flex flex-col items-center md:items-start'>
-          <div ref={headlineParallax.ref as any}>
-            <h1 className='xl:max-w-2xl lg:max-w-xl md:max-w-sm max-w-xs md:text-left text-center mb-4 font-bold tracking-tight leading-none text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-accent'>
-              {`SCALAR - Vaš partner u\ninvesticijama u građevini`}
-            </h1>
+          {/* First Line */}
+          <div ref={headlineParallax.ref as any} className='flex flex-wrap justify-center md:justify-start'>
+            {firstLine.map((word, index) => (
+              <motion.span
+                key={word + index}
+                className='inline-block  font-bold tracking-tight leading-none text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-accent'
+                initial='hidden'
+                animate='visible'
+                variants={wordVariants}
+                custom={index}
+              >
+                {word}&nbsp;
+              </motion.span>
+            ))}
+          </div>
+
+          {/* Second Line */}
+          <div ref={headlineParallax.ref as any} className='flex flex-wrap justify-center md:justify-start'>
+            {secondLine.map((word, index) => (
+              <motion.span
+                key={word + index}
+                className='inline-block mb-4 font-bold tracking-tight leading-none text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-accent'
+                initial='hidden'
+                animate='visible'
+                variants={wordVariants}
+                custom={index + firstLine.length} // Offset index for second line
+              >
+                {word}&nbsp;
+              </motion.span>
+            ))}
           </div>
 
           <div ref={buttonParallax.ref as any} className=''>

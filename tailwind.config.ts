@@ -68,12 +68,18 @@ const config: Config = {
             transform: 'translate(-15%,-20%)',
           },
         },
+
+        textAppear: {
+          '0%': { opacity: '0', transform: 'scale(0.8)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
       },
 
       //ANIMATION
 
       animation: {
         animateFilm: 'animateGrain 8s steps(10) infinite',
+        textAppear: 'textAppear 1.5s ease-out forwards',
       },
 
       //OUTLINE
