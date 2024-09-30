@@ -10,11 +10,13 @@ const paragraphs = [
 const AboutUsSection = () => {
   return (
     <section className='w-full mb-16'>
-      <div className='flex items-start lg:gap-8 md:gap-4 gap-2 justify-center w-full xl:max-w-screen-2xl mx-auto lg:flex-nowrap flex-wrap-reverse '>
+      <div className='flex items-start justify-between lg:gap-8 md:gap-4 gap-2  xl:max-w-screen-2xl mx-auto lg:flex-nowrap flex-wrap-reverse 2xl:px-24 xl:px-20 lg:px-16 md:px-12 px-4'>
         <div className='xl:max-w-prose prose xl:mt-12 mt-6 w-full'>
-          <h2 className='text-primary-dark dark:text-primary-light font-bold lg:text-[2rem] text-2xl  px-4'>O nama</h2>
+          <h2 className='text-primary-dark dark:text-primary-light font-bold lg:text-4xl md:text-3xl text-2xl  px-4'>
+            O nama
+          </h2>
           {paragraphs.map((par, index) => (
-            <p key={`${par}${index}`} className='lg:text-base text-sm text-primary-dark dark:text-primary-light  px-4'>
+            <p key={`${par}${index}`} className='lg:text-lg text-base text-primary-dark dark:text-primary-light  px-4'>
               {par}
             </p>
           ))}
@@ -27,7 +29,7 @@ const AboutUsSection = () => {
           width={scalarCEO.width}
           height={scalarCEO.height}
           alt='scalar man'
-          className='object-cover lg:aspect-[9/16] md:aspect-square aspect-square object-center xl:w-auto w-full xl:max-h-[unset] max-h-[705px]'
+          className='object-cover lg:aspect-[9/16] md:aspect-square aspect-square object-center w-full xl:max-h-[unset] max-h-[705px]'
         />
       </div>
     </section>

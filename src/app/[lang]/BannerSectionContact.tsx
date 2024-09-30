@@ -55,12 +55,10 @@ const BannerSectionContact = ({ lang }: { lang: string }) => {
         ref={foregroundParallax.ref as any}
         className='w-full h-full absolute inset-0 flex items-center justify-center z-10'
       >
-        <div className='flex flex-col items-center justify-start gap-4'>
-          <h3 className='text-almost-white opacity-80 lg:text-3xl md:text-2xl text-xl'>
-            Kontaktirajte nas s povjerenjem
-          </h3>
-          <a href={`/${lang}/contact`}>
-            <SutraButtonBase isAccentButton innerText='Pošalji' size='normal' />
+        <div className='flex flex-col items-center justify-start gap-4 w-full'>
+          <h3 className='text-almost-white lg:text-4xl md:text-3xl text-2xl'>Kontaktirajte nas s povjerenjem</h3>
+          <a href={`/${lang}/contact`} className='sm:w-1/6'>
+            <SutraButtonBase isAccentButton innerText='Pošalji' size='large' isFullCard />
           </a>
         </div>
       </div>

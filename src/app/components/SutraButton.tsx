@@ -30,7 +30,7 @@ export const SutraButtonBase = ({
           : size === 'large'
           ? 'md:text-lg text-base'
           : ''
-      } transition-all ease-in-out px-2 py-1  hover:scale-105 active:outline active:outline-sutraButtonOutline rounded-sm group-hover:scale-105 ${
+      } transition-all ease-in-out px-3 py-2  hover:scale-105 active:outline active:outline-sutraButtonOutline rounded-sm group-hover:scale-105 ${
         isAccentButton
           ? 'bg-accent text-sutraButtonText hover:text-accent hover:bg-primary-dark active:outline-accent'
           : 'bg-primary-dark text-sutraButtonText  dark:bg-primary-light dark:text-primary-dark hover:bg-primary-light hover:text-primary-dark active:outline-accent dark:hover:bg-primary-dark dark:hover:text-secondary-light'

@@ -27,7 +27,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
 
   return (
     <section className='my-12'>
-      <h2 className='w-full text-center lg:text-[2rem] md:text-3xl text-2xl text-primary-dark dark:text-primary-light  py-8 font-medium'>
+      <h2 className='w-full text-center lg:text-4xl md:text-3xl text-2xl  text-primary-dark dark:text-primary-light  py-8 font-medium'>
         Izdvojene reference
       </h2>
 
@@ -64,7 +64,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                   </div>
                 )} */}
                 {triageOfIcons !== 'Brojevi' ? (
-                  <ul className='flex items-start flex-col md:gap-2 gap-3 appearance-none text-balance md:text-base text-sm text-primary-dark dark:text-primary-light '>
+                  <ul className='flex items-start flex-col md:gap-2 gap-3 appearance-none text-balance lg:text-lg text-base text-primary-dark dark:text-primary-light '>
                     {listaContent.map((list: any, index: number) => {
                       const imgShorthand = nodeCont.node.ikona.svgListIcon
                         ? nodeCont.node.ikona.svgListIcon.node.sourceUrl
@@ -114,7 +114,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                               height={24}
                             />
                           )}
-                          <span className='font-normal md:text-base text-sm text-primary-dark dark:text-primary-light '>
+                          <span className='font-normal lg:text-lg text-base text-primary-dark dark:text-primary-light '>
                             {list}
                           </span>
                         </li>

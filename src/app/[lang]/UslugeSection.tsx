@@ -1,3 +1,5 @@
+'use client';
+
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import slugify from 'slugify';
 import { slugifyOptions } from '../pathsUtils/slugifyOptions';
@@ -60,7 +62,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
 
   return (
     <section className='my-12'>
-      <div className='max-w-screen-2xl px-4 mx-auto my-8 flex flex-wrap items-start justify-center lg:gap-8 md:gap-4 gap-2'>
+      <div className='max-w-screen-2xl  2xl:px-24 xl:px-20 lg:px-16 md:px-12 px-4 mx-auto my-8 flex flex-wrap items-start justify-between lg:gap-8 md:gap-4 gap-2'>
         {pageContent.map((content: any, index: number) => {
           const contentShorthand = content.node;
 

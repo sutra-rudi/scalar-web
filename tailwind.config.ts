@@ -144,7 +144,7 @@ const config: Config = {
       maxWidth: {
         sutraBlogTestMaxWidth: '750px',
         sutraContactUsTempFormWidth: '1200px',
-        serviceCardDesktop: '260px',
+        serviceCardDesktop: '300px',
       },
     },
   },

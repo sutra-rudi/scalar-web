@@ -8,6 +8,7 @@ import { defaultMultiple } from '@/app/scriptSettings/slickOptions';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { SutraTagBase } from '@/app/components/SutraTag';
+
 interface ServicesOffersInterface {
   attributes: any;
   textContent: any;
@@ -18,8 +19,6 @@ interface ServicesOffersInterface {
 }
 
 const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: ServicesOffersInterface) => {
-  // const prepAttr = Object.values(attributes);
-
   const isGalleryEmpty = React.useMemo(() => gallery.every((item) => item === null), [gallery]);
 
   return (
@@ -36,19 +35,23 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
         </ParallaxBannerLayer>
       </ParallaxBanner>
 
-      <div className='max-w-screen-2xl mx-auto  lg:px-0 px-4'>
-        <div className='prose mx-auto py-6 '>
-          <h2 className='text-primary-dark dark:text-primary-light'>{textContent.naslovBazaTekstova}</h2>
-          <p className='text-primary-dark dark:text-primary-light'>{textContent.nadnaslovPodnaslovBazaTekstova}</p>
-        </div>
+      <div className='max-w-screen-2xl mx-auto lg:px-0 px-4'>
+        <div className='grid grid-cols-1 justify-center place-items-start lg:w-2/4 w-full mx-auto'>
+          {/* Prilagoditi razmak između naslova i sadržaja */}
+          <div className='prose py-6 text-primary-dark dark:text-primary-light w-full'>
+            <h2 className='text-primary-dark dark:text-primary-light w-full lg:px-0 px-4 lg:text-4xl md:text-3xl text-2xl'>
+              {textContent.naslovBazaTekstova}
+            </h2>
+          </div>
 
-        <div className='prose mx-auto lg:px-0 px-4 text-primary-dark dark:text-primary-light text-lg'>
-          {parse(pageContent)}
+          <div className='prose lg:px-0 px-4 text-primary-dark dark:text-primary-light text-lg prose-p:pl-0'>
+            {parse(pageContent)}
+          </div>
         </div>
 
         {!isGalleryEmpty && (
-          <div className='mx-auto md:w-2/3  lg:px-0 px-4'>
-            <h3 className='max-w-max py-6 text-2xl prose'>Galerija</h3>
+          <div className='mx-auto md:w-2/3 lg:px-0 px-4'>
+            <h3 className='max-w-max py-6 text-2xl prose text-center'>Galerija</h3>
             <Slider {...defaultMultiple} slidesToScroll={1} className='cursor-grab'>
               {gallery.map((nod, index) => {
                 return (
@@ -68,8 +71,8 @@ const PageContent = ({ textContent, introImages, gallery, tags, pageContent }: S
           </div>
         )}
 
-        <div className='mx-auto md:w-2/3 my-20  lg:px-0 px-4'>
-          <div className='flex gap-2 lg:flex-nowrap flex-wrap'>
+        <div className='mx-auto md:w-2/3 my-20 lg:px-0 px-4'>
+          <div className='flex gap-2 lg:flex-nowrap flex-wrap justify-center'>
             {tags &&
               tags
                 .split(', ')

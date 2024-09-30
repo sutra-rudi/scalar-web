@@ -26,13 +26,13 @@ const ServiceCard = ({ url, imgSource, title, intro }: DefaultServiceCard) => {
       </div>
 
       <div className='p-4 w-full'>
-        <div className='flex flex-col justify-between  leading-normal w-full  prose'>
-          <h5 className='mb-1 lg:text-2xl md:text-xl text-lg font-bold tracking-tight text-balance text-primary-dark dark:text-white'>
+        <div className='flex flex-col justify-between  leading-normal w-full  prose prose-p:my-2'>
+          <h5 className='lg:text-2xl md:text-xl text-lg font-bold tracking-tight text-balance text-primary-dark dark:text-white'>
             {title}
           </h5>
           {/* <p className='mb-1 line-clamp-4 max-w-[25ch] font-normal text-primary-dark dark:text-white'>{subtitle}</p> */}
 
-          <p className='transition-all ease-out duration-150 md:text-base text-sm opacity-70  text-primary-dark dark:text-white group-hover:opacity-100'>
+          <p className='transition-all ease-out duration-150 md:text-base text-sm opacity-70  text-primary-dark dark:text-white group-hover:opacity-100 pb-2'>
             {intro}
           </p>
 

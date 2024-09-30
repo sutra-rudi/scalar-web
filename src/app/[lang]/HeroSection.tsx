@@ -113,7 +113,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
             ))}
           </div>
 
-          <div ref={buttonParallax.ref as any} className=''>
+          <div ref={buttonParallax.ref as any} className='mt-2 sm:mt-0'>
             <a href={`/${lang}/contact`} className='flex items-center gap-4'>
               <SutraButtonOutlined innerText='Kontaktirajte nas' size='normal' backIcon={RightIcon} />
             </a>
