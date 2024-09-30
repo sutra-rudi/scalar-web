@@ -9,7 +9,7 @@ const paragraphs = [
 
 const AboutUsSection = () => {
   return (
-    <section className='w-full'>
+    <section className='w-full mb-16'>
       <div className='flex items-start lg:gap-8 md:gap-4 gap-2 justify-center w-full xl:max-w-screen-2xl mx-auto lg:flex-nowrap flex-wrap-reverse '>
         <div className='xl:max-w-prose prose xl:mt-12 mt-6 w-full'>
           <h2 className='text-primary-dark dark:text-primary-light font-bold lg:text-[2rem] text-2xl  px-4'>O nama</h2>

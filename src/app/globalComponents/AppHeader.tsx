@@ -277,7 +277,7 @@ const AppHeader = () => {
             <li>
               <a
                 href={`/${currentLang}/contact`}
-                className='block py-2 px-3 text-primary-dark dark:text-primary-light '
+                className='block py-2 px-3 text-primary-dark dark:text-primary-light hover:text-accent cursor-pointer dark:hover:text-accent'
                 aria-label='Kontaktirajte nas sa povjerenjem!'
                 role='link'
               >
