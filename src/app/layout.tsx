@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import { Providers } from './providers';
 
 import dynamic from 'next/dynamic';
+import Loading from './loading';
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'), { ssr: false });
 
@@ -188,7 +189,7 @@ export default async function RootLayout({
       <body className={`${roboto.className} w-full h-full md:pt-0 pt-12 relative bg-almost-white dark:bg-almost-black`}>
         <Toaster />
         <AppHeader />
-        <Suspense>
+        <Suspense fallback={<Loading />}>
           <Providers>{children}</Providers>
         </Suspense>
         <AppFooter />

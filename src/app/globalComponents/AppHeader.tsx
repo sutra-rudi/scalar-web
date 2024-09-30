@@ -30,7 +30,7 @@ const AppHeader = () => {
     { title: 'Hrvatski', lang: 'hr', flag: <Hr width={24} height={24} /> },
     { title: 'English', lang: 'eng', flag: <Gb width={24} height={24} /> },
     { title: 'Deutsch', lang: 'ger', flag: <De width={24} height={24} /> },
-    { title: 'Italiano', lang: 'ita', flag: <It width={24} height={24} /> },
+    // { title: 'Italiano', lang: 'ita', flag: <It width={24} height={24} /> },
   ];
 
   const handleTheme = () => {
@@ -182,7 +182,7 @@ const AppHeader = () => {
             width={222}
             height={70}
             alt='Scalar logo'
-            className='object-cover object-center'
+            className='object-contain object-center'
           />
         </a>
         <div className='w-min z-40 md:hidden block'>
@@ -227,7 +227,10 @@ const AppHeader = () => {
               </button>
 
               {isDropdownOpen && (
-                <div className='absolute bg-almost-white dark:bg-almost-black rounded-lg shadow mt-2  z-50'>
+                <div
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+                  className='absolute bg-almost-white dark:bg-almost-black rounded-lg shadow mt-2  z-50'
+                >
                   <ul className='py-2 z-50'>
                     <li>
                       <a
@@ -285,17 +288,6 @@ const AppHeader = () => {
               </a>
             </li>
 
-            <li>
-              <div
-                onClick={handleTheme}
-                aria-label={`Promijenite temu u ${theme === 'light' ? 'noćni način' : 'standardno'}`}
-                role='button'
-                className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear'
-              >
-                {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
-              </div>
-            </li>
-
             <li className='flex gap-2 items-center justify-start'>
               {langs.map((language) => (
                 <button
@@ -309,6 +301,17 @@ const AppHeader = () => {
                   {language.flag}
                 </button>
               ))}
+            </li>
+
+            <li className='cursor-pointer'>
+              <div
+                onClick={handleTheme}
+                aria-label={`Promijenite temu u ${theme === 'light' ? 'noćni način' : 'standardno'}`}
+                role='button'
+                className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear'
+              >
+                {theme === 'light' ? <SunIcon size={14.4} color='#181816' /> : <MoonIcon size={14.4} color='#F8F7F2' />}
+              </div>
             </li>
           </ul>
         </div>

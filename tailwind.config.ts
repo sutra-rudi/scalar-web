@@ -82,6 +82,14 @@ const config: Config = {
         sutraButtonOutlineAsPrim: '1px',
         sutraButtonOutlineAsPrimHover: '2.5px',
       },
+
+      //BORDER
+      borderWidth: {
+        sutraButtonBorder: '2px',
+        sutraButtonBorderAsPrim: '1px',
+        sutraButtonBorderAsPrimHover: '2.5px',
+      },
+
       //OPACITY
       opacity: {
         ghostButtonOpacity: '0.5',
