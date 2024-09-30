@@ -85,6 +85,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                                 src={imgShorthand}
                                 alt='image for list item'
                                 className='w-6 h-6 object-cover object-center'
+                                loading='lazy'
                               />
                             </picture>
                           ) : checkIfNumber === 'Broj' ? (
@@ -93,7 +94,12 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                                 {index + 1}
                               </span>
                               <picture>
-                                <img src={fullURL} className='w-6 h-6 object-cover object-center' alt='' />
+                                <img
+                                  src={fullURL}
+                                  className='w-6 h-6 object-cover object-center'
+                                  alt='image for list item'
+                                  loading='lazy'
+                                />
                               </picture>
                             </div>
                           ) : (
@@ -102,6 +108,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                                 src={fullURL}
                                 alt='image for list item'
                                 className='w-6 h-6 object-cover object-center'
+                                loading='lazy'
                               />
                             </picture>
                           )}
