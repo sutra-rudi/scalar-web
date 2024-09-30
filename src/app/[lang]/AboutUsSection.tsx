@@ -29,7 +29,7 @@ const AboutUsSection = () => {
           width={scalarCEO.width}
           height={scalarCEO.height}
           alt='scalar man'
-          className='object-cover lg:aspect-[9/16] md:aspect-square aspect-square object-center w-full xl:max-h-[unset] max-h-[705px]'
+          className='object-cover lg:aspect-[9/16]  aspect-square md:object-center object-top w-full sm:max-h-[unset] max-h-[405px]'
         />
       </div>
     </section>

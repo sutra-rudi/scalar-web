@@ -184,7 +184,8 @@ export default async function SingleServiceOfferPage({
 
   const getAllUsluge = await getAllServices.json();
 
-  const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
+  const uslugeDataArrayShorthand =
+    getAllUsluge?.data?.allUsluge?.edges.filter((usluga: any) => usluga.node.id !== getIdFromSlug(id)) || [];
 
   return (
     <Suspense>
@@ -198,7 +199,7 @@ export default async function SingleServiceOfferPage({
           pageContent={contentForPage}
         />
 
-        <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+        <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} isOnSub={true} />
 
         <ScalarContact isPage={false} />
 

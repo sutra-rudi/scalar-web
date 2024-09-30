@@ -5,7 +5,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useParallax } from 'react-scroll-parallax';
-import { SutraButtonBase } from './SutraButton';
+import { SutraButtonBase, SutraButtonOutlined } from './SutraButton';
 import { useFormspark } from '@formspark/use-formspark';
 import scalarContactOverlay from '../images/scalar-contact-overlay.jpg';
 import scalarOverlayHero from '../images/scalar-hero-page-lines.png';
@@ -156,7 +156,9 @@ const ScalarContact = ({ isPage }: ScalarContact) => {
               {/* @ts-ignore */}
               {errors.message && <span className='text-red-500'>{errors.message.message}</span>}
             </div>
-            <SutraButtonBase innerText='Pošalji upit' size='normal' type='submit' />
+            <div className='sm:w-1/4 w-1/2'>
+              <SutraButtonOutlined innerText='Pošalji upit' size='normal' type='submit' isFullCard />
+            </div>
           </form>
         </div>
       </div>

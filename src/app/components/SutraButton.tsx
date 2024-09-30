@@ -33,7 +33,7 @@ export const SutraButtonBase = ({
       } transition-all ease-in-out px-3 py-2  hover:scale-105 active:outline active:outline-sutraButtonOutline rounded-sm group-hover:scale-105 ${
         isAccentButton
           ? 'bg-accent text-sutraButtonText hover:text-accent hover:bg-primary-dark active:outline-accent'
-          : 'bg-primary-dark text-sutraButtonText  dark:bg-primary-light dark:text-primary-dark hover:bg-primary-light hover:text-primary-dark active:outline-accent dark:hover:bg-primary-dark dark:hover:text-secondary-light'
+          : 'bg-primary-dark-btn text-sutraButtonText  dark:bg-primary-light dark:text-primary-dark hover:bg-primary-light hover:text-primary-dark active:outline-accent dark:hover:bg-primary-dark dark:hover:text-secondary-light'
       }  ${isFullCard && 'w-full'}`}
     >
       {innerText}
@@ -54,7 +54,7 @@ export const SutraButtonGradient = ({ innerText, size }: SutraButtonBaseInterfac
   );
 };
 
-export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterface) => {
+export const SutraButtonOutlined = ({ innerText, size, isFullCard }: SutraButtonBaseInterface) => {
   return (
     <button
       role='button'
@@ -66,7 +66,9 @@ export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterfac
           : size === 'large'
           ? 'md:text-lg text-base'
           : ''
-      } transition-all ease-in-out px-3 py-2 hover:bg-accent hover:text-primary-dark  border-accent border-2 text-accent hover:border-sutraButtonBordereAsPrimHover active:border-sutraButtonBorderAsPrimHover dark:border-primary-light dark:text-primary-light rounded-sm`}
+      } transition-all ease-in-out px-3 py-2 hover:bg-accent hover:text-primary-dark  border-accent border-2 text-accent hover:border-sutraButtonBordereAsPrimHover active:border-sutraButtonBorderAsPrimHover dark:border-primary-light dark:text-primary-light rounded-sm ${
+        isFullCard && 'w-full'
+      }`}
     >
       {innerText}
     </button>

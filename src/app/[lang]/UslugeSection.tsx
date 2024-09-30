@@ -5,15 +5,19 @@ import slugify from 'slugify';
 import { slugifyOptions } from '../pathsUtils/slugifyOptions';
 import ServiceCard from '../components/ServiceCard';
 import Script from 'next/script';
+import { motion } from 'framer-motion';
+import { useIntersectionObserver } from '@uidotdev/usehooks';
+import React, { useState } from 'react';
+
 interface UslugeSectionInterface {
   pageContent: any;
   lang: any;
+  isOnSub?: boolean;
 }
 
 function generateServicesSchemaOrg(pageContent: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
-  // Generiraj listu usluga
   const services = pageContent.map((content: any) => {
     const contentShorthand = content.node;
 
@@ -27,9 +31,9 @@ function generateServicesSchemaOrg(pageContent: any, lang: string) {
       serviceType: titleShorthandObj.naslovBazaTekstova ?? 'Unknown Service',
       description: titleShorthandObj.nadnaslovPodnaslovBazaTekstova ?? 'No description available',
       provider: {
-        '@type': 'Organization', // Možeš promijeniti u odgovarajući tip ako je potrebno
-        name: 'Your Organization Name', // Zamijeni sa stvarnim imenom organizacije
-        logo: thumbImageShorthandObj.sourceUrl ?? '', // Zamijeni ako imaš URL za logo
+        '@type': 'Organization',
+        name: 'Your Organization Name',
+        logo: thumbImageShorthandObj.sourceUrl ?? '',
       },
       url: `/${lang}/services-offers/${
         slugify(`${titleShorthandObj.naslovBazaTekstova ?? ''}`, slugifyOptions) + `-${contentShorthand.id}`
@@ -38,16 +42,15 @@ function generateServicesSchemaOrg(pageContent: any, lang: string) {
     };
   });
 
-  // Vraćamo cijeli schema.org objekt
   const schemaOrgData = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Our Services',
     description: 'A catalog of the services we offer.',
-    itemListElement: services, // Promijenjeno na itemListElement
+    itemListElement: services,
   };
 
-  return JSON.stringify(schemaOrgData, null, 2); // Dodano formatiranje za preglednost
+  return JSON.stringify(schemaOrgData, null, 2);
 }
 
 const introTextContent = [
@@ -57,15 +60,30 @@ const introTextContent = [
   `Usluge različitih segmenata u projektiranju (troškovnici, idejna rješenja, proračuni, analize, razrade detalja i sl.) kao i usluga izrade cjelokupne projektne dokumentacije za potrebe ishođenja dozvola i izvedbu objekata.`,
 ];
 
-const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
+const UslugeSection = ({ pageContent, lang, isOnSub }: UslugeSectionInterface) => {
   const schemaOrgData = generateServicesSchemaOrg(pageContent, lang);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  const [sectionRef, entry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: '0px',
+  });
+
+  // Trigger animation only once when the section comes into view
+  if (entry?.isIntersecting && !hasAnimated) {
+    setHasAnimated(true);
+  }
 
   return (
-    <section className='my-12'>
-      <div className='max-w-screen-2xl  2xl:px-24 xl:px-20 lg:px-16 md:px-12 px-4 mx-auto my-8 flex flex-wrap items-start justify-between lg:gap-8 md:gap-4 gap-2'>
+    <section className='my-12' ref={sectionRef}>
+      <div
+        className={`max-w-screen-2xl 2xl:px-24 xl:px-20 lg:px-16 md:px-12 px-4 mx-auto my-8 flex flex-wrap items-start lg:gap-8 md:gap-4 gap-2 ${
+          isOnSub ? 'justify-center' : ' justify-between '
+        }`}
+      >
         {pageContent.map((content: any, index: number) => {
           const contentShorthand = content.node;
-
           const thumbImageShorthandObj = contentShorthand.modulBazeTekstovaUvod.slika1.node;
 
           const titleShorthandObj =
@@ -73,22 +91,23 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
               `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
             ].naslovIPodnaslovDvaPolja;
 
-          // const introTextShorthandObj =
-          //   contentShorthand[`modulBazeTekstova2Kolumne${getSuffixFromLang(lang)}`]?.[
-          //     `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
-          //   ].kolumneTeksta2;
-
           return (
-            <ServiceCard
-              url={`/${lang}/services-offers/${
-                slugify(`${titleShorthandObj.naslovBazaTekstova ?? ''}`, slugifyOptions) + `-${contentShorthand.id}`
-              }`}
-              title={titleShorthandObj.naslovBazaTekstova}
-              subtitle={titleShorthandObj.nadnaslovPodnaslovBazaTekstova}
-              imgSource={thumbImageShorthandObj.sourceUrl}
+            <motion.div
               key={contentShorthand.id}
-              intro={introTextContent[index]}
-            />
+              initial={{ opacity: 0, y: -100 }} // Start from above
+              animate={hasAnimated ? { opacity: 1, y: 0 } : {}} // Animate only if hasAnimated is true
+              transition={{ duration: 0.5, delay: index * 0.1 }} // Delay based on index for staggered effect
+            >
+              <ServiceCard
+                url={`/${lang}/services-offers/${
+                  slugify(`${titleShorthandObj.naslovBazaTekstova ?? ''}`, slugifyOptions) + `-${contentShorthand.id}`
+                }`}
+                title={titleShorthandObj.naslovBazaTekstova}
+                subtitle={titleShorthandObj.nadnaslovPodnaslovBazaTekstova}
+                imgSource={thumbImageShorthandObj.sourceUrl}
+                intro={introTextContent[index]}
+              />
+            </motion.div>
           );
         })}
       </div>

@@ -12,6 +12,7 @@ const config: Config = {
         'primary-light': '#C3C6B6',
         'secondary-light': '#DDDFD6',
         'primary-dark': 'rgba(0,0,0,.5)',
+        'primary-dark-btn': 'rgba(0,0,0,.3)',
         'secondary-dark': '#11201D',
         accent: '#FF9A00',
         error: '#FF7A00',
