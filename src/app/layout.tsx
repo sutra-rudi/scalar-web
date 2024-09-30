@@ -21,6 +21,7 @@ export const viewport: Viewport = {
   maximumScale: 3,
   width: 'device-width',
 };
+
 export const metadata: Metadata = {
   title: 'Scalar',
   description: 'Vaš partner u investicijama u građevini',
@@ -113,13 +114,16 @@ export const metadata: Metadata = {
     },
   ],
 
-  keywords: 'investicije, građevina, projektiranje, partner, Scalar',
+  keywords: 'investicije, građevina, projektiranje, partner, Scalar, građevinski projekti, nekretnine, inženjering',
   authors: {
     url: 'https://www.scalar.hr',
-    name: "'Scalar d.o.o.'",
+    name: 'Scalar d.o.o.',
   },
-  robots: 'index, follow',
+  robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   applicationName: 'Scalar Investicije',
+  referrer: 'no-referrer-when-downgrade',
+  themeColor: '#FF9A00',
+  generator: 'Next.js',
 
   openGraph: {
     type: 'website',
@@ -156,6 +160,16 @@ export const metadata: Metadata = {
     google: 'google-site-verification-code',
     yandex: 'yandex-site-verification-code',
   },
+
+  alternates: {
+    canonical: 'https://www.scalar.hr',
+    languages: {
+      'hr-HR': 'https://www.scalar.hr',
+      'en-US': 'https://www.scalar.hr/en',
+    },
+  },
+
+  category: 'business',
 };
 
 export default async function RootLayout({

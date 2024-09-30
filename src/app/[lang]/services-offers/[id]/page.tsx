@@ -9,6 +9,90 @@ import { Suspense } from 'react';
 
 const PageContent = dynamic(() => import('./PageContent'));
 
+import { Metadata } from 'next';
+import { htmlToText } from 'html-to-text';
+
+function formatMetaDescription(description: string, maxLength: number = 160): string {
+  const plainText = htmlToText(description, {
+    wordwrap: 130,
+  }).trim();
+
+  if (plainText.length <= maxLength) {
+    return plainText;
+  }
+
+  return plainText.substring(0, maxLength).trim() + '...';
+}
+
+export async function generateMetadata({
+  params: { lang, id },
+}: {
+  params: { lang: string; id: string };
+}): Promise<Metadata> {
+  const getIdFromSlug = (slug: string): string => {
+    const parts = slug.split('-');
+    return parts.pop() || '';
+  };
+
+  const slugId = getIdFromSlug(id);
+
+  const getSingleService = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getSingleServicesOfferQuery(slugId, lang),
+    }),
+  });
+
+  const parseData = await getSingleService.json();
+  const prepareDataForClient = parseData.data.usluge;
+
+  const l = getSuffixFromLang(lang);
+
+  const prepareIntroText =
+    prepareDataForClient[`modulBazeTekstova2Kolumne${l}`]?.[`naslovNadnaslov2KolumneTeksta${l}`]
+      .naslovIPodnaslovDvaPolja;
+
+  const contentForPage =
+    prepareDataForClient[`modulBazeTekstova2Kolumne${l}`]?.[`naslovNadnaslov2KolumneTeksta${l}`].kolumneTeksta2
+      .tekstBazaTekstova;
+
+  const imageUrl = prepareDataForClient.modulBazeTekstovaUvod.slika1.node.sourceUrl ?? '';
+
+  return {
+    title: prepareIntroText.naslovBazaTekstova ?? 'Nema naslova',
+    description: formatMetaDescription(contentForPage),
+    openGraph: {
+      title: prepareIntroText.naslovBazaTekstova ?? 'Nema naslova',
+      description: formatMetaDescription(contentForPage),
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: 'Slika usluge',
+        },
+      ],
+      siteName: 'Scalar',
+      locale: 'hr_HR',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: prepareIntroText.naslovBazaTekstova ?? 'Nema naslova',
+      description: formatMetaDescription(contentForPage),
+      images: [
+        {
+          url: imageUrl,
+          alt: 'Slika usluge',
+        },
+      ],
+    },
+    keywords: 'investicije, građevina, projektiranje, partner, Scalar',
+  };
+}
+
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
