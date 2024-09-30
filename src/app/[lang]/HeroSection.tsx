@@ -30,7 +30,7 @@ const HeroSection = ({ lang }: { lang: string }) => {
   });
 
   return (
-    <section className='w-full h-screen relative overflow-hidden'>
+    <section className='w-full min-h-screen relative overflow-hidden'>
       <div ref={backgroundParallax.ref as any} className='absolute inset-0 w-full h-full'>
         {ClientW && (
           <Image

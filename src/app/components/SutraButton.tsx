@@ -54,7 +54,7 @@ export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterfac
       role='button'
       className={`${
         size === 'small' ? 'text-xs' : size === 'normal' ? 'text-base' : size === 'large' ? 'text-lg' : ''
-      } transition-all ease-in-out px-3 py-2 hover:scale-105 outline  outline-accent outline-2 text-accent hover:text-accent hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primary-light dark:text-primary-light rounded-sm`}
+      } transition-all ease-in-out px-3 py-2 hover:bg-accent hover:text-primary-dark outline  outline-accent outline-2 text-accent hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primary-light dark:text-primary-light rounded-sm`}
     >
       {innerText}
     </button>

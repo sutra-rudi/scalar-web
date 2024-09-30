@@ -11,7 +11,7 @@ const config: Config = {
         'almost-white': '#F8F7F2',
         'primary-light': '#C3C6B6',
         'secondary-light': '#DDDFD6',
-        'primary-dark': '#474747',
+        'primary-dark': 'rgba(0,0,0,.5)',
         'secondary-dark': '#11201D',
         accent: '#FF9A00',
         error: '#FF7A00',
