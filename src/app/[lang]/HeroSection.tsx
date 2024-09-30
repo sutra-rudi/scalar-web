@@ -36,21 +36,23 @@ const HeroSection = ({ lang }: { lang: string }) => {
           <Image
             src={ClientW > 1200 ? scalarHeroBg : scalarHeroMobile}
             alt='page background'
-            fill
-            className='object-left-bottom block'
+            width={ClientW > 1200 ? scalarHeroBg.width : scalarHeroMobile.width}
+            height={ClientW > 1200 ? scalarHeroBg.height : scalarHeroMobile.height}
+            className='object-left-bottom block w-full h-full'
             priority
             sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
           />
         )}
       </div>
 
-      <div ref={overlayParallax.ref as any} className='absolute inset-0 w-full h-full z-10'>
+      <div ref={overlayParallax.ref as any} className='absolute inset-0 w-full h-full'>
         {ClientW && (
           <Image
             src={scalarOverlayHero}
             alt='hero-overlay'
-            fill
-            className='object-cover object-center block'
+            width={scalarOverlayHero.width}
+            height={scalarOverlayHero.height}
+            className='object-cover object-center block w-full h-full'
             sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
             priority
           />
