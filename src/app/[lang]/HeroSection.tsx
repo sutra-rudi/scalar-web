@@ -39,8 +39,8 @@ const HeroSection = ({ lang }: { lang: string }) => {
             width={ClientW > 1200 ? scalarHeroBg.width : scalarHeroMobile.width}
             height={ClientW > 1200 ? scalarHeroBg.height : scalarHeroMobile.height}
             className='object-left-bottom block w-full h-full'
-            priority
-            sizes='(max-width: 768px) 100vw, (min-width: 769px) 50vw'
+            priority={true} // Postavljate visoki prioritet za ubrzanje učitavanja
+            sizes='(max-width: 768px) 100vw, (min-width: 769px) 70vw, (min-width: 1200px) 50vw'
           />
         )}
       </div>

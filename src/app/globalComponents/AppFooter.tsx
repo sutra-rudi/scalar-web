@@ -24,7 +24,7 @@ export default function AppFooter() {
   // const socialLinks: [string, string][] = Object.entries(dataShorthand.povezniceDrustvene);
 
   return (
-    <footer className='w-full overflow-hidden bg-primary-dark dark:bg-secondary-dark py-12 relative before:absolute before:w-[300%] before:h-[300%] before:inset-0 before:bg-sutraNoiseBg before:opacity-10 before:bg-no-repeat before:bg-center before:bg-cover before:pointer-events-none before:select-none before:animate-animateFilm before:will-change-transform'>
+    <footer className='w-full overflow-hidden bg-primary-dark dark:bg-secondary-dark py-12 relative before:absolute before:w-[200%] before:h-[200%] before:inset-0 before:bg-sutraNoiseBg before:opacity-[0.1] before:bg-no-repeat before:bg-center before:bg-cover before:pointer-events-none before:select-none before:animate-animateFilm before:will-change-transform'>
       <div className='container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col justify-between sm:gap-0 gap-4 z-10'>
         <div className='flex gap-16 items-start lg:justify-start justify-center lg:flex-nowrap flex-wrap'>
           <Image src={ScalarLogoVer} width={250} height={250} alt='app logo' loading='lazy' />
