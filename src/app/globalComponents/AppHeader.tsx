@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
 import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
-import { Hr, Gb, It, De } from 'react-flags-select';
+import { Hr, Gb, De } from 'react-flags-select';
 import Image from 'next/image';
 import { useLocalStorage, useClickAway } from '@uidotdev/usehooks';
 import SkalarLogoBezpotVertical from '../images/scalar-logo-ver-bezpot.svg';

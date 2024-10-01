@@ -45,7 +45,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
 
     return (
-      <main className='relative w-full dark:bg-almost-black min-h-screen'>
+      <main className='relative w-full bg-almost-white dark:bg-almost-black min-h-screen'>
         <Suspense>
           <Suspense>
             <HeroSection lang={lang} />

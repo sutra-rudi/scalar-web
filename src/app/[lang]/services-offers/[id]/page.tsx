@@ -188,8 +188,8 @@ export default async function SingleServiceOfferPage({
     getAllUsluge?.data?.allUsluge?.edges.filter((usluga: any) => usluga.node.id !== getIdFromSlug(id)) || [];
 
   return (
-    <Suspense>
-      <main className='w-full relative '>
+    <main className='w-full relative '>
+      <Suspense>
         <PageContent
           textContent={prepareIntroText}
           introImages={prepareIntroImages}
@@ -198,17 +198,18 @@ export default async function SingleServiceOfferPage({
           attributes={prepareAttributes}
           pageContent={contentForPage}
         />
-
+      </Suspense>
+      <Suspense>
         <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} isOnSub={true} />
-
+      </Suspense>
+      <Suspense>
         <ScalarContact isPage={false} />
-
-        <Script
-          id='schema-org-single-service'
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
-        />
-      </main>
-    </Suspense>
+      </Suspense>
+      <Script
+        id='schema-org-single-service'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
+      />
+    </main>
   );
 }
