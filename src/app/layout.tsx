@@ -150,7 +150,7 @@ export const metadata: Metadata = {
     description: 'Pružamo sveobuhvatne usluge projektiranja i izvođenja radova u građevinskoj industriji.',
     images: [
       {
-        url: '/images/OG/scalar-og.jpg',
+        url: '/images/Favicon/OG/scalar-og.jpg',
         alt: 'Scalar - Građevinski projekt',
       },
     ],
