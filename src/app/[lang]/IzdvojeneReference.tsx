@@ -79,45 +79,47 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
                       const fullURL = `${basePath}${cmsImgPath}-${slugCrl}.svg`;
 
                       return (
-                        <li key={index} className='w-full flex items-center justify-start gap-3'>
-                          {triageOfIcons === 'Dodaj svoju ikonu' && imgShorthand ? (
-                            <Image
-                              src={imgShorthand}
-                              alt='image for list item'
-                              className='w-6 h-6 object-cover object-center shrink-0'
-                              loading='lazy'
-                              width={24}
-                              height={24}
-                            />
-                          ) : checkIfNumber === 'Broj' ? (
-                            <div className='relative'>
-                              <span className='absolute left-1/2 -translate-x-1/2 text-primary-dark dark:text-primary-light '>
-                                {index + 1}
-                              </span>
-
+                        list && (
+                          <li key={index} className='w-full flex items-center justify-start gap-3'>
+                            {triageOfIcons === 'Dodaj svoju ikonu' && imgShorthand ? (
                               <Image
-                                src={fullURL}
-                                className='w-6 h-6 object-cover object-center shrink-0'
+                                src={imgShorthand}
                                 alt='image for list item'
+                                className='w-6 h-6 object-cover object-center shrink-0'
                                 loading='lazy'
                                 width={24}
                                 height={24}
                               />
-                            </div>
-                          ) : (
-                            <Image
-                              src={fullURL}
-                              alt='image for list item'
-                              className='w-6 h-6 object-cover object-center shrink-0'
-                              loading='lazy'
-                              width={24}
-                              height={24}
-                            />
-                          )}
-                          <span className='font-normal lg:text-lg text-base text-primary-dark dark:text-primary-light '>
-                            {list}
-                          </span>
-                        </li>
+                            ) : checkIfNumber === 'Broj' ? (
+                              <div className='relative'>
+                                <span className='absolute left-1/2 -translate-x-1/2 text-primary-dark dark:text-primary-light '>
+                                  {index + 1}
+                                </span>
+
+                                <Image
+                                  src={fullURL}
+                                  className='w-6 h-6 object-cover object-center shrink-0'
+                                  alt='image for list item'
+                                  loading='lazy'
+                                  width={24}
+                                  height={24}
+                                />
+                              </div>
+                            ) : (
+                              <Image
+                                src={fullURL}
+                                alt='image for list item'
+                                className='w-6 h-6 object-cover object-center shrink-0'
+                                loading='lazy'
+                                width={24}
+                                height={24}
+                              />
+                            )}
+                            <span className='font-normal lg:text-lg text-base text-primary-dark dark:text-primary-light '>
+                              {list}
+                            </span>
+                          </li>
+                        )
                       );
                     })}
                   </ul>
