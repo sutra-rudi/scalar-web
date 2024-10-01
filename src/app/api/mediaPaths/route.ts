@@ -2,7 +2,7 @@
 
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
-const basePath = 'https://www.scalar.hr/cms_sutra/';
+const basePath = 'https://cms.scalar.hr/cms_sutra/';
 // Sve putanje, možeš dodati sve potrebne objekte ovdje
 const mediaPaths = {
   // const basePath : 'https://cms.sutra.hr/cms_sutra/'
