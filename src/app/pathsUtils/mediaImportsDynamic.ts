@@ -1,6 +1,6 @@
 // const basePath = 'https://cms.sutra.hr/cms_sutra/';
 
-const basePath = 'https://lavender-loris-843955.hostingersite.com/cms_sutra/';
+const basePath = 'https://www.scalar.hr/cms_sutra/';
 export const favicons = {
   '196x196': `${basePath}Favicon/favicon-196x196.png`,
   '96x96': `${basePath}Favicon/favicon-96x96.png`,
