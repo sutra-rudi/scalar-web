@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://scalar-web.vercel.app/hr/';
+  const baseUrl = 'https://www.scalar.hr/hr/';
 
   return [
     {

@@ -71,7 +71,7 @@ function generateSchemaOrg(
       postalCode: '10000',
       addressCountry: 'HR',
     },
-    url: 'https://scalar-web.vercel.app',
+    url: 'https://www.scalar.hr',
     sameAs: ['https://www.facebook.com/sutramastodont', 'https://www.instagram.com/sutramastodont'],
   };
 

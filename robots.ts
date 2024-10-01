@@ -7,9 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     sitemap:
-      'https://scalar-web.vercel.app/hr/sitemap.xml' ||
-      'https://scalar-web.vercel.app/eng/sitemap.xml' ||
-      'https://scalar-web.vercel.app/ger/sitemap.xml' ||
-      'https://scalar-web.vercel.app/ita/sitemap.xml',
+      'https://www.scalar.hr/hr/sitemap.xml' ||
+      'https://www.scalar.hr/eng/sitemap.xml' ||
+      'https://www.scalar.hr/ger/sitemap.xml',
+    // 'https://scalar-web.vercel.app/ita/sitemap.xml',
   };
 }
