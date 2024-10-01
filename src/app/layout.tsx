@@ -123,7 +123,6 @@ export const metadata: Metadata = {
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   applicationName: 'Scalar Investicije',
   referrer: 'no-referrer-when-downgrade',
-  themeColor: '#FF9A00',
   generator: 'Next.js',
 
   openGraph: {
@@ -134,7 +133,7 @@ export const metadata: Metadata = {
     siteName: 'Scalar',
     images: [
       {
-        url: '/images/OG/scalar-og.jpg',
+        url: '/images/Favicon/OG/scalar-og.jpg',
         width: 1200,
         height: 630,
         alt: 'Scalar - Građevinski projekt',
