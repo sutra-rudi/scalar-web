@@ -2,6 +2,7 @@ export const maxDuration = 60;
 import { Suspense } from 'react';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import dynamic from 'next/dynamic';
+import Loading from '../loading';
 
 const HeroSection = dynamic(() => import('./HeroSection'));
 const BannerSectionContact = dynamic(() => import('./BannerSectionContact'));
@@ -46,7 +47,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <main className='relative w-full bg-almost-white dark:bg-almost-black min-h-screen'>
-        <Suspense>
+        <Suspense fallback={<Loading />}>
           <Suspense>
             <HeroSection lang={lang} />
           </Suspense>
