@@ -33,7 +33,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
 
       <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto pb-8 px-4 gap-4'>
         {prepData &&
-          prepData.map((nodeCont: any) => {
+          prepData.reverse().map((nodeCont: any) => {
             const contentFieldMaster = `lista${l}`;
             const contentField = nodeCont.node[contentFieldMaster][`listaSadrzaj${l}`];
             const listaContent = contentField.split('\r\n');
@@ -41,6 +41,7 @@ export default async function IzdvojeneReference({ params: { lang } }: { params:
             const triageOfIcons = nodeCont.node.ikona.odabirIkoneKojaSePrikazujeNaListi[0];
 
             const introField = nodeCont.node[contentFieldMaster][`listaUvod${l}`];
+
             return (
               <div key={nodeCont.node.title}>
                 {introField.naslov && (

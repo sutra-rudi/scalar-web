@@ -70,6 +70,48 @@ const UslugeSection = ({ pageContent, lang, isOnSub }: UslugeSectionInterface) =
     rootMargin: '0px',
   });
 
+  const desiredOrder = [
+    'Upravljanje projektima', // PRVO
+    'Stručni nadzor nad građenjem', // DRUGO
+    'Tehničko savjetovanje', // TRECE
+    'Projektiranje', // CETVRTO
+  ];
+
+  // Pomoćna funkcija za točno prepoznavanje naslova s trimanjem razmaka
+  const findBestMatch = (title: string) => {
+    return desiredOrder.find((desiredTitle) => desiredTitle.trim().toLowerCase() === title.trim().toLowerCase());
+  };
+
+  // Sortiraj pageContent prema željenom redoslijedu naslova
+  let sortedContent = pageContent.sort((a: any, b: any) => {
+    const aTitle =
+      a.node[`modulBazeTekstova2Kolumne${getSuffixFromLang(lang)}`]?.[
+        `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
+      ].naslovIPodnaslovDvaPolja.naslovBazaTekstova ?? '';
+    const bTitle =
+      b.node[`modulBazeTekstova2Kolumne${getSuffixFromLang(lang)}`]?.[
+        `naslovNadnaslov2KolumneTeksta${getSuffixFromLang(lang)}`
+      ].naslovIPodnaslovDvaPolja.naslovBazaTekstova ?? '';
+
+    const aMatch = findBestMatch(aTitle) || '';
+    const bMatch = findBestMatch(bTitle) || '';
+
+    const aIndex = desiredOrder.indexOf(aMatch);
+    const bIndex = desiredOrder.indexOf(bMatch);
+
+    const aOrder = aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex;
+    const bOrder = bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex;
+
+    return aOrder - bOrder;
+  });
+
+  // Ručno zamijeni zadnja dva elementa
+  if (sortedContent.length >= 4) {
+    const temp = sortedContent[2];
+    sortedContent[2] = sortedContent[3];
+    sortedContent[3] = temp;
+  }
+
   // Trigger animation only once when the section comes into view
   if (entry?.isIntersecting && !hasAnimated) {
     setHasAnimated(true);
@@ -82,7 +124,7 @@ const UslugeSection = ({ pageContent, lang, isOnSub }: UslugeSectionInterface) =
           isOnSub ? 'justify-center' : ' justify-between '
         }`}
       >
-        {pageContent.map((content: any, index: number) => {
+        {sortedContent.map((content: any, index: number) => {
           const contentShorthand = content.node;
           const thumbImageShorthandObj = contentShorthand.modulBazeTekstovaUvod.slika1.node;
 

@@ -7,6 +7,7 @@ interface SutraButtonBaseInterface {
   type?: any;
   onClickAction?: () => any;
   isFullCard?: boolean;
+  isContactBtn?: boolean;
 }
 
 export const SutraButtonBase = ({
@@ -16,6 +17,7 @@ export const SutraButtonBase = ({
   onClickAction,
   type,
   isFullCard = false,
+  isContactBtn = false,
 }: SutraButtonBaseInterface) => {
   return (
     <button

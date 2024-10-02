@@ -58,7 +58,7 @@ const BannerSectionContact = ({ lang }: { lang: string }) => {
         <div className='flex flex-col items-center justify-start gap-4 w-full'>
           <h3 className='text-almost-white lg:text-4xl md:text-3xl text-2xl'>Kontaktirajte nas s povjerenjem</h3>
           <a href={`/${lang}/contact`} className='sm:w-1/6'>
-            <SutraButtonBase isAccentButton innerText='Pošalji' size='large' isFullCard />
+            <SutraButtonBase innerText='Pošalji' size='large' isFullCard />
           </a>
         </div>
       </div>

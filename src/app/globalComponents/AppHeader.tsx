@@ -237,16 +237,6 @@ const AppHeader = () => {
                   <ul className='py-2 z-50'>
                     <li>
                       <a
-                        href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
-                        className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-accent dark:hover:text-almost-black'
-                        aria-label='Saznajte više o našim uslugama projektiranja'
-                        role='link'
-                      >
-                        <span>Projektiranje</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
                         href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
                         className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-accent dark:hover:text-almost-black'
                         aria-label='Saznajte više o našoj usluzi upravljanja projektima'
@@ -255,6 +245,7 @@ const AppHeader = () => {
                         Upravljanje projektima
                       </a>
                     </li>
+
                     <li>
                       <a
                         href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
@@ -265,6 +256,7 @@ const AppHeader = () => {
                         Stručni nadzor
                       </a>
                     </li>
+
                     <li>
                       <a
                         href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
@@ -273,6 +265,16 @@ const AppHeader = () => {
                         role='link'
                       >
                         Tehničko savjetovanje
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
+                        className='block px-4 py-2 text-primary-dark dark:text-primary-light  hover:bg-accent dark:hover:text-almost-black'
+                        aria-label='Saznajte više o našim uslugama projektiranja'
+                        role='link'
+                      >
+                        <span>Projektiranje</span>
                       </a>
                     </li>
                   </ul>
