@@ -7,7 +7,7 @@ import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, De } from 'react-flags-select';
 import Image from 'next/image';
 import { useLocalStorage, useClickAway } from '@uidotdev/usehooks';
-import SkalarLogoBezpotVertical from '../images/scalar-logo-ver-bezpot.svg';
+import skalarLogoZaNav from '../images/scalar.logo-boja-prazan.svg';
 import SkalarLogobezpotHorizontal from '../images/scalar-logo-bezpot-horizontal.svg';
 
 const AppHeader = () => {
@@ -70,38 +70,23 @@ const AppHeader = () => {
     <nav className='bg-almost-white dark:bg-almost-black md:relative fixed z-50 w-full top-0'>
       {/* MOBILE */}
       <div
-        className={`absolute z-40 w-full h-screen bg-almost-white dark:bg-almost-black inset-0 transition-all duration-300 flex items-center flex-col lg:pt-0 gap-12 justify-between py-24  ${
+        className={`absolute z-40 w-full h-screen overflow-hidden bg-almost-white dark:bg-almost-black inset-0 transition-all duration-300 flex items-center flex-col lg:pt-0 gap-12 justify-between pb-24 pt-44  ${
           isMobileMenuOpen ? 'opacity-100 pointer-events-auto select-auto' : 'opacity-0 select-none pointer-events-none'
         }`}
       >
-        <div className='flex gap-2 items-center justify-start absolute top-6 left-6'>
-          {langs.map((language) => (
-            <button
-              disabled={currentLang === language.lang}
-              key={language.lang}
-              className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
-              onClick={() => handleLangSwitch(language.lang)}
-              name='Language picker'
-              aria-label={`Odaberite jezik: ${language.title}`}
-            >
-              {language.flag}
-            </button>
-          ))}
-        </div>
-        <ul className='flex flex-col w-max gap-4 relative'>
-          <li className=' border-b border-b-primary-light/50 dark:text-almost-white/50 text-almost-black/50 font-medium pb-2 w-max'>
-            Usluge
-          </li>
-          <li>
-            <a
-              href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
-              className='block text-primary-dark dark:text-primary-light '
-              aria-label='Saznajte više o našim uslugama projektiranja'
-              role='link'
-            >
-              Projektiranje
-            </a>
-          </li>
+        <Image
+          src={skalarLogoZaNav}
+          alt='company logo'
+          width={420}
+          height={420}
+          priority
+          className={`absolute  object-cover object-center w-full h-full left-[50%] ${
+            isMobileMenuOpen
+              ? 'opacity-15 pointer-events-auto select-auto'
+              : 'opacity-0 select-none pointer-events-none'
+          }`}
+        />
+        <ul className='flex flex-col items-center w-max gap-8 relative text-3xl font-medium'>
           <li>
             <a
               href={`/${currentLang}/services-offers/upravljanje-projektima-cG9zdDozMTk0`}
@@ -112,6 +97,7 @@ const AppHeader = () => {
               Upravljanje projektima
             </a>
           </li>
+
           <li>
             <a
               href={`/${currentLang}/services-offers/strucni-nadzor-nad-gradjenjem-cG9zdDozMTE0`}
@@ -122,6 +108,7 @@ const AppHeader = () => {
               Stručni nadzor
             </a>
           </li>
+
           <li>
             <a
               href={`/${currentLang}/services-offers/tehnicko-savjetovanje-konzalting-cG9zdDo3Nzk1`}
@@ -130,6 +117,17 @@ const AppHeader = () => {
               role='link'
             >
               Tehničko savjetovanje
+            </a>
+          </li>
+
+          <li>
+            <a
+              href={`/${currentLang}/services-offers/projektiranje-cG9zdDo3Nzk3`}
+              className='block text-primary-dark dark:text-primary-light'
+              aria-label='Saznajte više o našim uslugama projektiranja'
+              role='link'
+            >
+              Projektiranje
             </a>
           </li>
 
@@ -145,33 +143,38 @@ const AppHeader = () => {
           </li>
         </ul>
 
-        <div className='flex flex-col items-center justify-start gap-12'>
+        <div className='flex flex-col items-center justify-start gap-6'>
+          <div className='flex gap-2 items-center justify-start '>
+            {langs.map((language) => (
+              <button
+                disabled={currentLang === language.lang}
+                key={language.lang}
+                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
+                onClick={() => handleLangSwitch(language.lang)}
+                name='Language picker'
+                aria-label={`Odaberite jezik: ${language.title}`}
+              >
+                {language.flag}
+              </button>
+            ))}
+          </div>
+
           <div
             aria-label={`Promijenite temu u ${theme === 'light' ? 'noćni način' : 'standardno'}`}
             role='button'
             onClick={handleTheme}
-            className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear flex items-center justify-start gap-2 py-1 px-1 w-max'
+            className='z-40 cursor-pointer outline outline-1  outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear flex items-center justify-start gap-2 py-1 px-1 w-max'
           >
             {theme === 'light' ? <SunIcon size={16} color='#181816' /> : <MoonIcon size={16} color='#F8F7F2' />}
             <span className='text-primary-dark dark:text-primary-light  text-xs'>
               {theme === 'light' ? 'standardno' : 'nočni način'}
             </span>
           </div>
-
-          <a href={`/${currentLang}`} className='' aria-label='Povratak na početnu stranicu'>
-            <Image
-              src={SkalarLogoBezpotVertical}
-              width={300}
-              height={300}
-              alt='Scalar logo'
-              className='object-cover object-center block'
-            />
-          </a>
         </div>
       </div>
       {/* MOBILE */}
 
-      <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto lg:p-4 px-4 py-2'>
+      <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto lg:p-4 px-4 md:py-2 py-4'>
         <a
           href={`/${currentLang}`}
           className='flex items-center justify-start'
