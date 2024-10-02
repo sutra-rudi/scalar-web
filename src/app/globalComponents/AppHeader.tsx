@@ -134,7 +134,7 @@ const AppHeader = () => {
           <li className='pt-4'>
             <a
               href={`/${currentLang}/contact`}
-              className='flex items-center justify-between text-primary-dark dark:text-primary-light '
+              className='flex items-center justify-between text-primary-dark dark:text-primary-light uppercase'
               aria-label='Kontaktirajte nas sa povjerenjem!'
               role='link'
             >
@@ -174,10 +174,10 @@ const AppHeader = () => {
       </div>
       {/* MOBILE */}
 
-      <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto lg:p-4 px-4 md:py-2 py-4'>
+      <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto lg:p-4 px-4 md:py-2 py-4 '>
         <a
           href={`/${currentLang}`}
-          className='flex items-center justify-start'
+          className='flex items-center justify-start z-[90]'
           aria-label='Povratak na početnu stranicu'
         >
           <Image
