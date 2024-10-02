@@ -35,8 +35,10 @@ export const SutraButtonBase = ({
       } transition-all ease-in-out px-3 py-2  hover:scale-105 active:outline active:outline-sutraButtonOutline rounded-sm group-hover:scale-105 ${
         isAccentButton
           ? 'bg-accent text-sutraButtonText hover:text-accent hover:bg-primary-dark active:outline-accent'
+          : isContactBtn
+          ? 'text-sutraButtonText hover:bg-accent bg-almost-black dark:bg-primary-light dark:text-almost-black'
           : 'bg-primary-dark-btn text-sutraButtonText  dark:bg-primary-light dark:text-primary-dark hover:bg-primary-light hover:text-primary-dark active:outline-accent dark:hover:bg-primary-dark dark:hover:text-secondary-light'
-      }  ${isFullCard && 'w-full'}`}
+      }  ${isFullCard && 'w-full'}  `}
     >
       {innerText}
     </button>
